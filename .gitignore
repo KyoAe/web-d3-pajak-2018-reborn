@@ -31,4 +31,4 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 /tests/results/
 
 # Environment Files
-.env
+application/config/.env
