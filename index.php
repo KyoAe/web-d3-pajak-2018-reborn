@@ -42,7 +42,7 @@
  *---------------------------------------------------------------
  */
 	require 'vendor/autoload.php';
-	$dotenv = Dotenv\Dotenv::createMutable(__DIR__);
+	$dotenv = Dotenv\Dotenv::createUnsafeImmutable(__DIR__);
 	$dotenv->load();
 
 /*
