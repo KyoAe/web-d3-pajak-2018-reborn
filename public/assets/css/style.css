@@ -15,6 +15,7 @@
 11. COUNTERUP
 12. FOOTER
 13. INNER CONTENT CSS
+14. Gio Custom CSS
 ======================================
   * END TABLE CONTENT *  
 ======================================
@@ -3355,4 +3356,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#391800', end
 		font-size: 24px;
 		margin-bottom: 5px;
 	}
+}
+
+/* Gio Custom CSS */
+.action-card {
+	list-style-type: none;
 }
