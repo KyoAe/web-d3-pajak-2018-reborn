@@ -1,5 +1,7 @@
-# Website Kelas 5-04 D3 Pajak 2018
+# Website Angkatan D3 Pajak 2018
 
-Made with love by Giovanni Anggoman, absen 18, untuk mempermudah kehidupan kelas (setelah kegagalan membuat website twotwotax) dan menjadi salah satu projek yang dikerjakan sebelum lulus.
+This is my final attempt to realize web angkatan. The previous web angkatan was made by Walid and I'm struggling to recreate one as good as his.
 
-Started On: Friday, 13 November 2020
+Made with love by Giovanni Anggoman, absen 18, sebagai website yang menyajikan informasi untuk angkatan.
+
+Started On: Friday, 20 November 2020
