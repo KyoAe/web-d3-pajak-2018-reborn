@@ -68,7 +68,7 @@
 					</div>
 					<div class="topbar-right">
 						<ul>
-							<li><a href="login.html">Login</a></li>
+							<li><a href="<?= site_url(); ?>auth/login">Login</a></li>
 							<!-- <li><a href="register.html">Register</a></li> -->
 						</ul>
 					</div>

@@ -105,8 +105,12 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 text-center"><a target="_blank" href="https://instagram.com/gio_kyo">GA</a></div>
-                </div>
+					<div class="col-lg-12 col-md-12 col-sm-12 text-center">
+						<a target="_blank" href="https://instagram.com/walidsaja">WSJ</a>
+						-
+						<a target="_blank" href="https://instagram.com/gio_kyo">GA</a>
+					</div>
+				</div>
             </div>
         </div>
     </footer>
