@@ -4,8 +4,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <!DOCTYPE html>
 <html lang="en">
-
-
 <head>
 
 	<!-- META ============================================= -->
@@ -134,5 +132,4 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="<?= base_url(); ?>public/js/functions.js"></script>
 <script src="<?= base_url(); ?>public/js/contact.js"></script>
 </body>
-
 </html>
