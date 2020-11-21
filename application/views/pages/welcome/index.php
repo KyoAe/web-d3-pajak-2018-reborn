@@ -109,7 +109,7 @@
                     </div>
                 </div>
                 <div class="text-center">
-                    <a href="#" class="btn">Lihat Semua Pengumuman</a>
+                    <a href="<?= site_url(); ?>announcements" class="btn">Lihat Semua Pengumuman</a>
                 </div>
             </div>
         </div>
@@ -197,19 +197,19 @@
                 </div>
                 </div>
                 <div class="text-center">
-                    <a href="#" class="btn">Lihat Semua Kegiatan</a>
+                    <a href="<?= site_url(); ?>events" class="btn">Lihat Semua Kegiatan</a>
                 </div>
             </div>
         </div>
         <!-- Upcoming Events End-->
         <!-- Form END -->
-        <!-- Fitur Web Angkatan -->
+        <!-- Layanan Mahasiswa -->
         <div class="section-area section-sp1">
             <div class="container">
                     <div class="row">
                         <div class="col-lg-6 m-b30">
-                        <h2 class="title-head ">Fitur Web Angkatan<br> <span class="text-primary">untuk Anda</span></h2>
-                        <h4><span class="counter">4</span> Fitur untuk saat ini</h4>
+                        <h2 class="title-head ">Layanan Mahasiswa<br> <span class="text-primary">untuk Anda</span></h2>
+                        <h4>Ada <span class="counter">4</span> untuk saat ini</h4>
                         <p>Karena sesungguhnya membuat web tidaklah mudah, apalagi sendiri. Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a></p>
                         <!-- <a href="#" class="btn button-md">Join Now</a> -->
                         </div>
@@ -218,7 +218,7 @@
                             <div class="col-lg-6 col-md-6 col-sm-6 m-b30">
                                 <div class="feature-container">
                                     <div class="feature-md text-white m-b20">
-                                        <a href="#" class="icon-cell"><img src="<?= base_url(); ?>public/images/icon/google-drive.png" alt=""></a> 
+                                        <a href="https://bit.ly/D3Pajak2018" class="icon-cell"><img src="<?= base_url(); ?>public/images/icon/google-drive.png" alt=""></a> 
                                     </div>
                                     <div class="icon-content">
                                         <h5 class="ttr-tilte">Drive Angkatan</h5>
@@ -229,7 +229,7 @@
                             <div class="col-lg-6 col-md-6 col-sm-6 m-b30">
                                 <div class="feature-container">
                                     <div class="feature-md text-white m-b20">
-                                        <a href="#" class="icon-cell"><img src="<?= base_url(); ?>public/images/icon/calendar.png" alt=""></a> 
+                                        <a href="<?= site_url(); ?>events" class="icon-cell"><img src="<?= base_url(); ?>public/images/icon/calendar.png" alt=""></a> 
                                     </div>
                                     <div class="icon-content">
                                         <h5 class="ttr-tilte">Kegiatan Angkatan</h5>
@@ -240,7 +240,7 @@
                             <div class="col-lg-6 col-md-6 col-sm-6 m-b30">
                                 <div class="feature-container">
                                     <div class="feature-md text-white m-b20">
-                                        <a href="#" class="icon-cell"><img src="<?= base_url(); ?>public/images/icon/chat.png" alt=""></a> 
+                                        <a href="<?= site_url(); ?>announcements" class="icon-cell"><img src="<?= base_url(); ?>public/images/icon/chat.png" alt=""></a> 
                                     </div>
                                     <div class="icon-content">
                                         <h5 class="ttr-tilte">Pengumuman Angkatan</h5>
@@ -251,7 +251,7 @@
                             <div class="col-lg-6 col-md-6 col-sm-6 m-b30">
                                 <div class="feature-container">
                                     <div class="feature-md text-white m-b20">
-                                        <a href="#" class="icon-cell"><img src="<?= base_url(); ?>public/images/icon/icon4.png" alt=""></a> 
+                                        <a href="<?= site_url(); ?>about/struktur_sa" class="icon-cell"><img src="<?= base_url(); ?>public/images/icon/icon4.png" alt=""></a> 
                                     </div>
                                     <div class="icon-content">
                                         <h5 class="ttr-tilte">Struktur SA</h5>
@@ -264,7 +264,7 @@
                 </div>
             </div>
         </div>
-        <!-- Fitur Web Angkatan End -->			
+        <!-- Layanan Mahasiswa End -->			
         <!-- Kutipan Motivasi ==== -->
         <div class="section-area section-sp2">
             <div class="container">

@@ -62,20 +62,14 @@
 				<div class="row d-flex justify-content-between">
 					<div class="topbar-left">
 						<ul>
-							<li><a href="faq-1.html"><i class="fa fa-question-circle"></i>Ask a Question</a></li>
-							<li><a href="javascript:;"><i class="fa fa-envelope-o"></i>Support@website.com</a></li>
+							<li><a href="javascript:;"><i class="fa fa-question-circle"></i>QnA</a></li>
+							<li><a href="mailto:taxer2k18pknstan@gmail.com"><i class="fa fa-envelope-o"></i>taxer2k18pknstan@gmail.com</a></li>
 						</ul>
 					</div>
 					<div class="topbar-right">
 						<ul>
-							<li>
-								<select class="header-lang-bx">
-									<option data-icon="flag flag-uk">English UK</option>
-									<option data-icon="flag flag-us">English US</option>
-								</select>
-							</li>
 							<li><a href="login.html">Login</a></li>
-							<li><a href="register.html">Register</a></li>
+							<!-- <li><a href="register.html">Register</a></li> -->
 						</ul>
 					</div>
 				</div>
@@ -101,19 +95,19 @@
                             	<li><a href="https://www.instagram.com/d3pajak2018" class="btn-link"><i class="fa fa-instagram"></i></a></li>
 								<li><a href="https://line.me/ti/p/~@HHJ6080P" class="btn-link"><i class="fa fa-comments"></i></a></li>
 								<li><a href="https://www.youtube.com/channel/UCyPFirc_-09X7_kd_3X0w2g" class="btn-link"><i class="fa fa-youtube-play"></i></a></li>
-								<!-- Search Button ==== -->
-								<li class="search-btn"><button id="quik-search-btn" type="button" class="btn-link"><i class="fa fa-search"></i></button></li>
+								<!-- Search Button ==== 
+								<li class="search-btn"><button id="quik-search-btn" type="button" class="btn-link"><i class="fa fa-search"></i></button></li> -->
 							</ul>
 						</div>
                     </div>
-					<!-- Search Box ==== -->
+					<!-- Search Box ==== 
                     <div class="nav-search-bar">
                         <form action="#">
                             <input name="search" value="" type="text" class="form-control" placeholder="Type to search">
                             <span><i class="ti-search"></i></span>
                         </form>
 						<span id="search-remove"><i class="ti-close"></i></span>
-                    </div>
+                    </div> -->
 					<!-- Navigation Menu ==== -->
                     <div class="menu-links navbar-collapse collapse justify-content-start" id="menuDropdown">
 						<div class="menu-logo">
@@ -133,19 +127,17 @@
                                             <li><a href="https://bit.ly/resumebyIR">Resume By IR</a></li>
 										</ul>
 									</li>
-									<li><a href="javascript:;">Aspirasi</a></li>								
+									<li><a href="<?= site_url(); ?>aspirasi">Aspirasi</a></li>								
 								</ul>
 							</li>
-							<li><a href="javascript:;">About <i class="fa fa-chevron-down"></i></a>
+							<li><a href="javascript:;">Tentang <i class="fa fa-chevron-down"></i></a>
 								<ul class="sub-menu">
-									<li><a href="blog-classic-grid.html">Tentang Website</a></li>
-									<li><a href="blog-classic-sidebar.html">Struktur SA</a></li>									
+									<li><a href="<?= site_url() ?>about/tentang_angkatan">Tentang Angkatan</a></li>
+									<li><a href="<?= site_url() ?>about/struktur_sa">Struktur SA</a></li>									
 								</ul>
 							</li>							
 						</ul>
-						<div class="nav-social-link">
-                            <a href="https://www.instagram.com/d3pajak2018" class="btn-link"><i class="fa fa-instagram"></i></a>
-                            <a href="https://line.me/ti/p/~@HHJ6080P" class="btn-link"><i class="fa fa-comments"></i></a>
+						<div class="nav-social-link">                           
                             <a href="javascript:;" class="btn-link">Login</a>
 						</div>
                     </div>

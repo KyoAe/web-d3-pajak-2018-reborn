@@ -43,34 +43,33 @@
 						<div class="row">
 							<div class="col-4 col-lg-4 col-md-4 col-sm-4">
 								<div class="widget footer_widget">
-									<h5 class="footer-title">Company</h5>
+									<h5 class="footer-title">Main Page</h5>
 									<ul>
-										<li><a href="index.html">Home</a></li>
-										<li><a href="about-1.html">About</a></li>
-										<li><a href="faq-1.html">FAQs</a></li>
-										<li><a href="contact-1.html">Contact</a></li>
+										<li><a href="<?= site_url(); ?>">Home</a></li>
+										<li><a href="<?= site_url(); ?>announcements">Pengumuman</a></li>
+										<li><a href="<?= site_url(); ?>events">Kegiatan</a></li>
+										<li><a href="<?= site_url(); ?>about/tentang_angkatan">Tentang Angkatan</a></li>
 									</ul>
 								</div>
 							</div>
 							<div class="col-4 col-lg-4 col-md-4 col-sm-4">
 								<div class="widget footer_widget">
-									<h5 class="footer-title">Get In Touch</h5>
+									<h5 class="footer-title">Media Sosial</h5>
 									<ul>
-										<li><a href="http://educhamp.themetrades.com/admin/index.html">Dashboard</a></li>
-										<li><a href="blog-classic-grid.html">Blog</a></li>
-										<li><a href="portfolio.html">Portfolio</a></li>
-										<li><a href="event.html">Event</a></li>
+										<li><a href="https://www.instagram.com/d3pajak2018">Instagram</a></li>
+										<li><a href="https://line.me/ti/p/~@HHJ6080P">Line</a></li>								
+										<li><a href="https://www.youtube.com/channel/UCyPFirc_-09X7_kd_3X0w2g">Youtube</a></li>
 									</ul>
 								</div>
 							</div>
 							<div class="col-4 col-lg-4 col-md-4 col-sm-4">
 								<div class="widget footer_widget">
-									<h5 class="footer-title">Courses</h5>
+									<h5 class="footer-title">Idk</h5>
 									<ul>
-										<li><a href="courses.html">Courses</a></li>
-										<li><a href="courses-details.html">Details</a></li>
-										<li><a href="membership.html">Membership</a></li>
-										<li><a href="profile.html">Profile</a></li>
+										<li><a href="javascript:;">What</a></li>
+										<li><a href="javascript:;">To</a></li>
+										<li><a href="javascript:;">Put</a></li>
+										<li><a href="javascript:;">Here</a></li>
 									</ul>
 								</div>
 							</div>
