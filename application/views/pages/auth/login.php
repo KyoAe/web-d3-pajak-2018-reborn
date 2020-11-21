@@ -55,7 +55,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="page-wraper">
 	<div id="loading-icon-bx"></div>
 	<div class="mt-5">
-		<div class="text-center my-5" style="">
+		<div class="text-center my-5">
 			<a href="<?= site_url(); ?>"><img src="<?= base_url(); ?>public/images/logo-white.png" alt="" width="211px"></a>
 		</div>
 		<div class="account-form-inner">
