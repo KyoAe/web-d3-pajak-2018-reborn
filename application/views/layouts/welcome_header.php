@@ -120,11 +120,11 @@
 						</div>
                         <ul class="nav navbar-nav">	
 							<li class="active"><a href="<?= site_url(); ?>">Home</a></li>
-							<li><a href="<?= site_url(); ?>welcome/announcements">Pengumuman</a></li>
-							<li><a href="<?= site_url(); ?>welcome/events">Kegiatan</a></li>
+							<li><a href="<?= site_url(); ?>announcements">Pengumuman</a></li>
+							<li><a href="<?= site_url(); ?>events">Kegiatan</a></li>
 							<li><a href="javascript:;">Layanan Mahasiswa<i class="fa fa-chevron-down"></i></a>
 								<ul class="sub-menu">
-									<li class="disable"><a href="javascript:;">KTTA</a></li>
+									<li class="disable"><a href="https://bit.ly/SistemaKiTTA">KTTA</a></li>
 									<li><a href="javascript:;">Study Kit <i class="fa fa-angle-right"></i></a>
 										<ul class="sub-menu">
 											<li><a href="https://bit.ly/D3Pajak2018">Drive Angkatan</a></li>
@@ -132,7 +132,7 @@
                                             <li><a href="https://bit.ly/resumebyIR">Resume By IR</a></li>
 										</ul>
 									</li>
-									<li><a href="portfolio.html">Aspirasi</a></li>								
+									<li><a href="javascript:;">Aspirasi</a></li>								
 								</ul>
 							</li>
 							<li><a href="javascript:;">About <i class="fa fa-chevron-down"></i></a>
