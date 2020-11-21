@@ -20,8 +20,8 @@
 	<meta name="format-detection" content="telephone=no">
 	
 	<!-- FAVICONS ICON ============================================= -->
-	<link rel="icon" href="<?=base_url('public/'); ?>assets/images/favicon.ico" type="image/x-icon" />
-	<link rel="shortcut icon" type="image/x-icon" href="<?=base_url('public/'); ?>assets/images/favicon.png" />
+	<link rel="icon" href="<?=base_url(); ?>public/images/favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" type="image/x-icon" href="<?=base_url(); ?>public/images/favicon.png" />
 	
 	<title><?= $title ?> - Website D3 Pajak 2018 </title>
 	
@@ -29,27 +29,27 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
 	<!--[if lt IE 9]>
-	<script src="assets/js/html5shiv.min.js"></script>
-	<script src="assets/js/respond.min.js"></script>
+	<script src="public/js/html5shiv.min.js"></script>
+	<script src="public/js/respond.min.js"></script>
 	<![endif]-->
 	
 	<!-- All PLUGINS CSS ============================================= -->
-	<link rel="stylesheet" type="text/css" href="<?=base_url('public/'); ?>assets/css/assets.css">
+	<link rel="stylesheet" type="text/css" href="<?=base_url(); ?>public/css/assets.css">
 	
 	<!-- TYPOGRAPHY ============================================= -->
-	<link rel="stylesheet" type="text/css" href="<?=base_url('public/'); ?>assets/css/typography.css">
+	<link rel="stylesheet" type="text/css" href="<?=base_url(); ?>public/css/typography.css">
 	
 	<!-- SHORTCODES ============================================= -->
-	<link rel="stylesheet" type="text/css" href="<?=base_url('public/'); ?>assets/css/shortcodes/shortcodes.css">
+	<link rel="stylesheet" type="text/css" href="<?=base_url(); ?>public/css/shortcodes/shortcodes.css">
 	
 	<!-- STYLESHEETS ============================================= -->
-	<link rel="stylesheet" type="text/css" href="<?=base_url('public/'); ?>assets/css/style.css">
-	<link class="skin" rel="stylesheet" type="text/css" href="<?=base_url('public/'); ?>assets/css/color/color-1.css">
+	<link rel="stylesheet" type="text/css" href="<?=base_url(); ?>public/css/style.css">
+	<link class="skin" rel="stylesheet" type="text/css" href="<?=base_url(); ?>public/css/color/color-1.css">
 	
 	<!-- REVOLUTION SLIDER CSS ============================================= -->
-	<link rel="stylesheet" type="text/css" href="<?=base_url('public/'); ?>assets/vendors/revolution/css/layers.css">
-	<link rel="stylesheet" type="text/css" href="<?=base_url('public/'); ?>assets/vendors/revolution/css/settings.css">
-	<link rel="stylesheet" type="text/css" href="<?=base_url('public/'); ?>assets/vendors/revolution/css/navigation.css">
+	<link rel="stylesheet" type="text/css" href="<?=base_url(); ?>public/vendors/revolution/css/layers.css">
+	<link rel="stylesheet" type="text/css" href="<?=base_url(); ?>public/vendors/revolution/css/settings.css">
+	<link rel="stylesheet" type="text/css" href="<?=base_url(); ?>public/vendors/revolution/css/navigation.css">
 	<!-- REVOLUTION SLIDER END -->	
 </head>
 <body id="bg">
@@ -86,7 +86,7 @@
                 <div class="container clearfix">
 					<!-- Header Logo ==== -->
 					<div class="menu-logo">
-						<a href="<?= site_url(); ?>"><img src="<?=base_url('public/'); ?>assets/images/logo.png" alt=""></a>
+						<a href="<?= site_url(); ?>"><img src="<?=base_url(); ?>public/images/logo.png" alt=""></a>
 					</div>
 					<!-- Mobile Nav Button ==== -->
                     <button class="navbar-toggler collapsed menuicon justify-content-end" type="button" data-toggle="collapse" data-target="#menuDropdown" aria-controls="menuDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -116,7 +116,7 @@
 					<!-- Navigation Menu ==== -->
                     <div class="menu-links navbar-collapse collapse justify-content-start" id="menuDropdown">
 						<div class="menu-logo">
-							<a href=" <?=site_url(); ?>"><img src="<?=base_url('public/') ?>assets/images/logo.png" alt=""></a>
+							<a href=" <?=site_url(); ?>"><img src="<?=base_url() ?>public/images/logo.png" alt=""></a>
 						</div>
                         <ul class="nav navbar-nav">	
 							<li class="active"><a href="<?= site_url(); ?>">Home</a></li>

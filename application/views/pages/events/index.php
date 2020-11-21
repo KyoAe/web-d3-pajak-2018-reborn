@@ -3,7 +3,7 @@
 <!-- Content -->
 <div class="page-content bg-white">
     <!-- inner page banner -->
-    <div class="page-banner ovbl-dark" style="background-image:url(<?= base_url('public/'); ?>assets/images/banner/banner2.jpg);">
+    <div class="page-banner ovbl-dark" style="background-image:url(<?= base_url(); ?>public/images/banner/banner2.jpg);">
         <div class="container">
             <div class="page-banner-entry">
                 <h1 class="text-white">Kegiatan Angkatan</h1>
@@ -50,7 +50,7 @@
                         <li class="action-card col-lg-6 col-md-6 col-sm-12 happening">
                             <div class="event-bx m-b30">
                                 <div class="action-box">
-                                    <img src="<?= base_url('public/'); ?>assets/images/event/pic1.jpg" alt="">
+                                    <img src="<?= base_url(); ?>public/images/event/pic1.jpg" alt="">
                                 </div>
                                 <div class="info-bx d-flex">
                                     <div>
@@ -73,7 +73,7 @@
                         <li class="action-card col-lg-6 col-md-6 col-sm-12 upcoming">
                             <div class="event-bx m-b30">
                                 <div class="action-box">
-                                    <img src="<?= base_url('public/'); ?>assets/images/event/pic2.jpg" alt="">
+                                    <img src="<?= base_url(); ?>public/images/event/pic2.jpg" alt="">
                                 </div>
                                 <div class="info-bx d-flex">
                                     <div>
@@ -96,7 +96,7 @@
                         <li class="action-card col-lg-6 col-md-6 col-sm-12  upcoming">
                             <div class="event-bx m-b30">
                                 <div class="action-box">
-                                    <img src="<?= base_url('public/'); ?>assets/images/event/pic3.jpg" alt="">
+                                    <img src="<?= base_url(); ?>public/images/event/pic3.jpg" alt="">
                                 </div>
                                 <div class="info-bx d-flex">
                                     <div>
@@ -119,7 +119,7 @@
                         <li class="action-card col-lg-6 col-md-6 col-sm-12 happening">
                             <div class="event-bx m-b30">
                                 <div class="action-box">
-                                    <img src="<?= base_url('public/'); ?>assets/images/event/pic4.jpg" alt="">
+                                    <img src="<?= base_url(); ?>public/images/event/pic4.jpg" alt="">
                                 </div>
                                 <div class="info-bx d-flex">
                                     <div>
@@ -142,7 +142,7 @@
                         <li class="action-card col-lg-6 col-md-6 col-sm-12 expired">
                             <div class="event-bx m-b30">
                                 <div class="action-box">
-                                    <img src="<?= base_url('public/'); ?>assets/images/event/pic2.jpg" alt="">
+                                    <img src="<?= base_url(); ?>public/images/event/pic2.jpg" alt="">
                                 </div>
                                 <div class="info-bx d-flex">
                                     <div>
@@ -165,7 +165,7 @@
                         <li class="action-card col-lg-6 col-md-6 col-sm-12 happening">
                             <div class="event-bx m-b30">
                                 <div class="action-box">
-                                    <img src="<?= base_url('public/'); ?>assets/images/event/pic1.jpg" alt="">
+                                    <img src="<?= base_url(); ?>public/images/event/pic1.jpg" alt="">
                                 </div>
                                 <div class="info-bx d-flex">
                                     <div>

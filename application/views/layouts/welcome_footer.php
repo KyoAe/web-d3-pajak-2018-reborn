@@ -5,7 +5,7 @@
 				<div class="container">
 					<div class="d-flex align-items-stretch">
 						<div class="pt-logo mr-auto">
-							<a href="<?= site_url(); ?>"><img src="<?=base_url('public/'); ?>assets/images/logo-white.png" alt=""/></a>
+							<a href="<?= site_url(); ?>"><img src="<?=base_url(); ?>public/images/logo-white.png" alt=""/></a>
 						</div>
 						<div class="pt-social-link">
 							<ul class="list-inline m-a0">
@@ -26,7 +26,7 @@
                             <h5 class="footer-title">Sign Up For A Newsletter</h5>
 							<p class="text-capitalize m-b20">Weekly Breaking news analysis and cutting edge advices on job searching.</p>
                             <div class="subscribe-form m-b20">
-								<form class="subscription-form" action="http://educhamp.themetrades.com/demo/assets/script/mailchamp.php" method="post">
+								<form class="subscription-form" action="http://educhamp.themetrades.com/demo/public/script/mailchamp.php" method="post">
 									<div class="ajax-message"></div>
 									<div class="input-group">
 										<input name="email" required="required"  class="form-control" placeholder="Your Email Address" type="email">
@@ -79,14 +79,14 @@
                         <div class="widget widget_gallery gallery-grid-4">
                             <h5 class="footer-title">Our Gallery</h5>
                             <ul class="magnific-image">
-								<li><a href="<?=base_url('public/'); ?>assets/images/gallery/pic1.jpg" class="magnific-anchor"><img src="<?=base_url('public/'); ?>assets/images/gallery/pic1.jpg" alt=""></a></li>
-								<li><a href="<?=base_url('public/'); ?>assets/images/gallery/pic2.jpg" class="magnific-anchor"><img src="<?=base_url('public/'); ?>assets/images/gallery/pic2.jpg" alt=""></a></li>
-								<li><a href="<?=base_url('public/'); ?>assets/images/gallery/pic3.jpg" class="magnific-anchor"><img src="<?=base_url('public/'); ?>assets/images/gallery/pic3.jpg" alt=""></a></li>
-								<li><a href="<?=base_url('public/'); ?>assets/images/gallery/pic4.jpg" class="magnific-anchor"><img src="<?=base_url('public/'); ?>assets/images/gallery/pic4.jpg" alt=""></a></li>
-								<li><a href="<?=base_url('public/'); ?>assets/images/gallery/pic5.jpg" class="magnific-anchor"><img src="<?=base_url('public/'); ?>assets/images/gallery/pic5.jpg" alt=""></a></li>
-								<li><a href="<?=base_url('public/'); ?>assets/images/gallery/pic6.jpg" class="magnific-anchor"><img src="<?=base_url('public/'); ?>assets/images/gallery/pic6.jpg" alt=""></a></li>
-								<li><a href="<?=base_url('public/'); ?>assets/images/gallery/pic7.jpg" class="magnific-anchor"><img src="<?=base_url('public/'); ?>assets/images/gallery/pic7.jpg" alt=""></a></li>
-								<li><a href="<?=base_url('public/'); ?>assets/images/gallery/pic8.jpg" class="magnific-anchor"><img src="<?=base_url('public/'); ?>assets/images/gallery/pic8.jpg" alt=""></a></li>
+								<li><a href="<?=base_url(); ?>public/images/gallery/pic1.jpg" class="magnific-anchor"><img src="<?=base_url(); ?>public/images/gallery/pic1.jpg" alt=""></a></li>
+								<li><a href="<?=base_url(); ?>public/images/gallery/pic2.jpg" class="magnific-anchor"><img src="<?=base_url(); ?>public/images/gallery/pic2.jpg" alt=""></a></li>
+								<li><a href="<?=base_url(); ?>public/images/gallery/pic3.jpg" class="magnific-anchor"><img src="<?=base_url(); ?>public/images/gallery/pic3.jpg" alt=""></a></li>
+								<li><a href="<?=base_url(); ?>public/images/gallery/pic4.jpg" class="magnific-anchor"><img src="<?=base_url(); ?>public/images/gallery/pic4.jpg" alt=""></a></li>
+								<li><a href="<?=base_url(); ?>public/images/gallery/pic5.jpg" class="magnific-anchor"><img src="<?=base_url(); ?>public/images/gallery/pic5.jpg" alt=""></a></li>
+								<li><a href="<?=base_url(); ?>public/images/gallery/pic6.jpg" class="magnific-anchor"><img src="<?=base_url(); ?>public/images/gallery/pic6.jpg" alt=""></a></li>
+								<li><a href="<?=base_url(); ?>public/images/gallery/pic7.jpg" class="magnific-anchor"><img src="<?=base_url(); ?>public/images/gallery/pic7.jpg" alt=""></a></li>
+								<li><a href="<?=base_url(); ?>public/images/gallery/pic8.jpg" class="magnific-anchor"><img src="<?=base_url(); ?>public/images/gallery/pic8.jpg" alt=""></a></li>
 							</ul>
                         </div>
                     </div>
@@ -115,20 +115,20 @@
 </div>
 
 <!-- External JavaScripts -->
-<script src="<?=base_url('public/'); ?>assets/js/jquery.min.js"></script>
-<script src="<?=base_url('public/'); ?>assets/vendors/bootstrap/js/popper.min.js"></script>
-<script src="<?=base_url('public/'); ?>assets/vendors/bootstrap/js/bootstrap.min.js"></script>
-<script src="<?=base_url('public/'); ?>assets/vendors/bootstrap-select/bootstrap-select.min.js"></script>
-<script src="<?=base_url('public/'); ?>assets/vendors/bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script>
-<script src="<?=base_url('public/'); ?>assets/vendors/magnific-popup/magnific-popup.js"></script>
-<script src="<?=base_url('public/'); ?>assets/vendors/counter/waypoints-min.js"></script>
-<script src="<?=base_url('public/'); ?>assets/vendors/counter/counterup.min.js"></script>
-<script src="<?=base_url('public/'); ?>assets/vendors/imagesloaded/imagesloaded.js"></script>
-<script src="<?=base_url('public/'); ?>assets/vendors/masonry/masonry.js"></script>
-<script src="<?=base_url('public/'); ?>assets/vendors/masonry/filter.js"></script>
-<script src="<?=base_url('public/'); ?>assets/vendors/owl-carousel/owl.carousel.js"></script>
-<script src="<?=base_url('public/'); ?>assets/js/functions.js"></script>
-<script src="<?=base_url('public/'); ?>assets/js/contact.js"></script>
+<script src="<?=base_url(); ?>public/js/jquery.min.js"></script>
+<script src="<?=base_url(); ?>public/vendors/bootstrap/js/popper.min.js"></script>
+<script src="<?=base_url(); ?>public/vendors/bootstrap/js/bootstrap.min.js"></script>
+<script src="<?=base_url(); ?>public/vendors/bootstrap-select/bootstrap-select.min.js"></script>
+<script src="<?=base_url(); ?>public/vendors/bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script>
+<script src="<?=base_url(); ?>public/vendors/magnific-popup/magnific-popup.js"></script>
+<script src="<?=base_url(); ?>public/vendors/counter/waypoints-min.js"></script>
+<script src="<?=base_url(); ?>public/vendors/counter/counterup.min.js"></script>
+<script src="<?=base_url(); ?>public/vendors/imagesloaded/imagesloaded.js"></script>
+<script src="<?=base_url(); ?>public/vendors/masonry/masonry.js"></script>
+<script src="<?=base_url(); ?>public/vendors/masonry/filter.js"></script>
+<script src="<?=base_url(); ?>public/vendors/owl-carousel/owl.carousel.js"></script>
+<script src="<?=base_url(); ?>public/js/functions.js"></script>
+<script src="<?=base_url(); ?>public/js/contact.js"></script>
 </body>
 
 </html>

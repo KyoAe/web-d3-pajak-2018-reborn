@@ -3,11 +3,11 @@
 <!-- Inner Content Box ==== -->
 <div class="page-content bg-white">
     <!-- Page Heading Box ==== -->
-    <div class="page-banner ovbl-dark" style="background-image:url(<?= base_url('public/'); ?>assets/images/banner/banner1.jpg);">
+    <div class="page-banner ovbl-dark" style="background-image:url(<?= base_url(); ?>public/images/banner/banner1.jpg);">
         <div class="container">
             <div class="page-banner-entry">
                 <h1 class="text-white">Pengumuman Angkatan</h1>
-                </div>
+            </div>
         </div>
     </div>
     <div class="breadcrumb-row">
@@ -30,7 +30,7 @@
                         <input name="text" class="form-control" placeholder="Enter your keywords..." type="text">
                         <span class="input-group-btn">
                             <button type="submit" class="fa fa-search text-primary"></button>
-                        </span> 
+                        </span>
                     </div>
                 </form>
             </div>
@@ -47,7 +47,7 @@
                     <div class="post action-card col-lg-4 col-md-6 col-sm-12 col-xs-12 m-b40">
                         <div class="recent-news">
                             <div class="action-box">
-                                <img src="<?= base_url('public/'); ?>assets/images/blog/latest-blog/pic1.jpg" alt="">
+                                <img src="<?= base_url(); ?>public/images/blog/latest-blog/pic1.jpg" alt="">
                             </div>
                             <div class="info-bx">
                                 <ul class="media-post">
@@ -66,7 +66,7 @@
                     <div class="post action-card col-lg-4 col-md-6 col-sm-12 col-xs-12 m-b40">
                         <div class="recent-news">
                             <div class="action-box">
-                                <img src="<?= base_url('public/'); ?>assets/images/blog/latest-blog/pic2.jpg" alt="">
+                                <img src="<?= base_url(); ?>public/images/blog/latest-blog/pic2.jpg" alt="">
                             </div>
                             <div class="info-bx">
                                 <ul class="media-post">
@@ -85,7 +85,7 @@
                     <div class="post action-card col-lg-4 col-md-6 col-sm-12 col-xs-12 m-b40">
                         <div class="recent-news">
                             <div class="action-box">
-                                <img src="<?= base_url('public/'); ?>assets/images/blog/latest-blog/pic3.jpg" alt="">
+                                <img src="<?= base_url(); ?>public/images/blog/latest-blog/pic3.jpg" alt="">
                             </div>
                             <div class="info-bx">
                                 <ul class="media-post">
@@ -104,7 +104,7 @@
                     <div class="post action-card col-lg-4 col-md-6 col-sm-12 col-xs-12 m-b40">
                         <div class="recent-news">
                             <div class="action-box">
-                                <img src="<?= base_url('public/'); ?>assets/images/blog/latest-blog/pic3.jpg" alt="">
+                                <img src="<?= base_url(); ?>public/images/blog/latest-blog/pic3.jpg" alt="">
                             </div>
                             <div class="info-bx">
                                 <ul class="media-post">
@@ -123,7 +123,7 @@
                     <div class="post action-card col-lg-4 col-md-6 col-sm-12 col-xs-12 m-b40">
                         <div class="recent-news">
                             <div class="action-box">
-                                <img src="<?= base_url('public/'); ?>assets/images/blog/latest-blog/pic1.jpg" alt="">
+                                <img src="<?= base_url(); ?>public/images/blog/latest-blog/pic1.jpg" alt="">
                             </div>
                             <div class="info-bx">
                                 <ul class="media-post">
@@ -142,7 +142,7 @@
                     <div class="post action-card col-lg-4 col-md-6 col-sm-12 col-xs-12 m-b40">
                         <div class="recent-news">
                             <div class="action-box">
-                                <img src="<?= base_url('public/'); ?>assets/images/blog/latest-blog/pic2.jpg" alt="">
+                                <img src="<?= base_url(); ?>public/images/blog/latest-blog/pic2.jpg" alt="">
                             </div>
                             <div class="info-bx">
                                 <ul class="media-post">

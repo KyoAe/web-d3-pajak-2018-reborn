@@ -3,7 +3,7 @@
 <!-- Content -->
 <div class="page-content bg-white">
     <!-- Main Slider -->
-    <div class="section-area section-sp1 ovpr-dark bg-fix online-cours" style="background-image:url(assets/images/background/bg1.jpg);">
+    <div class="section-area section-sp1 ovpr-dark bg-fix online-cours" style="background-image:url(public/images/background/bg1.jpg);">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center text-white">
@@ -53,7 +53,7 @@
                     <div class="item">
                         <div class="recent-news">
                             <div class="action-box">
-                                <img src="<?= base_url('public/'); ?>assets/images/blog/latest-blog/pic1.jpg" alt="">
+                                <img src="<?= base_url(); ?>public/images/blog/latest-blog/pic1.jpg" alt="">
                             </div>
                             <div class="info-bx">
                                 <ul class="media-post">
@@ -72,7 +72,7 @@
                     <div class="item">
                         <div class="recent-news">
                             <div class="action-box">
-                                <img src="<?= base_url('public/'); ?>assets/images/blog/latest-blog/pic2.jpg" alt="">
+                                <img src="<?= base_url(); ?>public/images/blog/latest-blog/pic2.jpg" alt="">
                             </div>
                             <div class="info-bx">
                                 <ul class="media-post">
@@ -91,7 +91,7 @@
                     <div class="item">
                         <div class="recent-news">
                             <div class="action-box">
-                                <img src="<?= base_url('public/'); ?>assets/images/blog/latest-blog/pic3.jpg" alt="">
+                                <img src="<?= base_url(); ?>public/images/blog/latest-blog/pic3.jpg" alt="">
                             </div>
                             <div class="info-bx">
                                 <ul class="media-post">
@@ -128,7 +128,7 @@
                     <div class="item">
                         <div class="event-bx">
                             <div class="action-box">
-                                <img src="<?= base_url('public/'); ?>assets/images/event/pic4.jpg" alt="">
+                                <img src="<?= base_url(); ?>public/images/event/pic4.jpg" alt="">
                             </div>
                             <div class="info-bx d-flex">
                                 <div>
@@ -151,7 +151,7 @@
                     <div class="item">
                         <div class="event-bx">
                             <div class="action-box">
-                                <img src="<?= base_url('public/'); ?>assets/images/event/pic3.jpg" alt="">
+                                <img src="<?= base_url(); ?>public/images/event/pic3.jpg" alt="">
                             </div>
                             <div class="info-bx d-flex">
                                 <div>
@@ -174,7 +174,7 @@
                     <div class="item">
                         <div class="event-bx">
                             <div class="action-box">
-                                <img src="<?= base_url('public/'); ?>assets/images/event/pic2.jpg" alt="">
+                                <img src="<?= base_url(); ?>public/images/event/pic2.jpg" alt="">
                             </div>
                             <div class="info-bx d-flex">
                                 <div>
@@ -218,7 +218,7 @@
                             <div class="col-lg-6 col-md-6 col-sm-6 m-b30">
                                 <div class="feature-container">
                                     <div class="feature-md text-white m-b20">
-                                        <a href="#" class="icon-cell"><img src="<?= base_url('public/'); ?>assets/images/icon/google-drive.png" alt=""></a> 
+                                        <a href="#" class="icon-cell"><img src="<?= base_url(); ?>public/images/icon/google-drive.png" alt=""></a> 
                                     </div>
                                     <div class="icon-content">
                                         <h5 class="ttr-tilte">Drive Angkatan</h5>
@@ -229,7 +229,7 @@
                             <div class="col-lg-6 col-md-6 col-sm-6 m-b30">
                                 <div class="feature-container">
                                     <div class="feature-md text-white m-b20">
-                                        <a href="#" class="icon-cell"><img src="<?= base_url('public/'); ?>assets/images/icon/calendar.png" alt=""></a> 
+                                        <a href="#" class="icon-cell"><img src="<?= base_url(); ?>public/images/icon/calendar.png" alt=""></a> 
                                     </div>
                                     <div class="icon-content">
                                         <h5 class="ttr-tilte">Kegiatan Angkatan</h5>
@@ -240,7 +240,7 @@
                             <div class="col-lg-6 col-md-6 col-sm-6 m-b30">
                                 <div class="feature-container">
                                     <div class="feature-md text-white m-b20">
-                                        <a href="#" class="icon-cell"><img src="<?= base_url('public/'); ?>assets/images/icon/chat.png" alt=""></a> 
+                                        <a href="#" class="icon-cell"><img src="<?= base_url(); ?>public/images/icon/chat.png" alt=""></a> 
                                     </div>
                                     <div class="icon-content">
                                         <h5 class="ttr-tilte">Pengumuman Angkatan</h5>
@@ -251,7 +251,7 @@
                             <div class="col-lg-6 col-md-6 col-sm-6 m-b30">
                                 <div class="feature-container">
                                     <div class="feature-md text-white m-b20">
-                                        <a href="#" class="icon-cell"><img src="<?= base_url('public/'); ?>assets/images/icon/icon4.png" alt=""></a> 
+                                        <a href="#" class="icon-cell"><img src="<?= base_url(); ?>public/images/icon/icon4.png" alt=""></a> 
                                     </div>
                                     <div class="icon-content">
                                         <h5 class="ttr-tilte">Struktur SA</h5>
@@ -278,7 +278,7 @@
                     <div class="item">
                         <div class="testimonial-bx">
                             <div class="testimonial-thumb">
-                                <img src="<?= base_url('public/'); ?>assets/images/testimonials/hikigaya.jpg" alt="">
+                                <img src="<?= base_url(); ?>public/images/testimonials/hikigaya.jpg" alt="">
                             </div>
                             <div class="testimonial-info">
                                 <h5 class="name">Hikigaya Hachiman</h5>
@@ -292,7 +292,7 @@
                     <div class="item">
                         <div class="testimonial-bx">
                             <div class="testimonial-thumb">
-                                <img src="<?= base_url('public/'); ?>assets/images/testimonials/hikigaya.jpg" alt="">
+                                <img src="<?= base_url(); ?>public/images/testimonials/hikigaya.jpg" alt="">
                             </div>
                             <div class="testimonial-info">
                                 <h5 class="name">Hikigaya Hachiman</h5>
