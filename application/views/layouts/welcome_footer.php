@@ -11,6 +11,7 @@
 							<ul class="list-inline m-a0">
 								<li><a href="https://www.instagram.com/d3pajak2018" class="btn-link"><i class="fa fa-instagram"></i></a></li>
 								<li><a href="https://line.me/ti/p/~@HHJ6080P" class="btn-link"><i class="fa fa-comments"></i></a></li>								
+								<li><a href="https://www.youtube.com/channel/UCyPFirc_-09X7_kd_3X0w2g" class="btn-link"><i class="fa fa-youtube-play"></i></a></li>
 							</ul>
 						</div>
 						<!-- <div class="pt-btn-join">
@@ -21,8 +22,8 @@
 			</div>
             <div class="container">
                 <div class="row">
-					<div class="col-lg-4 col-md-12 col-sm-12 footer-col-4">
-                        <!-- <div class="widget">
+					<!-- <div class="col-lg-4 col-md-12 col-sm-12 footer-col-4">
+                        <div class="widget">
                             <h5 class="footer-title">Sign Up For A Newsletter</h5>
 							<p class="text-capitalize m-b20">Weekly Breaking news analysis and cutting edge advices on job searching.</p>
                             <div class="subscribe-form m-b20">
@@ -36,8 +37,8 @@
 									</div>
 								</form>
 							</div>
-                        </div> -->
-                    </div>
+                        </div>
+                    </div> -->
 					<div class="col-12 col-lg-9 col-md-7 col-sm-12">
 						<div class="row">
 							<div class="col-4 col-lg-4 col-md-4 col-sm-4">
