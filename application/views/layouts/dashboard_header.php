@@ -30,6 +30,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 </head>
 <body class="">
     <div class="wrapper ">
+        <!-- Sidebar -->
         <div class="sidebar" data-color="white" data-active-color="danger">
             <div class="logo">
                 <a href="<?= base_url(); ?>" class="simple-text logo-mini">
@@ -42,33 +43,39 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <ul class="nav">
                     <!-- Query Menu -->
                     <?php
-                    $menu = ["Menu 1", "Menu 2"];
+                    $menu = ["Menu 1"];
                     ?>
                     <!-- Query Menu END-->
                     <!-- LOOPING MENU -->
                     <?php foreach ($menu as $m) : ?>
                         <!-- SIAPKAN SUBMENU SESUAI MENU -->
                         <?php                            
-                        $submenu = ["Submenu 1", "Submenu 2"];
+                        $submenu = (object) 
+                            [
+                                'name' => ["Administrator", "Profil", "Hasil Studi", "Data Mahasiswa", "Data Mata Kuliah", "Data Indeks Prestasi"],
+                                'icon' => ["nc-bank", "nc-circle-10", "nc-paper", "nc-laptop", "nc-tag-content", "nc-sound-wave"]
+                            ];
+
                         ?>
 
-                        <?php foreach ($submenu as $sm) : ?>
-                            <?php if ($sm == "Submenu 1"):/*(uri_string() == 2) :*/ ?>
+                        <?php for ($i = 0; $i < count($submenu->name); $i++) : ?>
+                            <?php if ($submenu->name[$i] == "Profil"):/*(uri_string() == 2) :*/ ?>
                                 <li class="active">
                             <?php else : ?>
                                 <li>
                             <?php endif; ?>
                                 <a href="#">
-                                    <i class="nc-icon nc-bank"></i>
-                                    <p><?= $sm ?></p>
+                                    <i class="nc-icon <?= $submenu->icon[$i]; ?>"></i>
+                                    <p><?= $submenu->name[$i] ?></p>
                                 </a>
                                 </li>
-                        <?php endforeach; ?>
+                        <?php endfor; ?>
                     <?php endforeach; ?>
                     <!-- LOOPING MENU END -->
                 </ul>
             </div>
         </div>
+        <!-- Sidebar End -->
         <div class="main-panel">
             <!-- Navbar -->
             <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
@@ -91,7 +98,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     <div class="collapse navbar-collapse justify-content-end" id="navigation">
                         <ul class="navbar-nav">
                             <li class="nav-item btn-rotate dropdown">
-                                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" href="javascript:;" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="nc-icon nc-single-02"></i>
                                     <p>
                                         <span class="d-lg-none d-md-block"><?= (!empty($mahasiswa)) ? $mahasiswa->nama_lengkap : ''; ?></span>
@@ -105,4 +112,5 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     </div>
                 </div>
             </nav>
+            <!-- Navbar End -->
             <div class="content">
