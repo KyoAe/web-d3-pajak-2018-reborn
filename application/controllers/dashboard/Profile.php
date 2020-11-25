@@ -9,16 +9,22 @@ class Profile extends CI_Controller {
 
 	public function index()
 	{
-		$data['title'] = 'Profile';
-		$mahasiswa = (object) 
-			['foto' => 'hikigaya.jpg', 
-			'nama_lengkap' => strtoupper('Hikigaya Hachiman'), 
-			'npm' => 2301180000,
-			'email' => 'hachiman@hikigaya.com',
-			'jabatan' => 'Hikikomori'
-			];		
-		$data['mahasiswa'] = $mahasiswa;		
-		$this->load->view('pages/dashboard/profile', $data);
+		if (!$this->input->post())
+		{
+			$data['title'] = 'Profile';	
+			$this->load->view('pages/dashboard/profile', $data);
+		}
+		else
+		{
+			$posts = array_filter($this->input->post());
+			foreach ($posts as $key => $post)
+			{
+				echo "$key: ";
+				print_r($post);
+				echo "<br/>";
+			}
+			redirect('dashboard/profile');
+		}
 	}
 
 }

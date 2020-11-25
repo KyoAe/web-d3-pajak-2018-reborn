@@ -8,6 +8,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Profile - D III Pajak 2018</title>
+
+  <!-- FAVICONS ICON ============================================= -->
+	<link rel="icon" href="<?=base_url(); ?>public/images/favicon.png" type="image/x-icon" />
+  <link rel="shortcut icon" type="image/x-icon" href="<?=base_url(); ?>public/images/favicon.png" />
+  
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
@@ -125,10 +130,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-light-yellow elevation-4">
     <!-- Brand Logo -->
-    <a href="#" class="brand-link navbar-warning">
-      <img src="<?= base_url(); ?>public/adminLTE/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+    <a href="<?= site_url(); ?>" class="brand-link navbar-warning">
+      <img src="<?= base_url(); ?>public/images/favicon.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <span class="brand-text font-weight-light">D III Pajak 2018</span>
     </a>
 
     <!-- Sidebar -->
@@ -136,7 +141,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="<?= base_url(); ?>public/adminLTE/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="<?= base_url(); ?>public/images/profile/hikigaya.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="#" class="d-block">Giovanni Octa Anggoman</a>

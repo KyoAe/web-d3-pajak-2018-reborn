@@ -33,7 +33,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
               <div class="card-body box-profile">
                 <div class="text-center">
                   <img class="profile-user-img img-fluid img-circle"
-                       src="<?= base_url(); ?>public/adminLTE/dist/img/user4-128x128.jpg"
+                       src="<?= base_url(); ?>public/images/profile/hikigaya.jpg"
                        alt="User profile picture">
                 </div>
 
@@ -85,7 +85,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <div class="tab-content">
                   <!-- Tab Pengaturan Profil ========-->
                   <div class="active tab-pane" id="settings">                    
-                    <form class="form-horizontal">
+                    <!-- <form class="form-horizontal"> -->
+                    <?= form_open('dashboard/profile', ['class' => 'form-horizontal']); ?>
                       <!-- Bagian Profil Umum -->
                       <div class="form-group">Profil Umum</div>
                       <div class="form-group row">
@@ -103,13 +104,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
                       <div class="form-group row">
                         <label for="inputNamaPanggilan" class="col-sm-2 col-form-label">Nama Panggilan</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputNamaPanggilan" placeholder="Nama Panggilan" value="Gio" required>
+                          <input name="nama_panggilan" type="text" class="form-control" id="inputNamaPanggilan" placeholder="Nama Panggilan" value="Gio" required>
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="inputProvinsiLahir" class="col-sm-2 col-form-label">Provinsi Lahir</label>
                         <div class="col-sm-10">
-                          <select class="form-control select2 select2-yellow" style="width: 100%;" data-dropdown-css-class="select2-yellow" id="inputProvinsiLahir">
+                          <select name="provinsi_lahir" class="form-control select2 select2-yellow" style="width: 100%;" data-dropdown-css-class="select2-yellow" id="inputProvinsiLahir">
                             <option value="" disabled selected hidden>Pilih Provinsi Lahir</option>
                             <option>Sulawesi Utara</option>
                             <option>Sumatera Utara</option>
@@ -120,7 +121,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                       <div class="form-group row">
                         <label for="inputKotaLahir" class="col-sm-2 col-form-label">Kota Lahir</label>
                         <div class="col-sm-10">
-                          <select class="form-control select2 select2-yellow" id="inputKotaLahir" style="width: 100%;" data-dropdown-css-class="select2-yellow">
+                          <select name="kota_lahir" class="form-control select2 select2-yellow" id="inputKotaLahir" style="width: 100%;" data-dropdown-css-class="select2-yellow">
                             <option value="" disabled selected hidden>Pilih Kota Lahir</option>
                             <option>Manado</option>
                             <option>Medan</option>
@@ -131,7 +132,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                       <div class="form-group row">
                         <label for="inputTanggalLahir" class="col-sm-2 col-form-label">Tanggal Lahir</label>      
                         <div class="input-group col-sm-10">
-                          <input type="text" class="form-control" id="inputTanggalLahir" data-inputmask-alias="datetime" data-inputmask-inputformat="yyyy-mm-dd" data-mask>
+                          <input name="tanggal_lahir" type="text" class="form-control" id="inputTanggalLahir" data-inputmask-alias="datetime" data-inputmask-inputformat="yyyy-mm-dd" data-mask>
                         </div>
                         <!-- /.input group -->
                       </div>
@@ -145,7 +146,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                       <div class="form-group row">
                         <label for="inputAgama" class="col-sm-2 col-form-label">Agama</label>
                         <div class="col-sm-10">
-                          <select class="form-control select2 select2-yellow" id="inputAgama" data-dropdown-css-class="select2-yellow" style="width: 100%;" >
+                          <select name="agama" class="form-control select2 select2-yellow" id="inputAgama" data-dropdown-css-class="select2-yellow" style="width: 100%;" required>
                             <option value="" disabled selected hidden>Pilih Agama</option>
                             <option>Kristen</option>
                           </select>
@@ -156,7 +157,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                       <div class="form-group row">
                         <label for="inputUKM" class="col-sm-2 col-form-label">Elkam/UKM</label>
                         <div class="select2-yellow col-sm-10">
-                          <select class="select2" id="inputUKM" multiple="multiple" data-placeholder="Pilih UKM" data-dropdown-css-class="select2-yellow" style="width: 100%;">
+                          <select name="ukm[]" class="select2" id="inputUKM" multiple="multiple" data-placeholder="Pilih UKM" data-dropdown-css-class="select2-yellow" style="width: 100%;">
                             <option>STAN IC</option>
                             <option>Aliwardana Development Forum</option>
                             <option>KSR</option>
@@ -166,7 +167,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                       <div class="form-group row">
                         <label for="inputOrganisasi" class="col-sm-2 col-form-label">Organisasi Kampus</label>
                         <div class="select2-yellow col-sm-10">
-                          <select class="select2"  id="inputOrganisasi" multiple="multiple" data-placeholder="Pilih Organisasi" data-dropdown-css-class="select2-yellow" style="width: 100%;">
+                          <select name="organisasi[]" class="select2"  id="inputOrganisasi" multiple="multiple" data-placeholder="Pilih Organisasi" data-dropdown-css-class="select2-yellow" style="width: 100%;">
                             <option>KMP</option>
                             <option>BLM</option>
                             <option>BEM</option>
@@ -176,7 +177,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                       <div class="form-group row">
                         <label for="inputOrganda" class="col-sm-2 col-form-label">Organda</label>
                         <div class="col-sm-10">
-                          <select class="form-control select2 select2-yellow"  id="inputOrganda" data-dropdown-css-class="select2-yellow" style="width: 100%;" id="inputOrganda">
+                          <select name="organda" class="form-control select2 select2-yellow"  id="inputOrganda" data-dropdown-css-class="select2-yellow" style="width: 100%;" id="inputOrganda">
                             <option value="" disabled selected hidden>Pilih Organda</option>
                             <option>Ikatan Mahasiswa Angin Mamiri (IMAM)</option>
                             <option>KAMY</option>
@@ -188,46 +189,46 @@ defined('BASEPATH') or exit('No direct script access allowed');
                       <div class="form-group row">
                         <label for="inputNomorWhatsapp" class="col-sm-2 col-form-label">No. Whatsapp</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputNomorWhatsapp" placeholder="Nomor Whatsapp">
+                          <input name="nomor_wa" type="text" class="form-control" id="inputNomorWhatsapp" placeholder="Nomor Whatsapp">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="inputInstagram" class="col-sm-2 col-form-label">Instagram</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputInstagram" placeholder="Instagram">
+                          <input name="instagram" type="text" class="form-control" id="inputInstagram" placeholder="Instagram">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="inputIDLine" class="col-sm-2 col-form-label">ID Line</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputIDLine" placeholder="ID Line">
+                          <input name="id_line" type="text" class="form-control" id="inputIDLine" placeholder="ID Line">
                         </div>
                       </div>
                       <div class="form-group">Password Baru (kosongkan apabila tidak ingin mengganti) </div>
                       <div class="form-group row">
                         <label for="inputPasswordBaru" class="col-sm-2 col-form-label">Password Baru</label>
                         <div class="col-sm-10">
-                          <input type="password" class="form-control" id="inputPasswordBaru" placeholder="Password Baru">
+                          <input name="pass_baru" type="password" class="form-control" id="inputPasswordBaru" placeholder="Password Baru">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="inputKonfirmasiPasswordBaru" class="col-sm-2 col-form-label">Konfirmasi Password Baru</label>
                         <div class="col-sm-10">
-                          <input type="password" class="form-control" id="inputKonfirmasiPasswordBaru" placeholder="Konfirmasi Password Baru">
+                          <input name="pass_baru_confirmation" type="password" class="form-control" id="inputKonfirmasiPasswordBaru" placeholder="Konfirmasi Password Baru">
                         </div>
                       </div>
                       <div class="form-group">Password Lama perlu diisi untuk mengonfirmasi perubahan</div>
                       <div class="form-group row">
                         <label for="inputPasswordLama" class="col-sm-2 col-form-label">Password Lama</label>
                         <div class="col-sm-10">
-                          <input type="password" class="form-control" id="inputPasswordLama" placeholder="Password Lama" required>
+                          <input name="pass_old" type="password" class="form-control" id="inputPasswordLama" placeholder="Password Lama" required>
                         </div>
                       </div>                 
                       <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
                           <div class="checkbox">
                             <label>
-                              <input type="checkbox" required> Saya menyatakan data yang saya kirimkan adalah benar
+                              <input name="kejujuran" type="checkbox" required> Saya menyatakan data yang saya kirimkan adalah benar
                             </label>
                           </div>
                         </div>
