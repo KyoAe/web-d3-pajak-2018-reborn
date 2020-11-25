@@ -1,63 +1,83 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 
-</div>
-
-<footer class="footer footer-black footer-white ">
-    <div class="container-fluid">
-        <div class="row">
-            <nav class="footer-nav">
-                <ul>
-                    <li> <a href="https://instagram.com/d3pajak2018" target="_blank">Instagram</a> </li>
-                    <li> <a href="https://line.me/ti/p/~@HHJ6080P" target="_blank">Line</a> </li>
-                    <li> <a href="https://www.youtube.com/channel/UCyPFirc_-09X7_kd_3X0w2g" target="_blank">YouTube</a> </li>
-                </ul>
-            </nav>
-            <div class="credits ml-auto"> <span class="copyright text-center"> &copy;
-                <script>
-                    document.write(new Date().getFullYear());
-                </script> - Taxer Area DIII Pajak 2018
-                <br>
-                Termuat dalam <strong>{elapsed_time}</strong> detik. Dibuat dengan CodeIgniter <i class="fa fa-heart heart"></i>
-                <a href="https://instagram.com/walidsaja" target="_blank" class="text-danger">WSJ</a>
-                - <a href="https://instagram.com/yusufhabibihrp" target="_blank" class="text-danger">YH</a>
-                - <a href="https://instagram.com/gio_kyo" target="_blank" class="text-danger">GA</a> </span> </div>
-        </div>
+  </div>
+  <!-- /.content-wrapper -->
+<footer class="main-footer">
+    <strong>&copy; 2020 D III Pajak 2018</strong>
+    - <a href="https://instagram.com/gio_kyo" target="_blank">GA</a>
+    <div class="float-right d-none d-sm-inline-block">
+      Template by <a href="http://adminlte.io">AdminLTE.io</a>
     </div>
-</footer>
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
 </div>
-</div>
+<!-- ./wrapper -->
 
-<!--  Core JS Files  -->
-<script src="<?= base_url('public/admine/js/core/jquery.min.js'); ?>"></script>
-<script src="<?= base_url('public/admine/js/core/popper.min.js'); ?>"></script>
-<script src="<?= base_url('public/admine/js/core/bootstrap.min.js'); ?>"></script><!-- <script src="<?= base_url('public/admine/js/plugins/perfect-scrollbar.jquery.min.js'); ?>"></script> -->
-
-<!-- Notifications Plugin -->
-<script src="<?= base_url('public/admine/js/plugins/bootstrap-notify.js'); ?>"></script>
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script><!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-<script src="<?= base_url('public/admine/js/paper-dashboard.min.js'); ?>" type="text/javascript"></script>
-<script src="<?= base_url('public/admine/js/plugins/JsBarcode.all.min.js'); ?>"></script>
-
-<!-- Custom Scripts -->
+<!-- jQuery -->
+<script src="<?= base_url(); ?>public/adminLTE/plugins/jquery/jquery.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="<?= base_url(); ?>public/adminLTE/plugins/jquery-ui/jquery-ui.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
-    $(document).ready(function() {
-        JsBarcode("#barcode", "<?= "Hai"/*$mahasiswa->npm;*/ ?>", {
-            width: 1.5,
-            height: 25,
-            margin: 0,
-            displayValue: false
-        });
-    });
-    $(document).ready(function() {
-        $('#mahasiswa_table').DataTable();
-        $('#mahasiswa_table1').DataTable();
-        $('#mahasiswa_table2').DataTable();
-        $('#mahasiswa_table3').DataTable();
-        $('#mahasiswa_table4').DataTable();
-        $('#mahasiswa_table5').DataTable();
-        $('#mahasiswa_table6').DataTable();
-    });
+  $.widget.bridge('uibutton', $.ui.button)
 </script>
-</body>
+<!-- Bootstrap 4 -->
+<script src="<?= base_url(); ?>public/adminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- ChartJS -->
+<script src="<?= base_url(); ?>public/adminLTE/plugins/chart.js/Chart.min.js"></script>
+<!-- Sparkline -->
+<script src="<?= base_url(); ?>public/adminLTE/plugins/sparklines/sparkline.js"></script>
+<!-- JQVMap -->
+<script src="<?= base_url(); ?>public/adminLTE/plugins/jqvmap/jquery.vmap.min.js"></script>
+<script src="<?= base_url(); ?>public/adminLTE/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+<!-- jQuery Knob Chart -->
+<script src="<?= base_url(); ?>public/adminLTE/plugins/jquery-knob/jquery.knob.min.js"></script>
+<!-- daterangepicker -->
+<script src="<?= base_url(); ?>public/adminLTE/plugins/moment/moment.min.js"></script>
+<script src="<?= base_url(); ?>public/adminLTE/plugins/daterangepicker/daterangepicker.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="<?= base_url(); ?>public/adminLTE/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- Summernote -->
+<script src="<?= base_url(); ?>public/adminLTE/plugins/summernote/summernote-bs4.min.js"></script>
+<!-- overlayScrollbars -->
+<script src="<?= base_url(); ?>public/adminLTE/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- Select2 -->
+<script src="<?= base_url(); ?>public/adminLTE/plugins/select2/js/select2.full.min.js"></script>
+<!-- InputMask -->
+<script src="<?= base_url(); ?>public/adminLTE/plugins/moment/moment.min.js"></script>
+<script src="<?= base_url(); ?>public/adminLTE/plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="<?= base_url(); ?>public/adminLTE/dist/js/adminlte.js"></script>
 
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<!-- <script src="public/adminLTE/dist/js/pages/dashboard.js"></script> -->
+<!-- AdminLTE for demo purposes -->
+<!-- <script src="public/adminLTE/dist/js/demo.js"></script> -->
+<script>
+  $(function() {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+
+    //Initialize Select2 Elements
+    $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    })
+
+    //Datemask yyyy-mm-dd
+    $('#datemask').inputmask('yyyy-mm-dd', { 'placeholder': 'yyyy-mm-dd' })
+    $('[data-mask]').inputmask()
+
+    //Confirmation
+    $('.confirmation').on('click', function () {
+      return confirm('Are you sure?');
+    });
+  });
+</script>
+  
+</body>
 </html>
