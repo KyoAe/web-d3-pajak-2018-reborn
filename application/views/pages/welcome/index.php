@@ -53,6 +53,11 @@
                     <div class="item">
                         <div class="recent-news">
                             <div class="action-box">
+                                <div class="ribbon-wrapper ribbon-lg">
+                                    <div class="ribbon bg-yellow">
+                                        New
+                                    </div>
+                                </div>
                                 <img src="<?= base_url(); ?>public/images/blog/latest-blog/pic1.jpg" alt="">
                             </div>
                             <div class="info-bx">
@@ -270,8 +275,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 heading-bx left">
-                        <h2 class="title-head text-uppercase">what people <span>say</span></h2>
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a page</p>
+                        <h2 class="title-head text-uppercase">Kata-Kata <span>Realita</span></h2>
+                        <p>Karena kenyataan itu memanglah pahit.</p>
                     </div>
                 </div>
                 <div class="testimonial-carousel owl-carousel owl-btn-1 col-12 p-lr0">
@@ -285,7 +290,7 @@
                                 <p>-Ore ga Iru</p>
                             </div>
                             <div class="testimonial-content">
-                                <p>Hard work betrays none, but dreams betray many. working hard alone doesn't assure you that you'll achieve your dreams. actually there are more cases where you don't. even so, working hard and achieving something is some consolation at least.</p>
+                                <p>Hard work betrays none, but dreams betray many. Working hard alone doesn't assure you that you'll achieve your dreams. Actually there are more cases where you don't. Even so, working hard and achieving something is some consolation at least.</p>
                             </div>
                         </div>
                     </div>

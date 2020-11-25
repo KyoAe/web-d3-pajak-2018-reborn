@@ -9,9 +9,9 @@
 						</div>
 						<div class="pt-social-link">
 							<ul class="list-inline m-a0">
-								<li><a href="https://www.instagram.com/d3pajak2018" class="btn-link"><i class="fa fa-instagram"></i></a></li>
-								<li><a href="https://line.me/ti/p/~@HHJ6080P" class="btn-link"><i class="fa fa-comments"></i></a></li>								
-								<li><a href="https://www.youtube.com/channel/UCyPFirc_-09X7_kd_3X0w2g" class="btn-link"><i class="fa fa-youtube-play"></i></a></li>
+								<li><a href="https://www.instagram.com/d3pajak2018" class="btn-link" target="_blank"><i class="fa fa-instagram"></i></a></li>
+								<li><a href="https://line.me/ti/p/~@HHJ6080P" class="btn-link" target="_blank"><i class="fa fa-comments"></i></a></li>								
+								<li><a href="https://www.youtube.com/channel/UCyPFirc_-09X7_kd_3X0w2g" class="btn-link" target="_blank"><i class="fa fa-youtube-play"></i></a></li>
 							</ul>
 						</div>
 						<!-- <div class="pt-btn-join">
@@ -56,9 +56,9 @@
 								<div class="widget footer_widget">
 									<h5 class="footer-title">Media Sosial</h5>
 									<ul>
-										<li><a href="https://www.instagram.com/d3pajak2018">Instagram</a></li>
-										<li><a href="https://line.me/ti/p/~@HHJ6080P">Line</a></li>								
-										<li><a href="https://www.youtube.com/channel/UCyPFirc_-09X7_kd_3X0w2g">Youtube</a></li>
+										<li><a href="https://www.instagram.com/d3pajak2018" target="_blank">Instagram</a></li>
+										<li><a href="https://line.me/ti/p/~@HHJ6080P" target="_blank">Line</a></li>								
+										<li><a href="https://www.youtube.com/channel/UCyPFirc_-09X7_kd_3X0w2g" target="_blank">Youtube</a></li>
 									</ul>
 								</div>
 							</div>
@@ -106,8 +106,6 @@
                 </div>
                 <div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12 text-center">
-						<a target="_blank" href="https://instagram.com/walidsaja">WSJ</a>
-						-
 						<a target="_blank" href="https://instagram.com/gio_kyo">GA</a>
 					</div>
 				</div>

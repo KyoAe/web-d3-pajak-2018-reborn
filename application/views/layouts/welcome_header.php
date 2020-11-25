@@ -20,7 +20,7 @@
 	<meta name="format-detection" content="telephone=no">
 	
 	<!-- FAVICONS ICON ============================================= -->
-	<link rel="icon" href="<?=base_url(); ?>public/images/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="<?=base_url(); ?>public/images/favicon.png" type="image/x-icon" />
 	<link rel="shortcut icon" type="image/x-icon" href="<?=base_url(); ?>public/images/favicon.png" />
 	
 	<title><?= $title ?> - D III Pajak 2018 </title>
@@ -92,9 +92,9 @@
                     <div class="secondary-menu">
                         <div class="secondary-inner">
                             <ul>
-                            	<li><a href="https://www.instagram.com/d3pajak2018" class="btn-link"><i class="fa fa-instagram"></i></a></li>
-								<li><a href="https://line.me/ti/p/~@HHJ6080P" class="btn-link"><i class="fa fa-comments"></i></a></li>
-								<li><a href="https://www.youtube.com/channel/UCyPFirc_-09X7_kd_3X0w2g" class="btn-link"><i class="fa fa-youtube-play"></i></a></li>
+                            	<li><a href="https://www.instagram.com/d3pajak2018" target="_blank" class="btn-link"><i class="fa fa-instagram"></i></a></li>
+								<li><a href="https://line.me/ti/p/~@HHJ6080P" target="_blank" class="btn-link"><i class="fa fa-comments"></i></a></li>
+								<li><a href="https://www.youtube.com/channel/UCyPFirc_-09X7_kd_3X0w2g" target="_blank" class="btn-link"><i class="fa fa-youtube-play"></i></a></li>
 								<!-- Search Button ==== 
 								<li class="search-btn"><button id="quik-search-btn" type="button" class="btn-link"><i class="fa fa-search"></i></button></li> -->
 							</ul>
