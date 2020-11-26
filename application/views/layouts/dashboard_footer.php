@@ -51,6 +51,11 @@
 <!-- InputMask -->
 <script src="<?= base_url(); ?>public/adminLTE/plugins/moment/moment.min.js"></script>
 <script src="<?= base_url(); ?>public/adminLTE/plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
+<!-- DataTables -->
+<script src="<?= base_url(); ?>public/adminLTE/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="<?= base_url(); ?>public/adminLTE/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="<?= base_url(); ?>public/adminLTE/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="<?= base_url(); ?>public/adminLTE/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?= base_url(); ?>public/adminLTE/dist/js/adminlte.js"></script>
 
@@ -75,6 +80,16 @@
     //Confirmation
     $('.confirmation').on('click', function () {
       return confirm('Are you sure?');
+    });
+
+    //Initialize DataTables
+    $('#table1').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
     });
   });
 </script>

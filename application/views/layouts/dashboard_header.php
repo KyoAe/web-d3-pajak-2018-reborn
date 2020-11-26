@@ -7,7 +7,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Profile - D III Pajak 2018</title>
+  <title><?= $title ?> - D III Pajak 2018</title>
 
   <!-- FAVICONS ICON ============================================= -->
 	<link rel="icon" href="<?=base_url(); ?>public/images/favicon.png" type="image/x-icon" />
@@ -28,6 +28,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
   <!-- Select2 -->
   <link rel="stylesheet" href="<?= base_url(); ?>public/adminLTE/plugins/select2/css/select2.min.css">
   <link rel="stylesheet" href="<?= base_url(); ?>public/adminLTE/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="<?= base_url(); ?>public/adminLTE/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="<?= base_url(); ?>public/adminLTE/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?= base_url(); ?>public/adminLTE/dist/css/adminlte.min.css">
   <!-- overlayScrollbars -->
@@ -39,7 +42,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
-<body class="hold-transition sidebar-mini layout-fixed layout-footer-fixed">
+<body class="hold-transition sidebar-mini layout-fixed layout-footer-fixed layout-navbar-fixed">
 <div class="wrapper">
 
   <!-- Navbar -->
@@ -55,71 +58,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-      <!-- Messages Dropdown Menu -->
-      <!-- <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-comments"></i>
-          <span class="badge badge-danger navbar-badge">3</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <a href="#" class="dropdown-item">
-            Message Start
-            <div class="media">
-              <img src="<?= base_url(); ?>public/adminLTE/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Brad Diesel
-                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">Call me whenever you can...</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            Message End
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            Message Start
-            <div class="media">
-              <img src="<?= base_url(); ?>public/adminLTE/dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  John Pierce
-                  <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">I got your message bro</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            Message End
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            Message Start
-            <div class="media">
-              <img src="<?= base_url(); ?>public/adminLTE/dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Nora Silvester
-                  <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">The subject goes here</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            Message End
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-        </div>
-      </li> -->
-      <!-- Notifications Dropdown Menu -->
+      <!-- User Dropdown Menu -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="fas fa-user"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-sm">
-          <a href="test.html" class="dropdown-item text-center confirmation">
+          <a href="auth/logout" class="dropdown-item text-center confirmation">
             Keluar
           </a>         
       </li>
@@ -154,7 +99,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link active">
+            <a href="<?= site_url(); ?>dashboard/profile" class="nav-link active">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Profil Saya
@@ -180,13 +125,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="<?= site_url(); ?>dashboard/announcements/new" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Buat Baru</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
+                <a href="<?= site_url(); ?>dashboard/announcements/manage" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Kelola</p>
                 </a>
