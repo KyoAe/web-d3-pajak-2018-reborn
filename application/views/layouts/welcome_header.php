@@ -68,7 +68,12 @@
 					</div>
 					<div class="topbar-right">
 						<ul>
+							<?php if(! $this->aauth->is_loggedin()): ?>
 							<li><a href="<?= site_url(); ?>auth/login">Login</a></li>
+							<?php else: ?>
+							<li><a href="<?= site_url(); ?>dashboard/profile">My Dashboard</a></li>
+							<li><a href="<?= site_url(); ?>auth/logout">Logout</a></li>
+							<?php endif; ?>
 							<!-- <li><a href="register.html">Register</a></li> -->
 						</ul>
 					</div>

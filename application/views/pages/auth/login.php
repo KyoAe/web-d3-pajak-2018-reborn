@@ -65,20 +65,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<!-- <p>Don't have an account? <a href="register.html">Create one here</a></p> -->
 				</div>	
 				<form class="contact-bx" method="post">
+					<small class="text-danger"><?php echo $this->aauth->print_errors() ?></small>
 					<div class="row placeani">
 						<div class="col-lg-12">
 							<div class="form-group">
-								<div class="input-group">
-									<label>NPM</label>
-									<input name="npm" type="text" required="" class="form-control">
+								<?php echo form_error('email') ?>
+								<div class="input-group">									
+									<label>Email</label>
+									<input name="email" type="text" required="" class="form-control">
 								</div>
 							</div>
 						</div>
 						<div class="col-lg-12">
 							<div class="form-group">
+								<?php echo form_error('pass') ?>
 								<div class="input-group"> 
 									<label>Password</label>
-									<input name="password" type="password" class="form-control" required="">
+									<input name="pass" type="password" class="form-control" required="">
 								</div>
 							</div>
 						</div>

@@ -5,6 +5,7 @@ class Announcements extends CI_Controller {
     public function __construct()
 	{
 		parent::__construct();
+		$this->aauth->control('browse_announcements');
 	}
 
 	public function index()

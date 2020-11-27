@@ -53,7 +53,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
+        <a href="<?= site_url(); ?>dashboard" class="nav-link">Home</a>
     </ul>
 
     <!-- Right navbar links -->
@@ -64,7 +64,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
           <i class="fas fa-user"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-sm">
-          <a href="auth/logout" class="dropdown-item text-center confirmation">
+          <a href="<?= site_url(); ?>auth/logout" class="dropdown-item text-center confirmation">
             Keluar
           </a>         
       </li>
