@@ -56,6 +56,10 @@
 <script src="<?= base_url(); ?>public/adminLTE/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
 <script src="<?= base_url(); ?>public/adminLTE/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
 <script src="<?= base_url(); ?>public/adminLTE/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<!-- Toastr -->
+<script src="<?= base_url(); ?>public/adminLTE/plugins/toastr/toastr.min.js"></script>
+<!-- TinyMCE -->
+<script src="https://cdn.tiny.cloud/1/8xix5vjkai81lv94b54e9usaqkks3v6ee7ox2nbmc589prgg/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <!-- AdminLTE App -->
 <script src="<?= base_url(); ?>public/adminLTE/dist/js/adminlte.js"></script>
 
@@ -63,6 +67,7 @@
 <!-- <script src="public/adminLTE/dist/js/pages/dashboard.js"></script> -->
 <!-- AdminLTE for demo purposes -->
 <!-- <script src="public/adminLTE/dist/js/demo.js"></script> -->
+<?php print_r($this->session->flashdata('alert')); ?>
 <script>
   $(function() {
     //Initialize Select2 Elements
@@ -91,6 +96,40 @@
       "autoWidth": false,
       "responsive": true,
     });
+
+    // Set Word Count
+    var content;
+    $('.count-letter').on('keyup', function(){
+        var letters = $(this).val().length;
+        $('#myLetterCount').text(letters+"/100");
+        // limit message
+        if(letters>=101){
+            $(this).val(content);
+            alert('Tolong jangan lebih dari 100 karakter plis :)');
+        } else {    
+            content = $(this).val();
+        }
+    });
+
+    // Start TinyMCE
+    tinymce.init({
+      selector: "#inputIsiPengumuman",
+      plugins: 'link image',
+      relative_urls : false,
+      remove_script_host : false,
+      convert_urls : true
+    });
+
+    // Add Success Message if flashdata available
+
+    <?php if (! empty($this->session->flashdata('alert'))): ?>
+    $(document).Toasts('create', {
+      class: '<?= $this->session->flashdata('alert')['class'] ?>', 
+      title: 'A message',
+      body: '<?= $this->session->flashdata('alert')['msg'] ?>'
+    })
+    <?php endif; ?>
+    
   });
 </script>
   

@@ -10,7 +10,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <div class="col-12">
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">DataTable with minimal features & hover style</h3>
+          <h3 class="card-title">Pengumuman yang sedang mengudara</h3>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -26,19 +26,20 @@ defined('BASEPATH') or exit('No direct script access allowed');
             </tr>
             </thead>
             <tbody>
+            <?php foreach($announcements as $announcement): ?>
             <tr>
-              <td class="align-middle"><img src="<?= base_url(); ?>public/images/background/bg2.jpg" alt="" style="max-width:100px"></td>
-              <td class="align-middle">Sesuatu di Jogja
-              </td>
-              <td class="align-middle">Ini adalah deskripsi singkat</td>
-              <td class="align-middle">2020-11-26 11:25</td>
-              <td class="align-middle">Gio</td>
+              <td class="align-middle"><img src="<?= ($announcement->image!==null) ? html_escape($announcement->image) : base_url('public/images/blog/default/thum2.jpg'); ?>" alt="" style="max-width:100px"></td>
+              <td class="align-middle"><?= html_escape($announcement->title) ?></td>
+              <td class="align-middle"><?= html_escape($announcement->excerpt) ?></td>
+              <td class="align-middle"><?= html_escape($announcement->created_at) ?></td>
+              <td class="align-middle"><?= html_escape($announcement->email) ?></td>
               <td class="align-middle">
-                <a href="#" class="badge badge-info"><i class="fas fa-eye"></i> </a>
-                <a href="#" class="badge badge-warning"><i class="far fa-edit"></i> </a>
-                <a href="#" class="badge badge-danger"><i class="fas fa-trash"></i> </a>
+                <a href="<?= site_url('dashboard/announcements/view/') . $announcement->id?>" class="badge badge-info"><i class="fas fa-eye"></i> </a>
+                <a href="<?= site_url('dashboard/announcements/update/') . $announcement->id ?>" class="badge badge-warning"><i class="far fa-edit"></i> </a>
+                <a href="<?= site_url('dashboard/announcements/delete/') . $announcement->id ?>" class="badge badge-danger confirmation"><i class="fas fa-trash"></i> </a>
               </td>
-            </tr>            
+            </tr>
+            <?php endforeach; ?>
             </tbody>
             <tfoot>
             <tr>

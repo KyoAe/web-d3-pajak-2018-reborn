@@ -37,6 +37,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
   <link rel="stylesheet" href="<?= base_url(); ?>public/adminLTE/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Daterange picker -->
   <link rel="stylesheet" href="<?= base_url(); ?>public/adminLTE/plugins/daterangepicker/daterangepicker.css">
+  <!-- Toastr -->
+  <link rel="stylesheet" href="<?= base_url(); ?>public/adminLTE/plugins/toastr/toastr.min.css">
   <!-- summernote -->
   <link rel="stylesheet" href="<?= base_url(); ?>public/adminLTE/plugins/summernote/summernote-bs4.css">
   <!-- Google Font: Source Sans Pro -->
