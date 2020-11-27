@@ -421,6 +421,10 @@ class Aauth {
 				if($this->config_vars['no_permission'] !== false){
 					redirect($this->config_vars['no_permission']);
 				}
+				else {
+					echo $this->CI->lang->line('aauth_error_no_access');
+					die();
+				}
 			}
 
 		}else if ( ! $this->is_allowed($perm_id) ){
