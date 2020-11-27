@@ -124,7 +124,7 @@
 							<li><a href="<?= site_url(); ?>events">Kegiatan</a></li>
 							<li><a href="javascript:;">Layanan Mahasiswa<i class="fa fa-chevron-down"></i></a>
 								<ul class="sub-menu">
-									<li class="disable"><a href="https://bit.ly/SistemaKiTTA">KTTA</a></li>
+									<li class="disable"><a href="https://bit.ly/SistemaKiTTA">SistemaKiTTA</a></li>
 									<li><a href="javascript:;">Study Kit <i class="fa fa-angle-right"></i></a>
 										<ul class="sub-menu">
 											<li><a href="https://bit.ly/D3Pajak2018">Drive Angkatan</a></li>
@@ -142,8 +142,13 @@
 								</ul>
 							</li>							
 						</ul>
-						<div class="nav-social-link">                           
-                            <a href="javascript:;" class="btn-link">Login</a>
+						<div class="nav-social-link">
+							<?php if(! $this->aauth->is_loggedin()): ?>
+							<a href="<?= site_url(); ?>auth/login" class="btn-link">Login</a>
+							<?php else: ?>
+							<a href="<?= site_url(); ?>dashboard/profile" class="btn-link">My Dashboard</a>
+							<a href="<?= site_url(); ?>auth/logout" class="btn-link">Logout</a>
+							<?php endif; ?>
 						</div>
                     </div>
 					<!-- Navigation Menu END ==== -->
