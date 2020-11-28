@@ -36,7 +36,7 @@
       <tbody>
       <?php foreach($announcements as $announcement): ?>
       <tr>
-        <td class="align-middle"><img src="<?= ($announcement->image!==null) ? html_escape($announcement->image) : base_url('public/images/blog/default/thum2.jpg'); ?>" alt="" style="max-width:100px"></td>
+        <td class="align-middle"><img src="<?= ($announcement->image!==null) ? html_escape($announcement->image) : base_url('public/images/announcements/default.jpg'); ?>" alt="" style="max-width:100px"></td>
         <td class="align-middle judul"><?= html_escape($announcement->title) ?></td>
         <td class="align-middle"><?= html_escape($announcement->excerpt) ?></td>
         <td class="align-middle"><?= html_escape($announcement->created_at) ?></td>
