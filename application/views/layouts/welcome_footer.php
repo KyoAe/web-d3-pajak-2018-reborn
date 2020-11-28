@@ -141,6 +141,13 @@
     //   "scrollX": true,
       "responsive": true,
 	});
+
+	// Add active class based on current page
+	$(function() {
+		first_half = location.protocol + '//' + location.hostname + ((location.port != '') ? ':' + location.port : '');
+  		$('nav a[href="' + first_half + '/' + location.pathname.split("/")[1] + '"]').parent().addClass('active');
+		// $('nav a[href="' + location.href + '"]').parent().addClass('active');
+	});
 </script>
 </body>
 

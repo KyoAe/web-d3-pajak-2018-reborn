@@ -121,8 +121,9 @@
 						<div class="menu-logo">
 							<a href=" <?=site_url(); ?>"><img src="<?=base_url() ?>public/images/logo.png" alt=""></a>
 						</div>
+						<nav>
                         <ul class="nav navbar-nav">	
-							<li class="active"><a href="<?= site_url(); ?>">Home</a></li>
+							<li><a href="<?= site_url(); ?>">Home</a></li>
 							<li><a href="<?= site_url(); ?>announcements">Pengumuman</a></li>
 							<li><a href="<?= site_url(); ?>events">Kalender</a></li>
 							<li><a href="javascript:;">Layanan Mahasiswa<i class="fa fa-chevron-down"></i></a>
@@ -145,6 +146,7 @@
 								</ul>
 							</li>							
 						</ul>
+						</nav>
 						<div class="nav-social-link">
 							<?php if(! $this->aauth->is_loggedin()): ?>
 							<a href="<?= site_url(); ?>auth/login" class="btn-link">Login</a>
@@ -153,7 +155,7 @@
 							<a href="<?= site_url(); ?>auth/logout" class="btn-link">Logout</a>
 							<?php endif; ?>
 						</div>
-                    </div>
+					</div>					
 					<!-- Navigation Menu END ==== -->
                 </div>
             </div>
