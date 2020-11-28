@@ -1787,6 +1787,8 @@ class Aauth {
 	 */
 	public function is_allowed($perm_par, $user_id=false){
 
+		if (! $perm_par) return true;
+		
 		$this->CI->load->helper('url');
 
 		if($this->CI->session->userdata('totp_required')){
