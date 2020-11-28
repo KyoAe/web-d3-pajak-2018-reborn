@@ -101,7 +101,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="<?= site_url(); ?>dashboard/profile" class="nav-link active">
+            <a href="<?= site_url(); ?>dashboard/profile" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Profil Saya
@@ -118,7 +118,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             </a>
           </li>      
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="<?= site_url(); ?>dashboard/announcements" class="nav-link">
               <i class="nav-icon fas fa-bullhorn"></i>
               <p>
                 Pengumuman

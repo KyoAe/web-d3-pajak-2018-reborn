@@ -135,6 +135,18 @@
     })
     <?php endif; ?>
     
+    	// Add active class based on current page
+    $(function() {
+      first_half = location.protocol + '//' + location.hostname + ((location.port != '') ? ':' + location.port : '');
+      url = '';
+      levels = location.pathname.split('/');
+      for (i = 1; i < levels.length; i++)
+      {
+        url += '/' + levels[i];
+        $('nav a[href="' + first_half + url + '"]').addClass('active');
+      }
+      // $('nav a[href="' + location.href + '"]').parent().addClass('active');
+    });
   });
 </script>
   
