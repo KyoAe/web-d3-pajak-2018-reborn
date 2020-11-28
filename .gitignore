@@ -32,3 +32,4 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 
 # Environment Files
 application/config/.env
+application/config/.env (コピー)
