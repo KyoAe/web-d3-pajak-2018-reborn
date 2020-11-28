@@ -15,7 +15,7 @@ class Events extends CI_Controller {
 	 */	
 	public function index()
 	{
-		$data['title'] = 'Kegiatan';
+		$data['title'] = 'Kalender Angkatan';
 		$this->load->view('pages/events/index', $data);
 	}
 }

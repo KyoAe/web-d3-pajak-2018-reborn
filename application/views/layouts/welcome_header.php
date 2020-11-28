@@ -124,7 +124,7 @@
                         <ul class="nav navbar-nav">	
 							<li class="active"><a href="<?= site_url(); ?>">Home</a></li>
 							<li><a href="<?= site_url(); ?>announcements">Pengumuman</a></li>
-							<li><a href="<?= site_url(); ?>events">Kegiatan</a></li>
+							<li><a href="<?= site_url(); ?>events">Kalender</a></li>
 							<li><a href="javascript:;">Layanan Mahasiswa<i class="fa fa-chevron-down"></i></a>
 								<ul class="sub-menu">
 									<li class="disable"><a href="https://bit.ly/SistemaKiTTA">SistemaKiTTA</a></li>

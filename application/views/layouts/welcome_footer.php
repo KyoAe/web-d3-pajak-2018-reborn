@@ -47,7 +47,7 @@
 									<ul>
 										<li><a href="<?= site_url(); ?>">Home</a></li>
 										<li><a href="<?= site_url(); ?>announcements">Pengumuman</a></li>
-										<li><a href="<?= site_url(); ?>events">Kegiatan</a></li>
+										<li><a href="<?= site_url(); ?>events">Kalender</a></li>
 										<li><a href="<?= site_url(); ?>about/tentang_angkatan">Tentang Angkatan</a></li>
 									</ul>
 								</div>
@@ -77,16 +77,12 @@
                     </div>
 					<div class="col-12 col-lg-3 col-md-5 col-sm-12 footer-col-4">
                         <div class="widget widget_gallery gallery-grid-4">
-                            <h5 class="footer-title">Our Gallery</h5>
+                            <h5 class="footer-title">Dokumentasi Angkatan</h5>
                             <ul class="magnific-image">
-								<li><a href="<?=base_url(); ?>public/images/gallery/pic1.jpg" class="magnific-anchor"><img src="<?=base_url(); ?>public/images/gallery/pic1.jpg" alt=""></a></li>
-								<li><a href="<?=base_url(); ?>public/images/gallery/pic2.jpg" class="magnific-anchor"><img src="<?=base_url(); ?>public/images/gallery/pic2.jpg" alt=""></a></li>
-								<li><a href="<?=base_url(); ?>public/images/gallery/pic3.jpg" class="magnific-anchor"><img src="<?=base_url(); ?>public/images/gallery/pic3.jpg" alt=""></a></li>
-								<li><a href="<?=base_url(); ?>public/images/gallery/pic4.jpg" class="magnific-anchor"><img src="<?=base_url(); ?>public/images/gallery/pic4.jpg" alt=""></a></li>
-								<li><a href="<?=base_url(); ?>public/images/gallery/pic5.jpg" class="magnific-anchor"><img src="<?=base_url(); ?>public/images/gallery/pic5.jpg" alt=""></a></li>
-								<li><a href="<?=base_url(); ?>public/images/gallery/pic6.jpg" class="magnific-anchor"><img src="<?=base_url(); ?>public/images/gallery/pic6.jpg" alt=""></a></li>
-								<li><a href="<?=base_url(); ?>public/images/gallery/pic7.jpg" class="magnific-anchor"><img src="<?=base_url(); ?>public/images/gallery/pic7.jpg" alt=""></a></li>
-								<li><a href="<?=base_url(); ?>public/images/gallery/pic8.jpg" class="magnific-anchor"><img src="<?=base_url(); ?>public/images/gallery/pic8.jpg" alt=""></a></li>
+								<li><a href="https://drive.google.com/uc?id=1YEOpQ5Ll5o4vXYyb5e4bKQ10kWt3upYT" class="magnific-anchor"><img src="https://drive.google.com/uc?id=1YEOpQ5Ll5o4vXYyb5e4bKQ10kWt3upYT" alt=""></a></li>
+								<li><a href="https://drive.google.com/uc?id=1-CCtuEyprTBkHNvOK51xb0O0JPk1-C6W" class="magnific-anchor"><img src="https://drive.google.com/uc?id=1-CCtuEyprTBkHNvOK51xb0O0JPk1-C6W" alt=""></a></li>
+								<li><a href="https://drive.google.com/uc?id=16yAzvftsVjVINg662-WU8TFCdEmYPRX1" class="magnific-anchor"><img src="https://drive.google.com/uc?id=16yAzvftsVjVINg662-WU8TFCdEmYPRX1" alt=""></a></li>
+								<li><a href="https://drive.google.com/uc?id=1VEO8cF2zCWCGB4KtaNSx38s9_q_KQiAy" class="magnific-anchor"><img src="https://drive.google.com/uc?id=1VEO8cF2zCWCGB4KtaNSx38s9_q_KQiAy" alt=""></a></li>
 							</ul>
                         </div>
                     </div>

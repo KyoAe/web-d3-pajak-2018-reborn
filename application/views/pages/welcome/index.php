@@ -94,85 +94,15 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12 text-center heading-bx">
-            <h2 class="title-head m-b0">Kegiatan <span>Angkatan</span></h2>
-            <p class="m-b0">Sering lupa kegiatan apa yang terjadi di angkatan? Kami merampungnya untuk Anda.</p>
+            <h2 class="title-head m-b0">Kalender <span>Angkatan</span></h2>
+            <p class="m-b0">Sering bingung kegiatan apa yang terjadi di angkatan? Mari lihat kalender angkatan</p>
           </div>
         </div>
         <div class="row">
-        <div class="upcoming-event-carousel owl-carousel owl-btn-center-lr owl-btn-1 col-12 p-lr0  m-b30 bg-white">
-          <div class="item">
-            <div class="event-bx">
-              <div class="action-box">
-                <img src="<?= base_url(); ?>public/images/event/pic4.jpg" alt="">
-              </div>
-              <div class="info-bx d-flex">
-                <div>
-                  <div class="event-time">
-                    <div class="event-date">29</div>
-                    <div class="event-month">October</div>
-                  </div>
-                </div>
-                <div class="event-info">
-                  <h4 class="event-title"><a href="#">Education Autumn Tour 2019</a></h4>
-                  <ul class="media-post">
-                    <li><a href="#"><i class="fa fa-clock-o"></i> 7:00am 8:00am</a></li>
-                    <li><a href="#"><i class="fa fa-map-marker"></i> Berlin, Germany</a></li>
-                  </ul>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the..</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="event-bx">
-              <div class="action-box">
-                <img src="<?= base_url(); ?>public/images/event/pic3.jpg" alt="">
-              </div>
-              <div class="info-bx d-flex">
-                <div>
-                  <div class="event-time">
-                    <div class="event-date">29</div>
-                    <div class="event-month">October</div>
-                  </div>
-                </div>
-                <div class="event-info">
-                  <h4 class="event-title"><a href="#">Education Autumn Tour 2019</a></h4>
-                  <ul class="media-post">
-                    <li><a href="#"><i class="fa fa-clock-o"></i> 7:00am 8:00am</a></li>
-                    <li><a href="#"><i class="fa fa-map-marker"></i> Berlin, Germany</a></li>
-                  </ul>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the..</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="event-bx">
-              <div class="action-box">
-                <img src="<?= base_url(); ?>public/images/event/pic2.jpg" alt="">
-              </div>
-              <div class="info-bx d-flex">
-                <div>
-                  <div class="event-time">
-                    <div class="event-date">29</div>
-                    <div class="event-month">October</div>
-                  </div>
-                </div>
-                <div class="event-info">
-                  <h4 class="event-title"><a href="#">Education Autumn Tour 2019</a></h4>
-                  <ul class="media-post">
-                    <li><a href="#"><i class="fa fa-clock-o"></i> 7:00am 8:00am</a></li>
-                    <li><a href="#"><i class="fa fa-map-marker"></i> Berlin, Germany</a></li>
-                  </ul>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the..</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+          
         </div>
         <div class="text-center">
-          <a href="<?= site_url(); ?>events" class="btn">Lihat Semua Kegiatan</a>
+          <a href="<?= site_url(); ?>events" class="btn">Lihat Kalender Angkatan</a>
         </div>
       </div>
     </div>
@@ -181,15 +111,15 @@
     <!-- Layanan Mahasiswa -->
     <div class="section-area section-sp1">
       <div class="container">
-          <div class="row">
-            <div class="col-lg-6 m-b30">
+        <div class="row">
+          <div class="col-lg-6 m-b30">
             <h2 class="title-head ">Layanan Mahasiswa<br> <span class="text-primary">untuk Anda</span></h2>
             <h4>Ada <span class="counter">4</span> untuk saat ini</h4>
             <p>Karena sesungguhnya membuat web tidaklah mudah, apalagi sendiri. Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a></p>
             <!-- <a href="#" class="btn button-md">Join Now</a> -->
-            </div>
-            <div class="col-lg-6">
-              <div class="row">
+          </div>
+          <div class="col-lg-6">
+            <div class="row">
               <div class="col-lg-6 col-md-6 col-sm-6 m-b30">
                 <div class="feature-container">
                   <div class="feature-md text-white m-b20">
