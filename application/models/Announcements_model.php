@@ -48,6 +48,24 @@ class Announcements_model extends CI_Model {
     }
 
     /**
+     * Get an announcement by its id
+     * @param $announcement_id
+     * @return true if announcement found
+     * @return false if announcement not found or has been deleted
+     */
+    public function get_by_slug($announcement_slug)
+    {
+        $result = $this->db->select($this->schema_get)
+                            ->from('announcements')
+                            ->join('users', 'announcements.author_id = users.id')
+                            ->where('announcements.slug', $announcement_slug)
+                            ->where('announcements.deleted_at', null)
+                            ->get()->row();
+        
+        if (! $result) return false;
+        return $result;
+    }
+    /**
      * Soft Delete an Announcement by id
      * This only change the delete_at field to current time of deletion
      * @param $announcement_id

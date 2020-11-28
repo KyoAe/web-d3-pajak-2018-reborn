@@ -3363,6 +3363,20 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#391800', end
 	list-style-type: none;
 }
 
+.recent-news p{
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+	text-align: left;
+	margin-bottom: 1rem;
+}
+
+.info-bx .post-body a {
+	color: #6653ad;
+}
+
 /* Ribbon From AdminLTE */
 .ribbon-wrapper {
 	height: 70px;
