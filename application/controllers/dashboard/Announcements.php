@@ -19,12 +19,14 @@ class Announcements extends CI_Controller {
 	 */
 	public function create()
 	{
+		// Set form validation rules
 		$this->form_validation->set_rules('title', 'Judul', 'required');
 		$this->form_validation->set_rules('excerpt', 'Deskripsi Singkat', 'max_length[100]|required');
 
 		$this->form_validation->set_error_delimiters('<small class="text-danger">', '</small>');
 		if ($this->form_validation->run())
 		{
+			// Prepare announcement to be inserted
 			$announcement =
 			[
 				'author_id' => $this->aauth->get_user_id(),
@@ -48,7 +50,7 @@ class Announcements extends CI_Controller {
 	public function manage()
 	{
 		$data['title'] = 'Kelola Pengumuman';
-		$data['announcements'] = $this->announcements->get_all_announcements();
+		$data['announcements'] = $this->announcements->get_all();
 		// print_r($data['announcements']);
 		$this->load->view('pages/dashboard/announcements_manage', $data);		
 	}
@@ -58,6 +60,10 @@ class Announcements extends CI_Controller {
 		if (! $this->announcements->soft_delete_by_id($announcement_id))
 		{
 			$this->session->set_flashdata('alert', ['class' => 'bg-danger', 'msg' => 'Announcement does not exist']);
+		}
+		else
+		{
+			$this->session->set_flashdata('alert', ['class' => 'bg-success', 'msg' => 'Announcement deleted']);
 		}
 		redirect('dashboard/announcements/manage');
 	}
@@ -85,9 +91,9 @@ class Announcements extends CI_Controller {
 			$this->session->set_flashdata('alert', ['class' => 'bg-success', 'msg' => 'Announcement updated']);
 			redirect('dashboard/announcements/manage');
 		}
-		$data['announcement'] = $this->announcements->get_announcement_by_id($announcement_id);	
+		$data['announcement'] = $this->announcements->get_by_id($announcement_id);	
 
-		// Jika data yang ingin diupdate tidak ditemukan kembalikan ke manage
+		// Jika data yang ingin diupdate tidak ditemukan kembalikan ke manage dan kasih pemberitahuan
 		if (! $data['announcement'])
 		{
 			$this->session->set_flashdata('alert', ['class' => 'bg-danger', 'msg' => 'Announcement does not exist']);

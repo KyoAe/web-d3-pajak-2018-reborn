@@ -69,31 +69,36 @@
 <!-- <script src="public/adminLTE/dist/js/demo.js"></script> -->
 <?php print_r($this->session->flashdata('alert')); ?>
 <script>
+  function delete_confirmation() {   
+    return confirm('Are you sure to delete this item ?');
+  }
+
   $(function() {
-    //Initialize Select2 Elements
+    // Initialize Select2 Elements
     $('.select2').select2()
 
-    //Initialize Select2 Elements
+    // Initialize Select2 Elements
     $('.select2bs4').select2({
       theme: 'bootstrap4'
     })
 
-    //Datemask yyyy-mm-dd
+    // Datemask yyyy-mm-dd
     $('#datemask').inputmask('yyyy-mm-dd', { 'placeholder': 'yyyy-mm-dd' })
     $('[data-mask]').inputmask()
 
-    //Confirmation
-    $('.confirmation').on('click', function () {
+    // Add Confirmation on item using 'confirmation' class
+    $('.confirmation').on('click', function (event) {      
       return confirm('Are you sure?');
     });
 
-    //Initialize DataTables
+    // Initialize DataTables
     $('#table1').DataTable({
       "paging": true,
-      "lengthChange": false,
+      // "lengthChange": false,
       "ordering": true,
       "info": true,
       "autoWidth": false,
+      // "scrollX": true,
       "responsive": true,
     });
 
@@ -120,8 +125,7 @@
       convert_urls : true
     });
 
-    // Add Success Message if flashdata available
-
+    // Add Toast Message if flashdata available
     <?php if (! empty($this->session->flashdata('alert'))): ?>
     $(document).Toasts('create', {
       class: '<?= $this->session->flashdata('alert')['class'] ?>', 
