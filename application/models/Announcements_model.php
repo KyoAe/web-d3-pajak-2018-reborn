@@ -10,15 +10,21 @@ class Announcements_model extends CI_Model {
         'announcements.id',
         'body',
         'email as author_name',
-        'excerpt'
+        'excerpt',
+        'slug'
     ];
 
-    public function get_all() {
-        return $this->db->select($this->schema_get)
-                        ->from('announcements')
-                        ->join('users', 'announcements.author_id = users.id')
-                        ->where('announcements.deleted_at', null)
-                        ->order_by('created_at' ,'desc')
+    public function get_all($limit = false, $skip = false,  $include_null = false) 
+    {
+        $this->db->select($this->schema_get, '', ($limit) ?? '')
+                    ->from('announcements')
+                    ->join('users', 'announcements.author_id = users.id')
+                    ->where('announcements.deleted_at', null);
+        if($limit or $skip)
+        {
+            $this->db->limit($limit ?? '', $skip ?? '');
+        }
+        return $this->db->order_by('created_at' ,'desc')
                         ->get()->result();
     }
 

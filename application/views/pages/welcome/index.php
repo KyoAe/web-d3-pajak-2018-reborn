@@ -50,68 +50,38 @@
           </div>
         </div>
         <div class="recent-news-carousel owl-carousel owl-btn-1 col-12 p-lr0 m-b30">
+          <?php foreach ($announcements as $announcement): ?>
           <div class="item">
             <div class="recent-news">
               <div class="action-box">
+                <?php
+                  // php function to get date difference between current and post
+                  $today = strtotime(date('Y-m-d H:i:s'));
+                  if (ceil($today - strtotime($announcement->created_at)) / 86400 <= 4):
+                ?>
                 <div class="ribbon-wrapper ribbon-lg">
                   <div class="ribbon bg-yellow">
                     New
                   </div>
                 </div>
-                <img src="<?= base_url(); ?>public/images/blog/latest-blog/pic1.jpg" alt="">
+                <?php endif; ?>
+                <img src="<?= ($announcement->image !== '') ? html_escape($announcement->image) : base_url('public/images/blog/latest-blog/pic1.jpg'); ?>" style="height:300px;object-fit:cover">
               </div>
               <div class="info-bx">
                 <ul class="media-post">
-                  <li><a href="#"><i class="fa fa-calendar"></i>Jan 02 2019</a></li>
-                  <li><a href="#"><i class="fa fa-user"></i>By William</a></li>
+                  <li><a href="#"><i class="fa fa-calendar"></i><?php echo explode(' ', html_escape($announcement->created_at))[0]; ?></a></li>
+                  <li><a href="#"><i class="fa fa-user"></i><?php echo html_escape($announcement->author_name); ?></a></li>
                 </ul>
-                <h5 class="post-title"><a href="blog-details.html">This Story Behind Education Will Haunt You Forever.</a></h5>
-                <p>Knowing that, you’ve optimised your pages countless amount of times, written tons.</p>
-                <div class="post-extra">
-                  <a href="#" class="btn-link">READ MORE</a>
-                  <a href="#" class="comments-bx"><i class="fa fa-comments-o"></i>20 Comment</a>
+                <h5 class="post-title"><a href="<?= site_url('announcements/show/') . $announcement->slug; ?>"><?php echo html_escape($announcement->title); ?></a></h5>
+                <p><?php echo html_escape($announcement->excerpt); ?></p>
+                <div class="text-center">
+                  <hr>
+                  <a href="<?= site_url('announcements/show/') . $announcement->slug; ?>" class="btn-link">READ MORE</a>
                 </div>
               </div>
             </div>
           </div>
-          <div class="item">
-            <div class="recent-news">
-              <div class="action-box">
-                <img src="<?= base_url(); ?>public/images/blog/latest-blog/pic2.jpg" alt="">
-              </div>
-              <div class="info-bx">
-                <ul class="media-post">
-                  <li><a href="#"><i class="fa fa-calendar"></i>Feb 05 2019</a></li>
-                  <li><a href="#"><i class="fa fa-user"></i>By John</a></li>
-                </ul>
-                <h5 class="post-title"><a href="blog-details.html">What Will Education Be Like In The Next 50 Years?</a></h5>
-                <p>As desperate as you are right now, you have done everything you can on your.</p>
-                <div class="post-extra">
-                  <a href="#" class="btn-link">READ MORE</a>
-                  <a href="#" class="comments-bx"><i class="fa fa-comments-o"></i>14 Comment</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="recent-news">
-              <div class="action-box">
-                <img src="<?= base_url(); ?>public/images/blog/latest-blog/pic3.jpg" alt="">
-              </div>
-              <div class="info-bx">
-                <ul class="media-post">
-                  <li><a href="#"><i class="fa fa-calendar"></i>April 14 2019</a></li>
-                  <li><a href="#"><i class="fa fa-user"></i>By George</a></li>
-                </ul>
-                <h5 class="post-title"><a href="blog-details.html">Master The Skills Of Education And Be.</a></h5>
-                <p>You will see in the guide all my years of valuable experience together with.</p>
-                <div class="post-extra">
-                  <a href="#" class="btn-link">READ MORE</a>
-                  <a href="#" class="comments-bx"><i class="fa fa-comments-o"></i>23 Comment</a>
-                </div>
-              </div>
-            </div>
-          </div>
+          <?php endforeach; ?>
         </div>
         <div class="text-center">
           <a href="<?= site_url(); ?>announcements" class="btn">Lihat Semua Pengumuman</a>
