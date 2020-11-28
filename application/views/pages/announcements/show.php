@@ -29,7 +29,7 @@
               <!-- blog start -->
               <div class="recent-news blog-lg">
                 <div class="action-box blog-lg">
-                  <img src="<?= ($announcement->image !== '') ? html_escape($announcement->image) : base_url('public/images/blog/latest-blog/pic1.jpg'); ?>" alt="">
+                  <img src="<?= ($announcement->image !== null) ? html_escape($announcement->image) : base_url('public/images/announcements/default.jpg'); ?>" alt="">
                 </div>
                 <div class="info-bx">
                   <ul class="media-post">
@@ -54,7 +54,7 @@
                   <?php foreach ($announcements as $announcement): ?>
                   <div class="widget-post-bx">
                     <div class="widget-post clearfix">
-                      <div class="ttr-post-media"> <img src="<?= ($announcement->image !== '') ? html_escape($announcement->image) : base_url('public/images/announcement/default.jpg'); ?>" width="200" height="143" alt=""> </div>
+                      <div class="ttr-post-media"> <img src="<?= ($announcement->image !== null) ? html_escape($announcement->image) : base_url('public/images/announcements/default.jpg'); ?>" width="200" height="143" alt=""> </div>
                       <div class="ttr-post-info">
                         <div class="ttr-post-header">
                           <h6 class="post-title"><a href="<?= site_url('announcements/show/') . $announcement->slug; ?>"><?php echo html_escape($announcement->title); ?></a></h6>

@@ -65,7 +65,7 @@
                   </div>
                 </div>
                 <?php endif; ?>
-                <img src="<?= ($announcement->image !== '') ? html_escape($announcement->image) : base_url('public/images/announcement/default.jpg'); ?>" style="height:300px;object-fit:cover">
+                <img src="<?= ($announcement->image !== null) ? html_escape($announcement->image) : base_url('public/images/announcements/default.jpg'); ?>" style="height:300px;object-fit:cover">
               </div>
               <div class="info-bx">
                 <ul class="media-post">
