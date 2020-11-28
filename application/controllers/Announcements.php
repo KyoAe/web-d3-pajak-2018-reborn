@@ -21,12 +21,12 @@ class Announcements extends CI_Controller {
 	public function index()
 	{
 		$data['title'] = 'Pengumuman';
+		$data['announcements'] = $this->announcements->get_all();
 		$this->load->view('pages/announcements/index', $data);
 	}
 
 	public function show($announcement_slug)
-	{
-		
+	{		
 		$data['announcement'] = $this->announcements->get_by_slug($announcement_slug);
 		$data['announcements'] = $this->announcements->get_all(3);
 		// print_r($data['announcement']);

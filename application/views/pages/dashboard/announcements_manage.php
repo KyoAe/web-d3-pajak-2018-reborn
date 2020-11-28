@@ -34,7 +34,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
               <td class="align-middle"><?= html_escape($announcement->created_at) ?></td>
               <td class="align-middle"><?= html_escape($announcement->author_name) ?></td>
               <td class="align-middle">
-                <a href="<?= site_url('dashboard/announcements/view/') . $announcement->id?>" class="badge badge-info"><i class="fas fa-eye"></i> </a>
+                <a href="<?= site_url('announcements/show/') . $announcement->slug?>" class="badge badge-info"><i class="fas fa-eye"></i> </a>
                 <a href="<?= site_url('dashboard/announcements/update/') . $announcement->id ?>" class="badge badge-warning"><i class="far fa-edit"></i> </a>
                 <a href="<?= site_url('dashboard/announcements/delete/') . $announcement->id ?>" class="badge badge-danger" onclick="return delete_confirmation()"><i class="fas fa-trash"></i> </a>
               </td>

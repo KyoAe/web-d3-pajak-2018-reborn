@@ -131,6 +131,21 @@
 <script src="<?=base_url(); ?>public/vendors/owl-carousel/owl.carousel.js"></script>
 <script src="<?=base_url(); ?>public/js/functions.js"></script>
 <script src="<?=base_url(); ?>public/js/contact.js"></script>
+<!-- DataTables -->
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.22/r-2.2.6/datatables.min.js"></script>
+<!-- Custom Scripts -->
+<script>
+	$('#table1').DataTable({
+		"paging": true,
+      "lengthChange": false,
+      // "ordering": true,
+      "order": [],
+      "info": true,
+      "autoWidth": false,
+    //   "scrollX": true,
+      "responsive": true,
+	});
+</script>
 </body>
 
 </html>

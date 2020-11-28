@@ -42,6 +42,9 @@
 	<!-- SHORTCODES ============================================= -->
 	<link rel="stylesheet" type="text/css" href="<?=base_url(); ?>public/css/shortcodes/shortcodes.css">
 	
+	<!-- DATATABLES ============================================= -->
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.22/r-2.2.6/datatables.min.css"/>
+
 	<!-- STYLESHEETS ============================================= -->
 	<link rel="stylesheet" type="text/css" href="<?=base_url(); ?>public/css/style.css">
 	<link class="skin" rel="stylesheet" type="text/css" href="<?=base_url(); ?>public/css/color/color-1.css">
