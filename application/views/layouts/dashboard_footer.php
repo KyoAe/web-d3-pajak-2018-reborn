@@ -95,7 +95,8 @@
     $('#table1').DataTable({
       "paging": true,
       // "lengthChange": false,
-      "ordering": true,
+      // "ordering": true,
+      "order": [],
       "info": true,
       "autoWidth": false,
       // "scrollX": true,
