@@ -427,7 +427,7 @@ class Aauth {
 				}
 			}
 
-		}else if ( ! $this->is_allowed($perm_id) ){
+		}else if ( ! $this->is_allowed($perm_par) ){
 			if( $this->config_vars['no_permission'] ) {
 				$this->error($this->CI->lang->line('aauth_error_no_access'));
 				if($this->config_vars['no_permission'] !== false){
