@@ -9,7 +9,7 @@ class Announcements_model extends CI_Model {
         'announcements.created_at',
         'announcements.id',
         'body',
-        'users.nama_lengkap as author_name',
+        'users.fullname as author_name',
         'excerpt',
         'slug'
     ];
