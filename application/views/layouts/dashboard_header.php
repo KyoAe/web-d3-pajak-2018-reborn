@@ -100,7 +100,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <!-- Add icons to the links using the .nav-icon class
         with font-awesome or any other icon font library  -->
         <?php
-          $menus = $this->menus->get_all('dashboard');
+          $menus = $this->menus->get_by_name('dashboard');
           $this->multi_menu->set_items($menus);
   
           $config = $this->config->item('menu_styles')['dashboard'];
