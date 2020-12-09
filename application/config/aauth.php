@@ -83,7 +83,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $config_aauth = array();
 
 $config_aauth["default"] = array(
- 'no_permission'                  => false,
+ 'no_permission'                  => 'auth/login',
 
  'admin_group'                    => 'admin',
  'default_group'                  => 'default',
