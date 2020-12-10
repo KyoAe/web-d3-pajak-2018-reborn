@@ -42,7 +42,7 @@
  *---------------------------------------------------------------
  */
 	require 'vendor/autoload.php';
-	$dotenv = Dotenv\Dotenv::createUnsafeImmutable(__DIR__, 'application/config/.env');
+	$dotenv = Dotenv\Dotenv::createUnsafeImmutable(__DIR__, 'application' . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . '.env');
 	$dotenv->load();
 
 /*
