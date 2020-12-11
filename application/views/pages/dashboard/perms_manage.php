@@ -23,13 +23,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
             </tr>
             </thead>
             <tbody>
-            <?php foreach($permissions as $permission): ?>
+            <?php foreach($perms as $perm): ?>
             <tr>            
-              <td><?= html_escape($permission->name) ?></td>
-              <td><?= html_escape($permission->definition) ?></td>
+              <td><?= html_escape($perm->name) ?></td>
+              <td><?= html_escape($perm->definition) ?></td>
               <td class="text-center">
-                <a href="<?= site_url('dashboard/permissions/update/') . $permission->id ?>" class="badge badge-warning"><i class="far fa-edit"></i> </a>
-                <a href="<?= site_url('dashboard/permissions/delete/') . $permission->id ?>" class="badge badge-danger" onclick="return delete_confirmation()"><i class="fas fa-trash"></i> </a>
+                <a href="<?= site_url('dashboard/perms/update/') . $perm->id ?>" class="badge badge-warning"><i class="far fa-edit"></i> </a>
+                <a href="<?= site_url('dashboard/perms/delete/') . $perm->id ?>" class="badge badge-danger" onclick="return delete_confirmation()"><i class="fas fa-trash"></i> </a>
               </td>
             </tr>
             <?php endforeach; ?>

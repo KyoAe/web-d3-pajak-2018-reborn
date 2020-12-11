@@ -26,14 +26,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     <span id="myLetterCount">0/100</span>
                   </div>
                   <div class="col-sm-10">
-                    <input name="name" required type="text" class="form-control count-letter" id="inputNama" placeholder="Nama Wewenang" value="<?= html_escape($permission->name ?? '') ?>">
+                    <input name="name" required type="text" class="form-control count-letter" id="inputNama" placeholder="Nama Wewenang" value="<?= html_escape($perm->name ?? '') ?>">
                     <?php echo form_error('name'); ?>
                   </div>
                 </div>                
                 <div class="form-group row">
                   <label for="inputDefinisi" class="col-sm-2 col-form-label">Defnisi Wewenang <span class="text-red">*</span></label>
                   <div class="col-sm-10">
-                    <input name="definition" required type="text" class="form-control" id="inputDefinisi" placeholder="Deskripsi" value="<?= html_escape($permission->definition ?? '') ?>">
+                    <input name="definition" required type="text" class="form-control" id="inputDefinisi" placeholder="Deskripsi" value="<?= html_escape($perm->definition ?? '') ?>">
                     <?php echo form_error('definition'); ?>
                   </div>
                 </div>                
