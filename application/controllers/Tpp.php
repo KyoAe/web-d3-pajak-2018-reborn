@@ -8,15 +8,9 @@ class Tpp extends CI_Controller {
 		parent::__construct();
 		$this->load->model('Announcements_model', 'announcements');
 	}
+
 	/**
-	 * Index Page for Announcements controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/announcements
-	 *	- or -
-	 * 		http://example.com/index.php/announcements/index
-	 * 
-	 * @see https://codeigniter.com/user_guide/general/urls.html
+	 * KTTA Page for TPP controller
 	 */	
 	public function ktta()
 	{
@@ -25,6 +19,18 @@ class Tpp extends CI_Controller {
 		$data['pengurus_tpp_ktta'] = $this->pengurus_tpp_ktta();
 		$data['cp_tpp_ktta'] = $this->cp_tpp_ktta();
 		$this->load->view('pages/tpp/ktta', $data);
+	}
+
+	/**
+	 * PKL Page for TPP controller
+	 */	
+	public function pkl()
+	{
+		$data['title'] = 'TPP PKL';
+		$data['announcements'] = $this->announcements->get_all();
+		$data['pengurus_tpp_ktta'] = $this->pengurus_tpp_ktta();
+		$data['cp_tpp_ktta'] = $this->cp_tpp_pkl();
+		$this->load->view('pages/tpp/pkl', $data);
 	}
 
 	/**
@@ -96,6 +102,23 @@ class Tpp extends CI_Controller {
 			'CP Utama' => [
 				(object) array('nama' => 'Permata', 'nomor' => '62895610701397'),
 				(object) array('nama' => 'Jalu', 'nomor' => '6285727726278')
+			]
+		];
+	}
+
+	/**
+	 * A function that return contact
+	 * person of tpp pkl. Why am I doing this?
+	 * It's such a hassle to use database for this.
+	 * @return array cp tpp pkl
+	 */
+	private function cp_tpp_pkl() {
+		return 
+		[
+			'Humas' => [
+				(object) array('nama' => 'Feni', 'nomor' => '6289691431752'),
+				(object) array('nama' => 'Elberth', 'nomor' => '6282242123522'),
+				(object) array('nama' => 'Laili', 'nomor' => '6281999073879')
 			]
 		];
 	}
