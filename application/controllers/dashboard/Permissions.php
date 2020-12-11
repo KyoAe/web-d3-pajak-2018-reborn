@@ -31,9 +31,14 @@ class Permissions extends CI_Controller {
 				'name' => $this->input->post('name'),
 				'definition' => $this->input->post('definition')
 			];
-			$this->db->insert('perms', $permission);
-
-			$this->session->set_flashdata('alert', ['class' => 'bg-success', 'msg' => 'Permission added']);
+			if ($this->aauth->create_perm($permission['name'], $permission['definition']))
+			{
+				$this->session->set_flashdata('alert', ['class' => 'bg-success', 'msg' => 'Permission added']);
+			}
+			else
+			{
+				$this->session->set_flashdata('alert', ['class' => 'bg-danger', 'msg' => 'Permission already exist']);
+			}
 			redirect('dashboard/permissions/manage');
 		}
 		$data['form_destination'] = 'dashboard/permissions/create';
@@ -58,7 +63,7 @@ class Permissions extends CI_Controller {
 	 */
 	public function delete($permission_id)
 	{		
-		$this->db->delete('perms', array('id' => $permission_id));
+		$this->aauth->delete_perm($permission_id);
 		$this->session->set_flashdata('alert', ['class' => 'bg-success', 'msg' => 'Permission deleted']);
 		redirect('dashboard/permissions/manage');
 	}
@@ -81,13 +86,12 @@ class Permissions extends CI_Controller {
 				'name' => $this->input->post('name'),
 				'definition' => $this->input->post('definition')
 			];
-			$this->db->where('id', $permission_id)
-						->update('perms', $permission);
+			$this->aauth->update_perm($permission_id, $permission['name'], $permission['definition']);
 
 			$this->session->set_flashdata('alert', ['class' => 'bg-success', 'msg' => 'Permission updated']);
 			redirect('dashboard/permissions/manage');
 		}
-		$data['permission'] = $this->db->get_where('perms', array('id' => $permission_id))->row();
+		$data['permission'] = $this->aauth->get_perm($permission_id);
 
 		// Jika data yang ingin diupdate tidak ditemukan kembalikan ke manage dan kasih pemberitahuan
 		if (! $data['permission'])
