@@ -182,7 +182,7 @@ class Groups extends CI_Controller {
 			redirect('dashboard/groups');
 		}		
 		$this->aauth->remove_member($user_id, $group_id);
-		$this->session->set_flashdata('alert', ['class' => 'bg-success', 'msg' => 'Member added']);		
+		$this->session->set_flashdata('alert', ['class' => 'bg-success', 'msg' => 'Member removed']);		
 		redirect('dashboard/groups/manage_members/' . $group_id);
 	}
 	#########################
