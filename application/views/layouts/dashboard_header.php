@@ -55,7 +55,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="<?= site_url(); ?>dashboard" class="nav-link">Home</a>
+        <a href="<?= site_url(); ?>dashboard/profile" class="nav-link">Home</a>
     </ul>
 
     <!-- Right navbar links -->
@@ -91,7 +91,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
           <img src="<?= base_url(); ?>public/images/profile/hikigaya.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Giovanni Octa Anggoman</a>
+          <a href="<?= site_url() ?>dashboard/profile" class="d-block"><?= html_escape(ucwords(strtolower($this->aauth->get_user()->fullname))) ?></a>
         </div>
       </div>
 
@@ -125,7 +125,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="<?= site_url(); ?>dashboard/">Home</a></li>
+              <li class="breadcrumb-item"><a href="<?= site_url(); ?>dashboard/profile">Home</a></li>
               <li class="breadcrumb-item active"><?= $title ?></li>
             </ol>
           </div><!-- /.col -->

@@ -19,10 +19,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
                        alt="User profile picture">
                 </div>
 
-                <h3 class="profile-username text-center">Giovanni Octa Anggoman</h3>
-
-                <p class="text-muted text-center">Anggota Angkatan</p>
-
+                <h3 class="profile-username text-center"><?= html_escape(ucwords(strtolower($user->fullname))) ?></h3>
+                <?php foreach($user_groups as $user_group): ?>
+                <p class="text-muted text-center mb-0"><?= html_escape($user_group->name) ?></p>
+                <?php endforeach; ?>
                 <hr>
 
                 <b>NPM</b> <a class="float-right">2301180399</a>
@@ -74,19 +74,19 @@ defined('BASEPATH') or exit('No direct script access allowed');
                       <div class="form-group row">
                         <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
                         <div class="col-sm-10">
-                          <input type="email" class="form-control" id="inputEmail" placeholder="Email" disabled>
+                          <input type="email" class="form-control" id="inputEmail" placeholder="Email" disabled value="<?= html_escape($user->email) ?>">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="inputNamaLengkap" class="col-sm-2 col-form-label">Nama Lengkap</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputNamaLengkap" placeholder="Nama Lengkap" disabled>
+                          <input type="text" class="form-control" id="inputNamaLengkap" placeholder="Nama Lengkap" disabled value="<?= html_escape($user->fullname) ?>">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="inputNamaPanggilan" class="col-sm-2 col-form-label">Nama Panggilan</label>
                         <div class="col-sm-10">
-                          <input name="nama_panggilan" type="text" class="form-control" id="inputNamaPanggilan" placeholder="Nama Panggilan" value="Gio" required>
+                          <input name="nama_panggilan" type="text" class="form-control" id="inputNamaPanggilan" placeholder="Nama Panggilan" value="">
                         </div>
                       </div>
                       <div class="form-group row">
@@ -122,13 +122,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
                       <div class="form-group row">
                         <label for="inputJenisKelamin" class="col-sm-2 col-form-label">Jenis Kelamin</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputJenisKelamin" placeholder="Jenis Kelamin" value="" disabled>
+                          <input type="text" class="form-control" id="inputJenisKelamin" placeholder="Jenis Kelamin" value="<?= ($user->gender == 'M') ? 'Laki-Laki' : 'Perempuan' ?>" disabled>
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="inputAgama" class="col-sm-2 col-form-label">Agama</label>
                         <div class="col-sm-10">
-                          <select name="agama" class="form-control select2 select2-yellow" id="inputAgama" data-dropdown-css-class="select2-yellow" style="width: 100%;" required>
+                          <select name="agama" class="form-control select2 select2-yellow" id="inputAgama" data-dropdown-css-class="select2-yellow" style="width: 100%;">
                             <option value="" disabled selected hidden>Pilih Agama</option>
                             <option>Kristen</option>
                           </select>
@@ -190,27 +190,30 @@ defined('BASEPATH') or exit('No direct script access allowed');
                       <div class="form-group row">
                         <label for="inputPasswordBaru" class="col-sm-2 col-form-label">Password Baru</label>
                         <div class="col-sm-10">
-                          <input name="pass_baru" type="password" class="form-control" id="inputPasswordBaru" placeholder="Password Baru">
+                          <input name="newpass" type="password" class="form-control" id="inputPasswordBaru" placeholder="Password Baru">
+                          <?php echo form_error('newpass'); ?>
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="inputKonfirmasiPasswordBaru" class="col-sm-2 col-form-label">Konfirmasi Password Baru</label>
                         <div class="col-sm-10">
-                          <input name="pass_baru_confirmation" type="password" class="form-control" id="inputKonfirmasiPasswordBaru" placeholder="Konfirmasi Password Baru">
+                          <input name="newpassconf" type="password" class="form-control" id="inputKonfirmasiPasswordBaru" placeholder="Konfirmasi Password Baru">
+                          <?php echo form_error('newpassconf'); ?>
                         </div>
                       </div>
                       <div class="form-group">Password Lama perlu diisi untuk mengonfirmasi perubahan</div>
                       <div class="form-group row">
                         <label for="inputPasswordLama" class="col-sm-2 col-form-label">Password Lama</label>
                         <div class="col-sm-10">
-                          <input name="pass_old" type="password" class="form-control" id="inputPasswordLama" placeholder="Password Lama" required>
+                          <input name="oldpass" type="password" class="form-control" id="inputPasswordLama" placeholder="Password Lama" required>
+                          <?php echo form_error('oldpass'); ?>
                         </div>
                       </div>                 
                       <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
                           <div class="checkbox">
                             <label>
-                              <input name="kejujuran" type="checkbox" required> Saya menyatakan data yang saya kirimkan adalah benar
+                              <input name="confirm" type="checkbox" required> Saya menyatakan data yang saya kirimkan adalah benar
                             </label>
                           </div>
                         </div>
