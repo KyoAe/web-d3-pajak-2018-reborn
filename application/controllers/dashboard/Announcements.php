@@ -60,6 +60,20 @@ class Announcements extends CI_Controller {
 
 	public function delete($announcement_id)
 	{
+		$data['announcement'] = $this->announcements->get_by_id($announcement_id);
+		// Jika data yang ingin didelete tidak ditemukan kembalikan ke manage dan kasih pemberitahuan
+		if (! $data['announcement'])
+		{
+			$this->session->set_flashdata('alert', ['class' => 'bg-danger', 'msg' => 'Announcement does not exist']);
+			redirect('dashboard/announcements/manage');
+		}
+
+		// Redirect if not the author or does not have permission
+		if (!($data['announcement']->author_id == $this->aauth->get_user_id()) && (!$this->aauth->is_allowed('delete_others_announcement')))
+		{
+			redirect('dashboard/announcements/manage');
+		}
+
 		if (! $this->announcements->soft_delete_by_id($announcement_id))
 		{
 			$this->session->set_flashdata('alert', ['class' => 'bg-danger', 'msg' => 'Announcement does not exist']);
@@ -72,7 +86,20 @@ class Announcements extends CI_Controller {
 	}
 
 	public function update($announcement_id)
-	{			
+	{
+		$data['announcement'] = $this->announcements->get_by_id($announcement_id);
+		// Jika data yang ingin diupdate tidak ditemukan kembalikan ke manage dan kasih pemberitahuan
+		if (! $data['announcement'])
+		{
+			$this->session->set_flashdata('alert', ['class' => 'bg-danger', 'msg' => 'Announcement does not exist']);
+			redirect('dashboard/announcements/manage');
+		}
+
+		// Redirect if not the author or does not have permission
+		if (!($data['announcement']->author_id == $this->aauth->get_user_id()) && (!$this->aauth->is_allowed('update_others_announcement')))
+		{
+			redirect('dashboard/announcements/manage');
+		}
 		$this->form_validation->set_rules('title', 'Judul', 'required');
 		$this->form_validation->set_rules('excerpt', 'Deskripsi Singkat', 'max_length[100]|required');
 		$this->form_validation->set_rules('category_id', 'Kategori', 'required|numeric');
@@ -96,14 +123,7 @@ class Announcements extends CI_Controller {
 			$this->session->set_flashdata('alert', ['class' => 'bg-success', 'msg' => 'Announcement updated']);
 			redirect('dashboard/announcements/manage');
 		}
-		$data['announcement'] = $this->announcements->get_by_id($announcement_id);	
 
-		// Jika data yang ingin diupdate tidak ditemukan kembalikan ke manage dan kasih pemberitahuan
-		if (! $data['announcement'])
-		{
-			$this->session->set_flashdata('alert', ['class' => 'bg-danger', 'msg' => 'Announcement does not exist']);
-			redirect('dashboard/announcements/manage');
-		}
 		$data['form_destination'] = 'dashboard/announcements/update/' . $announcement_id;
 		$data['title'] = 'Update Pengumuman';
 		$data['categories'] = $this->db->get('categories')->result();

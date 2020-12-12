@@ -11,6 +11,7 @@ class Announcements_model extends CI_Model {
         'body',
         'users.fullname as author_name',
         'category_id',
+        'announcements.author_id',
         'excerpt',
         'announcements.slug as slug'
     ];

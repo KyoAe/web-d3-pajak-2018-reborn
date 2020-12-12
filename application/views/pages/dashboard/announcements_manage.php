@@ -35,8 +35,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
               <td class="align-middle"><?= html_escape($announcement->author_name) ?></td>
               <td class="align-middle">
                 <a href="<?= site_url('announcements/show/') . $announcement->slug?>" class="badge badge-info"><i class="fas fa-eye"></i> </a>
+                <?php if (($announcement->author_id == $this->aauth->get_user_id()) or ($this->aauth->is_allowed('update_others_announcement'))): ?>
                 <a href="<?= site_url('dashboard/announcements/update/') . $announcement->id ?>" class="badge badge-warning"><i class="far fa-edit"></i> </a>
+                <?php endif; ?>
+                <?php if (($announcement->author_id == $this->aauth->get_user_id()) or ($this->aauth->is_allowed('delete_others_announcement'))): ?>
                 <a href="<?= site_url('dashboard/announcements/delete/') . $announcement->id ?>" class="badge badge-danger" onclick="return delete_confirmation()"><i class="fas fa-trash"></i> </a>
+                <?php endif; ?>
               </td>
             </tr>
             <?php endforeach; ?>
