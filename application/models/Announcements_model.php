@@ -10,8 +10,9 @@ class Announcements_model extends CI_Model {
         'announcements.id',
         'body',
         'users.fullname as author_name',
+        'category_id',
         'excerpt',
-        'slug'
+        'announcements.slug as slug'
     ];
 
     public function get_all($limit = false, $skip = false,  $include_null = false) 
@@ -20,6 +21,22 @@ class Announcements_model extends CI_Model {
                     ->from('announcements')
                     ->join('users', 'announcements.author_id = users.id')
                     ->where('announcements.deleted_at', null);
+        if($limit or $skip)
+        {
+            $this->db->limit($limit ?? '', $skip ?? '');
+        }
+        return $this->db->order_by('created_at' ,'desc')
+                        ->get()->result();
+    }
+
+    public function get_by_category_slug($category_slug, $limit = false, $skip = false,  $include_null = false) 
+    {
+        $this->db->select($this->schema_get, '', ($limit) ?? '')
+                    ->from('announcements')
+                    ->join('users', 'announcements.author_id = users.id')
+                    ->join('categories', 'categories.id = announcements.category_id')
+                    ->where('announcements.deleted_at', null)
+                    ->where('categories.slug', $category_slug);
         if($limit or $skip)
         {
             $this->db->limit($limit ?? '', $skip ?? '');

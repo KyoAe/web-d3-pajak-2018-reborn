@@ -15,7 +15,7 @@ class Tpp extends CI_Controller {
 	public function ktta()
 	{
 		$data['title'] = 'TPP KTTA';
-		$data['announcements'] = $this->announcements->get_all();
+		$data['announcements'] = $this->announcements->get_by_category_slug('ktta');
 		$data['pengurus_tpp_ktta'] = $this->pengurus_tpp_ktta();
 		$data['cp_tpp_ktta'] = $this->cp_tpp_ktta();
 		$this->load->view('pages/tpp/ktta', $data);
@@ -27,7 +27,7 @@ class Tpp extends CI_Controller {
 	public function pkl()
 	{
 		$data['title'] = 'TPP PKL';
-		$data['announcements'] = $this->announcements->get_all();
+		$data['announcements'] = $this->announcements->get_by_category_slug('pkl');
 		$data['pengurus_tpp_ktta'] = $this->pengurus_tpp_ktta();
 		$data['cp_tpp_ktta'] = $this->cp_tpp_pkl();
 		$this->load->view('pages/tpp/pkl', $data);

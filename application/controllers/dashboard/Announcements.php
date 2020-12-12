@@ -22,6 +22,7 @@ class Announcements extends CI_Controller {
 		// Set form validation rules
 		$this->form_validation->set_rules('title', 'Judul', 'required');
 		$this->form_validation->set_rules('excerpt', 'Deskripsi Singkat', 'max_length[100]|required');
+		$this->form_validation->set_rules('category_id', 'Kategori', 'required|numeric');
 
 		$this->form_validation->set_error_delimiters('<small class="text-danger">', '</small>');
 		if ($this->form_validation->run())
@@ -32,6 +33,7 @@ class Announcements extends CI_Controller {
 				'author_id' => $this->aauth->get_user_id(),
 				'title' => $this->input->post('title'),
 				'excerpt' => $this->input->post('excerpt'),
+				'category_id' => $this->input->post('category_id'),
 				'image' => $this->input->post('image') !== '' ? $this->input->post('image') : null,
 				'body' => $this->input->post('body'),
 				'slug' => url_title($this->input->post('title'), '-', true),
@@ -44,6 +46,7 @@ class Announcements extends CI_Controller {
 		}
 		$data['form_destination'] = 'dashboard/announcements/create';
 		$data['title'] = 'Buat Pengumuman';
+		$data['categories'] = $this->db->get('categories')->result();
 		$this->load->view('pages/dashboard/announcements_create', $data);
 	}
 
@@ -72,6 +75,7 @@ class Announcements extends CI_Controller {
 	{			
 		$this->form_validation->set_rules('title', 'Judul', 'required');
 		$this->form_validation->set_rules('excerpt', 'Deskripsi Singkat', 'max_length[100]|required');
+		$this->form_validation->set_rules('category_id', 'Kategori', 'required|numeric');
 
 		$this->form_validation->set_error_delimiters('<small class="text-danger">', '</small>');
 		if ($this->form_validation->run())
@@ -80,6 +84,7 @@ class Announcements extends CI_Controller {
 			[
 				'title' => $this->input->post('title'),
 				'excerpt' => $this->input->post('excerpt'),
+				'category_id' => $this->input->post('category_id'),
 				'image' => $this->input->post('image') !== '' ? $this->input->post('image') : null,
 				'body' => $this->input->post('body'),
 				'slug' => url_title($this->input->post('title'), '-', true),
@@ -101,6 +106,7 @@ class Announcements extends CI_Controller {
 		}
 		$data['form_destination'] = 'dashboard/announcements/update/' . $announcement_id;
 		$data['title'] = 'Update Pengumuman';
+		$data['categories'] = $this->db->get('categories')->result();
 		$this->load->view('pages/dashboard/announcements_create', $data);
 	}
 }

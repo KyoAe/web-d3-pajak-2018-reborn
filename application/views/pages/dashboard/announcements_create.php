@@ -27,6 +27,18 @@ defined('BASEPATH') or exit('No direct script access allowed');
                   </div>
                 </div>
                 <div class="form-group row">
+                  <label for="inputCategory" class="col-sm-2 col-form-label">Kategori</label>
+                  <div class="col-sm-10">
+                    <select name="category_id" class="form-control select2 select2-yellow"  id="inputCategory" data-dropdown-css-class="select2-yellow" style="width: 100%;">
+                      <option value="" disabled selected hidden>Pilih kategori</option>
+                      <?php foreach($categories as $category): ?>
+                      <option value="<?= $category->id ?>" <?= (isset($announcement->category_id) && $announcement->category_id == $category->id)  ? 'selected' : ''?> ><?= $category->name ?></option>
+                      <?php endforeach ?>
+                    </select>
+                    <?php echo form_error('category_id'); ?>
+                  </div>
+                </div>
+                <div class="form-group row">
                   <div class="col-sm-2">
                     <label for="inputDeskripsiSingkat" class="col-form-label">Deskripsi Singkat</label>
                     <span id="myLetterCount">0/100</span>
