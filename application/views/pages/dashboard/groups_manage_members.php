@@ -42,7 +42,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <tbody>
             <?php foreach($users_in_group as $user): ?>
             <tr>
-              <td></td>
+              <td><?= html_escape($user->npm)?></td>
               <td><?= html_escape($user->fullname) ?></td>
               <td><?= html_escape($user->email) ?></td>
               <td class="text-center">                                

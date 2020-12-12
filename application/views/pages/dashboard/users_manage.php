@@ -17,6 +17,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
           <table id="table1" class="table table-bordered table-hover">
             <thead>
             <tr>
+              <th>NPM</th>
               <th>Nama</th>
               <th>Definisi</th>
               <th>Aksi</th>
@@ -25,6 +26,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <tbody>
             <?php foreach($users as $user): ?>
             <tr>            
+              <td><?= html_escape($user->npm) ?></td>
               <td><?= html_escape($user->fullname) ?></td>
               <td><?= html_escape($user->email) ?></td>
               <td class="text-center">
@@ -41,6 +43,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             </tbody>
             <tfoot>
             <tr>
+              <th>NPM</th>
               <th>Nama</th>
               <th>Definisi</th>
               <th>Aksi</th>
