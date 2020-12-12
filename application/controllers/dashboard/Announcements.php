@@ -5,7 +5,7 @@ class Announcements extends CI_Controller {
     public function __construct()
 	{
 		parent::__construct();
-		$this->aauth->control();
+		$this->aauth->control('browse_announcements');
 		$this->load->model('Announcements_model', 'announcements');
 	}
 
