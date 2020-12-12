@@ -17,6 +17,7 @@ class Tpp extends CI_Controller {
 		$data['title'] = 'TPP KTTA';
 		$data['announcements'] = $this->announcements->get_by_category_slug('ktta');
 		$data['pengurus_tpp_ktta'] = $this->pengurus_tpp_ktta();
+		$data['faqs'] = $this->get_faqs_by_name('PKL');
 		$data['cp_tpp_ktta'] = $this->cp_tpp_ktta();
 		$this->load->view('pages/tpp/ktta', $data);
 	}
@@ -28,8 +29,9 @@ class Tpp extends CI_Controller {
 	{
 		$data['title'] = 'TPP PKL';
 		$data['announcements'] = $this->announcements->get_by_category_slug('pkl');
+		$data['faqs'] = $this->get_faqs_by_name('KTTA');
 		$data['pengurus_tpp_ktta'] = $this->pengurus_tpp_ktta();
-		$data['cp_tpp_ktta'] = $this->cp_tpp_pkl();
+		$data['cp_tpp_pkl'] = $this->cp_tpp_pkl();
 		$this->load->view('pages/tpp/pkl', $data);
 	}
 
@@ -121,5 +123,14 @@ class Tpp extends CI_Controller {
 				(object) array('nama' => 'Laili', 'nomor' => '6281999073879')
 			]
 		];
+	}
+
+	private function get_faqs_by_name($faq_name)
+	{
+		return $this->db->select('faq_items.*')
+				 ->from('faqs')
+				 ->join('faq_items', 'faqs.id = faq_items.faq_id')
+				 ->where('faqs.name', $faq_name)
+				 ->get()->result();
 	}
 }

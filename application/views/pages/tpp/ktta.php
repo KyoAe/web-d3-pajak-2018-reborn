@@ -128,18 +128,31 @@ defined('BASEPATH') or exit('No direct script access allowed');
           <p>Jawaban dari pertanyaan-pertanyaan yang sering ditanyakan terkait KTTA. Dibaca dahulu sebelum mengajukan pertanyaan yang lain</p>
           <div class="ttr-accordion m-b30 faq-bx" id="accordion1">
             <!-- LOOPING START HERE===-->
+            <?php 
+            $array_length = count($faqs);
+            for ($i = 0; $i < $array_length; $i++):
+            ?>
             <div class="panel">
               <div class="acod-head">
                 <h6 class="acod-title"> 
-                  <a data-toggle="collapse" href="#faq1" class="collapsed" data-parent="#faq1">
-                  Apakah KTTA wajib?
+                  <a data-toggle="collapse" href="#faq<?= $i ?>" class="collapsed" data-parent="#faq<?= $i ?>">
+                  <?= html_escape($faqs[$i]->question) ?>
+
+                  <?php
+                  // php function to get date difference between current and post
+                  $today = strtotime(date('Y-m-d H:i:s'));
+                  if (ceil($today - strtotime($faqs[$i]->created_at)) / 86400 <= 4):
+                  ?>
                   <span class="btn button-sm red">NEW</span>
+                  <?php endif;?>
+
                   </a> </h6>
               </div>
-              <div id="faq1" class="acod-body collapse">
-                <div class="acod-content">Cukup jelas.</div>
+              <div id="faq<?= $i ?>" class="acod-body collapse">
+                <div class="acod-content"><?= html_escape($faqs[$i]->answer) ?></div>
               </div>
             </div>
+            <?php endfor; ?>
             <!-- LOOPING END HERE===-->
           </div>
         </div>
