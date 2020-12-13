@@ -184,13 +184,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
       <div class="heading-bx left">
         <h2 class="m-b10 title-head">Koordinator PKL</h2>
       </div>
-      <p>Susunan pengurus dan kontak koordinator PKL</p> 
+      <p>Susunan pengurus koordinator PKL</p> 
       <div class="table-responsive">
-        <table class="table table-borderless">
-          <thead class="table-warning">
+        <table class="table table-borderless" style="table-layout: fixed;">
+          <thead class="bg-primary text-white">
             <tr>
-              <th scope="col">Bidang</th>
-              <th scope="col">Nama Lengkap</th>
+              <th scope="col" class="text-white" style="max-width:50%">Bidang</th>
+              <th scope="col" class="text-white">Nama Lengkap</th>
             </tr>
           </thead>
           <tbody>
@@ -200,7 +200,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             foreach ($tpp_pkl_members as $key => $tpp_pkl_member):
             ?>
             <tr>                            
-              <th scope="row" class="table-warning">
+              <th scope="row" class="bg-primary text-white" style="max-width:50%">
                 <?php if($key == 0 || $tpp_pkl_member->field_name != $tpp_pkl_members[$key-1]->field_name)
                 {
                   echo $tpp_pkl_member->field_name;
