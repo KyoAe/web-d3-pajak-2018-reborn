@@ -15,7 +15,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
               <div class="card-body box-profile">
                 <div class="text-center">
                   <img class="profile-user-img img-fluid img-circle"
-                       src="<?= base_url(); ?>public/images/profile/hikigaya.jpg"
+                       src="<?= base_url(); ?>public/images/profile/default.png"
                        alt="User profile picture">
                 </div>
 
@@ -25,7 +25,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <?php endforeach; ?>
                 <hr>
 
-                <b>NPM</b> <a class="float-right">2301180399</a>
+                <b>NPM</b> <a class="float-right"><?= html_escape($user->npm) ?></a>
 
               </div>
               <!-- /.card-body -->
@@ -42,14 +42,15 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <strong><i class="fas fa-book mr-1"></i> Bidang KTTA</strong>
 
                 <p class="text-muted">
-                  Ketentuan Umum dan Tata Cara Perpajakan (KUP)
+                  Feature coming soon
+                  <!-- Ketentuan Umum dan Tata Cara Perpajakan (KUP) -->
                 </p>
 
                 <hr>
 
                 <strong><i class="fas fa-user mr-1"></i> Dosen Pembimbing</strong>
 
-                <p class="text-muted">Pak Seseorang</p>               
+                <p class="text-muted">Feature coming soon</p>               
               </div>
               <!-- /.card-body -->
             </div>
