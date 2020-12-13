@@ -35,6 +35,7 @@
                   <ul class="media-post">
                     <li><a href="#"><i class="fa fa-calendar"></i><?= html_escape($announcement->created_at) ?></a></li>
                     <li><a href="#"><i class="fa fa-user"></i><?= html_escape($announcement->author_name) ?></a></li>
+                    <li><a href="#"><i class="fa fa-folder-open"></i><?= html_escape($announcement->category_name); ?></a></li>
                   </ul>
                   <h5 class="post-title"><a href="#"><?= html_escape($announcement->title) ?></a></h5>
                   <div class="post-body">

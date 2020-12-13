@@ -11,6 +11,7 @@ class Announcements_model extends CI_Model {
         'body',
         'users.fullname as author_name',
         'category_id',
+        'categories.name as category_name',
         'announcements.author_id',
         'excerpt',
         'announcements.slug as slug'
@@ -21,6 +22,7 @@ class Announcements_model extends CI_Model {
         $this->db->select($this->schema_get, '', ($limit) ?? '')
                     ->from('announcements')
                     ->join('users', 'announcements.author_id = users.id')
+                    ->join('categories', 'categories.id = announcements.category_id')
                     ->where('announcements.deleted_at', null);
         if($limit or $skip)
         {
@@ -57,6 +59,7 @@ class Announcements_model extends CI_Model {
         $result = $this->db->select($this->schema_get)
                             ->from('announcements')
                             ->join('users', 'announcements.author_id = users.id')
+                            ->join('categories', 'categories.id = announcements.category_id')
                             ->where('announcements.id', $announcement_id)
                             ->where('announcements.deleted_at', null)
                             ->get()->row();
@@ -76,6 +79,7 @@ class Announcements_model extends CI_Model {
         $result = $this->db->select($this->schema_get)
                             ->from('announcements')
                             ->join('users', 'announcements.author_id = users.id')
+                            ->join('categories', 'categories.id = announcements.category_id')
                             ->where('announcements.slug', $announcement_slug)
                             ->where('announcements.deleted_at', null)
                             ->get()->row();

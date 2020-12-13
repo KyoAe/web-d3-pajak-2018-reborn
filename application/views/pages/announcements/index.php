@@ -28,6 +28,7 @@
         <th>Gambar</th>
         <th>Judul</th>
         <th>Deskripsi Singkat</th>
+        <th>Kategori</th>
         <th>Tanggal</th>
         <th>Penulis</th>
         <th>Aksi</th>
@@ -39,6 +40,7 @@
         <td class="align-middle"><img src="<?= ($announcement->image!==null) ? html_escape($announcement->image) : base_url('public/images/announcements/default.jpg'); ?>" alt="" style="max-width:100px"></td>
         <td class="align-middle judul"><?= html_escape($announcement->title) ?></td>
         <td class="align-middle"><?= html_escape($announcement->excerpt) ?></td>
+        <td class="align-middle"><?= html_escape($announcement->category_name) ?></td>
         <td class="align-middle"><?= html_escape($announcement->created_at) ?></td>
         <td class="align-middle"><?= html_escape($announcement->author_name) ?></td>
         <td class="align-middle">
@@ -52,6 +54,7 @@
         <th>Gambar</th>
         <th>Judul</th>
         <th>Deskripsi Singkat</th>
+        <th>Kategori</th>
         <th>Tanggal</th>
         <th>Penulis</th>
         <th>Aksi</th>

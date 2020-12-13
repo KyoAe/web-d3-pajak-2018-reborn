@@ -11,6 +11,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
       <div class="card">
         <div class="card-header">
           <h3 class="card-title">Isi data terkait pengumuman</h3>
+          <br>
+          <a href="<?= site_url("dashboard/announcements/manage") ?>"><i class="fas fa-arrow-left"></i> kembali</a>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -32,7 +34,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     <select name="category_id" class="form-control select2 select2-yellow"  id="inputCategory" data-dropdown-css-class="select2-yellow" style="width: 100%;">
                       <option value="" disabled selected hidden>Pilih kategori</option>
                       <?php foreach($categories as $category): ?>
-                      <option value="<?= $category->id ?>" <?= (isset($announcement->category_id) && $announcement->category_id == $category->id)  ? 'selected' : ''?> ><?= $category->name ?></option>
+                      <option value="<?= $category->id ?>" <?= (isset($announcement->category_id) && $announcement->category_id == $category->id)  ? 'selected' : ''?> ><?= html_escape($category->name) ?></option>
                       <?php endforeach ?>
                     </select>
                     <?php echo form_error('category_id'); ?>
