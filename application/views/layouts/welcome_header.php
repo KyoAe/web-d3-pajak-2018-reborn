@@ -35,6 +35,10 @@
 	
 	<!-- All PLUGINS CSS ============================================= -->
 	<link rel="stylesheet" type="text/css" href="<?=base_url(); ?>public/css/assets.css">
+	<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
 	
 	<!-- TYPOGRAPHY ============================================= -->
 	<link rel="stylesheet" type="text/css" href="<?=base_url(); ?>public/css/typography.css">
@@ -142,7 +146,7 @@
                                             <li><a href="https://bit.ly/resumebyIR">Resume By IR</a></li>
 										</ul>
 									</li>
-									<li><a href="<?= site_url(); ?>aspirasi">Aspirasi</a></li>								
+									<li><a href="<?= site_url(); ?>services/aspirasi_angkatan">Aspirasi</a></li>								
 								</ul>
 							</li>
 							<li><a href="javascript:;">Tentang <i class="fa fa-chevron-down"></i></a>

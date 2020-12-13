@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class About extends CI_Controller {
+class Services extends CI_Controller {
 
 	/**
 	 * Index Page for About controller.
@@ -13,15 +13,9 @@ class About extends CI_Controller {
 	 * 
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */	
-	public function tentang_angkatan()
+	public function aspirasi_angkatan()
 	{
-		$data['title'] = 'Tentang Angkatan';
-		$this->load->view('pages/about/tentang_angkatan', $data);
-	}
-
-	public function struktur_sa()
-	{
-		$data['title'] = 'Struktur Sukarelawan Angkatan';
-		$this->load->view('pages/about/struktur_sa', $data);
+		$data['title'] = 'Aspirasi Angkatan';
+		$this->load->view('pages/services/aspirasi_angkatan', $data);
 	}
 }
