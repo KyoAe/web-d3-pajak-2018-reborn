@@ -118,13 +118,10 @@ class Tpp extends CI_Controller {
 			'Untuk Ubah Judul KTTA' => [
 				(object) array('nama' => 'Dendi', 'nomor' => '6282287396960')
 			],
-			'Untuk Surat Survei dan E-riset' => [
-				(object) array('nama' => 'Sukma', 'nomor' => '6287781069403'),
-				(object) array('nama' => 'Dias', 'nomor' => '6281908287944')
-			],
 			'CP Utama' => [
 				(object) array('nama' => 'Permata', 'nomor' => '62895610701397'),
-				(object) array('nama' => 'Jalu', 'nomor' => '6285727726278')
+				(object) array('nama' => 'Jalu', 'nomor' => '6285727726278'),
+				(object) array('nama' => 'Safira', 'nomor' => '6282242001232')
 			]
 		];
 	}
