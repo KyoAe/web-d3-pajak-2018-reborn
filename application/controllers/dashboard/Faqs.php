@@ -202,7 +202,7 @@ class Faqs extends CI_Controller {
 				'updated_at' => date('Y-m-d H:i:s')	
 			);
 			$this->db->where('faq_items.id', $faq_item_id)->update('faq_items', $faq_item);
-			$this->session->set_flashdata('alert', ['class' => 'bg-success', 'msg' => 'Item added']);
+			$this->session->set_flashdata('alert', ['class' => 'bg-success', 'msg' => 'Item updated']);
 			redirect('dashboard/faqs/manage_items/' . $faq_id);
 		}
 		$data['title'] = "Update item dari FAQ {$faq->name}";
