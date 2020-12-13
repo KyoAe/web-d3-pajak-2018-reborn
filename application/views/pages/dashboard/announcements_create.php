@@ -22,14 +22,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
               <!-- <form class="form-horizontal"> -->
               <?= form_open($form_destination, ['class' => 'form-horizontal']); ?>
                 <div class="form-group row">
-                  <label for="inputJudul" class="col-sm-2 col-form-label">Judul</label>
+                  <label for="inputJudul" class="col-sm-2 col-form-label">Judul <span class="text-danger">*</span></label>
                   <div class="col-sm-10">
                     <input name="title" type="text" class="form-control" id="inputJudul" placeholder="Judul Pengumuman" value="<?= html_escape($announcement->title ?? '') ?>">
                     <?php echo form_error('title'); ?>
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label for="inputCategory" class="col-sm-2 col-form-label">Kategori</label>
+                  <label for="inputCategory" class="col-sm-2 col-form-label">Kategori <span class="text-danger">*</span></label>
                   <div class="col-sm-10">
                     <select name="category_id" class="form-control select2 select2-yellow"  id="inputCategory" data-dropdown-css-class="select2-yellow" style="width: 100%;">
                       <option value="" disabled selected hidden>Pilih kategori</option>
@@ -42,7 +42,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-2">
-                    <label for="inputDeskripsiSingkat" class="col-form-label">Deskripsi Singkat</label>
+                    <label for="inputDeskripsiSingkat" class="col-form-label">Deskripsi Singkat <span class="text-danger">*</span></label>
                     <span id="myLetterCount">0/100</span>
                   </div>                                  
                   <div class="col-sm-10">
