@@ -16,8 +16,9 @@ class Tpp extends CI_Controller {
 	{
 		$data['title'] = 'TPP KTTA';
 		$data['announcements'] = $this->announcements->get_by_category_slug('ktta');
-		$data['pengurus_tpp_ktta'] = $this->pengurus_tpp_ktta();
-		$data['faqs'] = $this->get_faqs_by_name('PKL');
+		// $data['pengurus_tpp_ktta'] = $this->pengurus_tpp_ktta();
+		$data['tpp_ktta_members'] = $this->get_tpp_members('ktta');
+		$data['faqs'] = $this->get_faqs_by_name('KTTA');
 		$data['cp_tpp_ktta'] = $this->cp_tpp_ktta();
 		$this->load->view('pages/tpp/ktta', $data);
 	}
@@ -29,10 +30,30 @@ class Tpp extends CI_Controller {
 	{
 		$data['title'] = 'TPP PKL';
 		$data['announcements'] = $this->announcements->get_by_category_slug('pkl');
-		$data['faqs'] = $this->get_faqs_by_name('KTTA');
-		$data['pengurus_tpp_ktta'] = $this->pengurus_tpp_ktta();
+		$data['faqs'] = $this->get_faqs_by_name('PKL');
+		$data['tpp_pkl_members'] = $this->get_tpp_members('pkl');
 		$data['cp_tpp_pkl'] = $this->cp_tpp_pkl();
 		$this->load->view('pages/tpp/pkl', $data);
+	}
+
+	/**
+	 * A function that returns the member of tpp
+	 * @param $tpp_name name of tpp (e.g. 'pkl')
+	 * @return array tpp_members
+	 */
+	private function get_tpp_members($tpp_name)
+	{
+		$schema = array(
+			'tpp_fields.name as field_name',
+			'tpp_members.fullname as fullname',
+			'tpp_members.contact as contact',
+			'tpp_members.avatar as avatar'
+		);
+		return $this->db->select($schema)
+						->from('tpp')
+						->join('tpp_members', 'tpp.id = tpp_members.tpp_id')
+						->join('tpp_fields', 'tpp_members.tpp_field_id = tpp_fields.id')
+						->where('tpp.name', $tpp_name)->get()->result();
 	}
 
 	/**

@@ -190,43 +190,26 @@ defined('BASEPATH') or exit('No direct script access allowed');
           <thead class="table-warning">
             <tr>
               <th scope="col">Bidang</th>
-              <th scope="col">Keterangan</th>
-              <th scope="col">Nama</th>
-              <th scope="col">Kontak</th>
+              <th scope="col">Nama Lengkap</th>
             </tr>
           </thead>
           <tbody>
             <!-- LOOP START HERE=== -->
             <?php 
             // This is about to get messy. But trust me, me and I can do this
-            $index_bidang = 0;
-            $bidang = $pengurus_tpp_ktta['bidang'];
-            $keterangan = $pengurus_tpp_ktta['keterangan'];
-            $kontak = $pengurus_tpp_ktta['kontak'];
-
-            for ($i = 0; $i < 15; $i++):          
+            foreach ($tpp_pkl_members as $key => $tpp_pkl_member):
             ?>
-            <tr>
-              <!-- <th scope="row" class="table-warning" rowspan="<?= ($bidang[$index_bidang + 1]->row_start - $bidang[$index_bidang]->row_start) ?>"> -->
-                <!--  -->
-              <!-- </th> -->
-              <?php if($i === $bidang[$index_bidang]->row_start): ?>
+            <tr>                            
               <th scope="row" class="table-warning">
-                <?= $bidang[$index_bidang++]->name ?>
-              </th>
-              <?php else: ?>
-              <th scope="row" class="table-warning">
-                
-              </th>
-              <?php endif; ?>
-              
-              <?php if ($i !== 14): ?>
-              <th scope="row" rowspan="<?= ($i == 13) ? 2 : 1 ?>"><?= $keterangan[$i] ?></th>
-              <?php endif; ?>
-              <td><?= $kontak[$i]->nama ?></td>
-              <td><?= $kontak[$i]->nomor ?></td>
+                <?php if($key == 0 || $tpp_pkl_member->field_name != $tpp_pkl_members[$key-1]->field_name)
+                {
+                  echo $tpp_pkl_member->field_name;
+                }
+                ?>
+              </th>                            
+              <td><?= $tpp_pkl_member->fullname ?></td>
             </tr>
-            <?php endfor; ?>
+            <?php endforeach; ?>
             <!-- LOOP END HERE=== -->
           </tbody>
         </table>
