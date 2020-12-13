@@ -11,6 +11,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
       <div class="card">
         <div class="card-header">
           <h3 class="card-title">Isi data terkait user</h3>
+          <br>
+          <a href="<?= site_url("dashboard/users/manage") ?>"><i class="fas fa-arrow-left"></i> kembali</a>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -43,7 +45,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 </div>
               </div>
               <div class="form-group row">
-                <label for="inputGender" class="col-sm-2 col-form-label">Jenis Kelamin</label>
+                <label for="inputGender" class="col-sm-2 col-form-label">Jenis Kelamin <span class="text-danger">*</span></label>
                 <div class="col-sm-10">
                   <select name="gender" class="form-control select2 select2-yellow"  id="inputGender" data-dropdown-css-class="select2-yellow" style="width: 100%;">
                     <option value="" disabled selected hidden>Pilih Gender</option>
@@ -54,7 +56,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 </div>
               </div>
               <div class="form-group row">
-                <label for="inputPass" class="col-sm-2 col-form-label">Password user <span class="text-red">*</span></label>
+                <label for="inputPass" class="col-sm-2 col-form-label">Password user
+                  <?php if (! isset($user->fullname)): ?>
+                   <span class="text-red">*</span>
+                  <?php endif; ?>
+                </label>
                 <div class="col-sm-10">
                   <input name="pass" type="password" class="form-control" id="inputPass" placeholder="******">
                   <?php echo form_error('pass'); ?>

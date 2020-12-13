@@ -10,10 +10,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <div class="col-12">
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Mahasiswa yang sudah ada</h3>
+          <h3 class="card-title">Pengguna yang sudah ada</h3>          
         </div>
         <!-- /.card-header -->
         <div class="card-body">
+          <a href="<?= site_url("dashboard/users/create") ?>">
+            <button class="btn btn-warning"><i class="fas fa-plus"></i> Tambah</button>
+          </a>
+          <hr>
           <table id="table1" class="table table-bordered table-hover">
             <thead>
             <tr>
@@ -31,7 +35,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
               <td><?= html_escape($user->email) ?></td>
               <td class="text-center">
                 <?php if (!$this->aauth->is_member('Admin', $user->id) or $this->aauth->is_admin()): ?>
-                <a href="<?= site_url('dashboard/users/manage_members/') . $user->id?>" class="badge badge-info"><i class="fas fa-eye"></i> </a>
+                <!-- <a href="<?= site_url('dashboard/users/manage_members/') . $user->id?>" class="badge badge-info"><i class="fas fa-eye"></i> </a> -->
                 <a href="<?= site_url('dashboard/users/update/') . $user->id ?>" class="badge badge-warning"><i class="far fa-edit"></i> </a>
                 <?php if (!$this->aauth->is_member('Admin', $user->id)): ?>
                 <a href="<?= site_url('dashboard/users/delete/') . $user->id ?>" class="badge badge-danger" onclick="return delete_confirmation()"><i class="fas fa-trash"></i> </a>
