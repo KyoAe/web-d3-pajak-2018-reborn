@@ -35,10 +35,12 @@
 	
 	<!-- All PLUGINS CSS ============================================= -->
 	<link rel="stylesheet" type="text/css" href="<?=base_url(); ?>public/css/assets.css">
+
+	<!-- Animate CSS ================================================= -->
 	<link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
+		rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  	/>
 	
 	<!-- TYPOGRAPHY ============================================= -->
 	<link rel="stylesheet" type="text/css" href="<?=base_url(); ?>public/css/typography.css">

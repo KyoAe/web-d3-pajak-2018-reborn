@@ -64,12 +64,10 @@
 							</div>
 							<div class="col-4 col-lg-4 col-md-4 col-sm-4">
 								<div class="widget footer_widget">
-									<h5 class="footer-title">Idk</h5>
+									<h5 class="footer-title">TPP</h5>
 									<ul>
-										<li><a href="javascript:;">What</a></li>
-										<li><a href="javascript:;">To</a></li>
-										<li><a href="javascript:;">Put</a></li>
-										<li><a href="javascript:;">Here</a></li>
+										<li><a href="<?= site_url() ?>tpp/ktta">KTTA</a></li>
+										<li><a href="<?= site_url() ?>tpp/pkl">PKL</a></li>
 									</ul>
 								</div>
 							</div>
