@@ -46,7 +46,7 @@
         <div class="row">
           <div class="col-md-12 heading-bx left">
             <h2 class="title-head">Pengumuman <span>Angkatan</span></h2>
-            <p>Sudah merupakan fakta bahwa jarkoman yang disebarkan sering dilupakan. Kami merampungnya untuk anda</p>
+            <p>Sudah merupakan fakta bahwa jarkoman yang disebarkan sering dilupakan. Kami merampungnya untuk anda. Label "New" berarti belum lewat jangka waktu 4 hari sejak ditambahkan</p>
           </div>
         </div>
         <div class="recent-news-carousel owl-carousel owl-btn-1 col-12 p-lr0 m-b30">

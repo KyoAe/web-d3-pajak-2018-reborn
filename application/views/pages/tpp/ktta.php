@@ -125,7 +125,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
           <div class="heading-bx left">
             <h2 class="m-b10 title-head">FAQs</h2>
           </div>
-          <p>Jawaban dari pertanyaan-pertanyaan yang sering ditanyakan terkait KTTA. Dibaca dahulu sebelum mengajukan pertanyaan yang lain</p>
+          <p>Jawaban dari pertanyaan-pertanyaan yang sering ditanyakan terkait KTTA. Dibaca dahulu sebelum mengajukan pertanyaan yang lain. Label "New" berarti belum lewat jangka waktu 4 hari sejak ditambahkan.</p>
           <div class="ttr-accordion m-b30 faq-bx" id="accordion1">
             <!-- LOOPING START HERE===-->
             <?php 
