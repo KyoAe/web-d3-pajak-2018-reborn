@@ -130,7 +130,7 @@ class Users extends CI_Controller {
 				$this->db->where('users.id', $user_id)->update('users', $user);
 				$this->session->set_flashdata('alert', ['class' => 'bg-success', 'msg' => 'user updated']);
 			}
-			else if ($this->aauth->update_user($user_id, $this->input->post('email')))
+			else if ($this->aauth->update_user($user_id, $this->input->post('email'), $this->input->post('pass')))
 			{
 				$this->db->where('users.id', $user_id)->update('users', $user);
 				$this->session->set_flashdata('alert', ['class' => 'bg-success', 'msg' => 'user updated']);		
