@@ -85,38 +85,32 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputNamaPanggilan" class="col-sm-2 col-form-label">Nama Panggilan</label>
+                        <label for="inputNamaPanggilan" class="col-sm-2 col-form-label">Nama Panggilan <span class="text-danger">*</span></label>
                         <div class="col-sm-10">
-                          <input name="nama_panggilan" type="text" class="form-control" id="inputNamaPanggilan" placeholder="Nama Panggilan" value="">
+                          <input name="nickname" type="text" class="form-control" id="inputNamaPanggilan" placeholder="Nama Panggilan" value="<?= html_escape($user->nickname) ?? '' ?>">
+                          <?= form_error('nickname') ?>
                         </div>
-                      </div>
+                      </div>                      
                       <div class="form-group row">
-                        <label for="inputProvinsiLahir" class="col-sm-2 col-form-label">Provinsi Lahir</label>
+                        <label for="inputKotaLahir" class="col-sm-2 col-form-label">Kota/Kabupaten Lahir <span class="text-danger">*</span></label>
                         <div class="col-sm-10">
-                          <select name="provinsi_lahir" class="form-control select2 select2-yellow" style="width: 100%;" data-dropdown-css-class="select2-yellow" id="inputProvinsiLahir">
-                            <option value="" disabled selected hidden>Pilih Provinsi Lahir</option>
-                            <option>Sulawesi Utara</option>
-                            <option>Sumatera Utara</option>
-                            <option>Jawa Barat</option>
+                          <select name="birth_regency_id" class="form-control select2 select2-yellow" id="inputKotaLahir" style="width: 100%;" data-dropdown-css-class="select2-yellow">
+                            <option value="" disabled selected hidden>Pilih Kota/Kabupaten Lahir</option>
+                            <?php foreach ($regencies as $regency): ?>
+                            <option value="<?= html_escape($regency->id) ?>" <?= (isset($user->birth_regency_id) && $regency->id == $user->birth_regency_id) ? 'selected' : '' ?>> <?= html_escape($regency->name) ?> </option>
+                            <?php endforeach; ?>
                           </select>
-                        </div>
-                      </div> 
-                      <div class="form-group row">
-                        <label for="inputKotaLahir" class="col-sm-2 col-form-label">Kota Lahir</label>
-                        <div class="col-sm-10">
-                          <select name="kota_lahir" class="form-control select2 select2-yellow" id="inputKotaLahir" style="width: 100%;" data-dropdown-css-class="select2-yellow">
-                            <option value="" disabled selected hidden>Pilih Kota Lahir</option>
-                            <option>Manado</option>
-                            <option>Medan</option>
-                            <option>Bandung</option>
-                          </select>
+                          <?= form_error('birth_regency_id') ?>
                         </div>
                       </div>     
                       <div class="form-group row">
-                        <label for="inputTanggalLahir" class="col-sm-2 col-form-label">Tanggal Lahir</label>      
+                        <label for="inputTanggalLahir" class="col-sm-2 col-form-label">Tanggal Lahir <span class="text-danger">*</span></label>
                         <div class="input-group col-sm-10">
-                          <input name="tanggal_lahir" type="text" class="form-control" id="inputTanggalLahir" data-inputmask-alias="datetime" data-inputmask-inputformat="yyyy-mm-dd" data-mask>
+                          <input name="birth_date" type="text" class="form-control" id="inputTanggalLahir" data-inputmask-alias="datetime" data-inputmask-inputformat="yyyy-mm-dd" data-mask value="<?= html_escape($user->birth_date) ?? '' ?>">                          
                         </div>
+                        <div class="offset-sm-2 col-sm-10">
+                          <?= form_error('birth_date') ?>
+                        </div>                        
                         <!-- /.input group -->
                       </div>
                       <!-- /.form group -->                                       
@@ -127,12 +121,15 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputAgama" class="col-sm-2 col-form-label">Agama</label>
+                        <label for="inputAgama" class="col-sm-2 col-form-label">Agama <span class="text-danger">*</span></label>
                         <div class="col-sm-10">
-                          <select name="agama" class="form-control select2 select2-yellow" id="inputAgama" data-dropdown-css-class="select2-yellow" style="width: 100%;">
+                          <select name="religion_id" class="form-control select2 select2-yellow" id="inputAgama" data-dropdown-css-class="select2-yellow" style="width: 100%;">
                             <option value="" disabled selected hidden>Pilih Agama</option>
-                            <option>Kristen</option>
+                            <?php foreach($religions as $religion): ?>
+                            <option value="<?= html_escape($religion->id) ?>" <?= (isset($user->religion_id) && $religion->id == $user->religion_id) ? 'selected' : '' ?> > <?= html_escape($religion->name) ?></option>
+                            <?php endforeach; ?>
                           </select>
+                          <?= form_error('religion_id') ?>
                         </div>
                       </div>
                       <!-- Bagian Organisasi -->
@@ -140,51 +137,57 @@ defined('BASEPATH') or exit('No direct script access allowed');
                       <div class="form-group row">
                         <label for="inputUKM" class="col-sm-2 col-form-label">Elkam/UKM</label>
                         <div class="select2-yellow col-sm-10">
-                          <select name="ukm[]" class="select2" id="inputUKM" multiple="multiple" data-placeholder="Pilih UKM" data-dropdown-css-class="select2-yellow" style="width: 100%;">
+                          <select name="ukm_ids[]" class="select2" id="inputUKM" multiple="multiple" data-placeholder="Pilih UKM" data-dropdown-css-class="select2-yellow" style="width: 100%;">
                             <option>STAN IC</option>
                             <option>Aliwardana Development Forum</option>
                             <option>KSR</option>
                           </select>
+                          <?= form_error('ukm_ids[]') ?>
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="inputOrganisasi" class="col-sm-2 col-form-label">Organisasi Kampus</label>
                         <div class="select2-yellow col-sm-10">
-                          <select name="organisasi[]" class="select2"  id="inputOrganisasi" multiple="multiple" data-placeholder="Pilih Organisasi" data-dropdown-css-class="select2-yellow" style="width: 100%;">
+                          <select name="organization_ids[]" class="select2"  id="inputOrganisasi" multiple="multiple" data-placeholder="Pilih Organisasi" data-dropdown-css-class="select2-yellow" style="width: 100%;">
                             <option>KMP</option>
                             <option>BLM</option>
                             <option>BEM</option>
                           </select>
+                          <?= form_error('organization_ids[]') ?>
                         </div>
                       </div>                      
                       <div class="form-group row">
                         <label for="inputOrganda" class="col-sm-2 col-form-label">Organda</label>
                         <div class="col-sm-10">
-                          <select name="organda" class="form-control select2 select2-yellow"  id="inputOrganda" data-dropdown-css-class="select2-yellow" style="width: 100%;" id="inputOrganda">
+                          <select name="organda_ids[]" class="form-control select2 select2-yellow"  id="inputOrganda" data-dropdown-css-class="select2-yellow" style="width: 100%;" id="inputOrganda">
                             <option value="" disabled selected hidden>Pilih Organda</option>
                             <option>Ikatan Mahasiswa Angin Mamiri (IMAM)</option>
                             <option>KAMY</option>
                           </select>
+                          <?= form_error('organda_ids[]') ?>
                         </div>
                       </div>
                       <!-- Bagian Kontak -->
                       <div class="form-group">Kontak</div>
                       <div class="form-group row">
-                        <label for="inputNomorWhatsapp" class="col-sm-2 col-form-label">No. Whatsapp</label>
+                        <label for="inputNomorWhatsapp" class="col-sm-2 col-form-label">No. Whatsapp <span class="text-danger">*</span></label>
                         <div class="col-sm-10">
-                          <input name="nomor_wa" type="text" class="form-control" id="inputNomorWhatsapp" placeholder="Nomor Whatsapp">
+                          <input name="wa_number" type="text" class="form-control" id="inputNomorWhatsapp" placeholder="Nomor Whatsapp" value="<?= html_escape($user->wa_number) ?? '' ?>">
+                          <?= form_error('wa_number') ?>
+                        </div>                        
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputInstagram" class="col-sm-2 col-form-label">Instagram <span class="text-danger">*</span></label>
+                        <div class="col-sm-10">
+                          <input name="instagram" type="text" class="form-control" id="inputInstagram" placeholder="Instagram" value="<?= html_escape($user->instagram) ?? '' ?>">
+                          <?= form_error('instagram') ?>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputInstagram" class="col-sm-2 col-form-label">Instagram</label>
+                        <label for="inputIDLine" class="col-sm-2 col-form-label">ID Line <span class="text-danger">*</span></label>
                         <div class="col-sm-10">
-                          <input name="instagram" type="text" class="form-control" id="inputInstagram" placeholder="Instagram">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputIDLine" class="col-sm-2 col-form-label">ID Line</label>
-                        <div class="col-sm-10">
-                          <input name="id_line" type="text" class="form-control" id="inputIDLine" placeholder="ID Line">
+                          <input name="line_id" type="text" class="form-control" id="inputIDLine" placeholder="ID Line" value="<?= html_escape($user->line_id) ?? '' ?>">
+                          <?= form_error('line_id') ?>
                         </div>
                       </div>
                       <div class="form-group">Password Baru (kosongkan apabila tidak ingin mengganti) </div>
@@ -204,7 +207,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                       </div>
                       <div class="form-group">Password Lama perlu diisi untuk mengonfirmasi perubahan</div>
                       <div class="form-group row">
-                        <label for="inputPasswordLama" class="col-sm-2 col-form-label">Password Lama</label>
+                        <label for="inputPasswordLama" class="col-sm-2 col-form-label">Password Lama <span class="text-danger">*</span></label>
                         <div class="col-sm-10">
                           <input name="oldpass" type="password" class="form-control" id="inputPasswordLama" placeholder="Password Lama" required>
                           <?php echo form_error('oldpass'); ?>
