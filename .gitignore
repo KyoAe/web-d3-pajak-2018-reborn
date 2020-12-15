@@ -34,3 +34,6 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 application/config/.env
 application/config/.env (コピー)
 application/controllers/Example.php
+
+# HTMLPurifier Cache
+vendor/ezyang/htmlpurifier/library/HTMLPurifier/DefinitionCache/Serializer/*

@@ -27,6 +27,10 @@ class Announcements extends CI_Controller {
 		$this->form_validation->set_error_delimiters('<small class="text-danger">', '</small>');
 		if ($this->form_validation->run())
 		{
+			// Setup HTMLPurifier
+			$htmlpur_conf = HTMLPurifier_Config::createDefault();
+			$purifier = new HTMLPurifier($htmlpur_conf);
+			$clean_html = $purifier->purify($this->input->post('body'));
 			// Prepare announcement to be inserted
 			$announcement =
 			[
@@ -35,7 +39,7 @@ class Announcements extends CI_Controller {
 				'excerpt' => $this->input->post('excerpt'),
 				'category_id' => $this->input->post('category_id'),
 				'image' => $this->input->post('image') !== '' ? $this->input->post('image') : null,
-				'body' => $this->input->post('body'),
+				'body' => $clean_html,
 				'slug' => url_title($this->input->post('title'), '-', true),
 				'created_at' => date('Y-m-d H:i:s')			
 			];
@@ -107,13 +111,18 @@ class Announcements extends CI_Controller {
 		$this->form_validation->set_error_delimiters('<small class="text-danger">', '</small>');
 		if ($this->form_validation->run())
 		{
+			// Setup HTMLPurifier
+			$htmlpur_conf = HTMLPurifier_Config::createDefault();
+			$purifier = new HTMLPurifier($htmlpur_conf);
+			$clean_html = $purifier->purify($this->input->post('body'));
+			// Prepare announcement to be updated
 			$announcement =
 			[
 				'title' => $this->input->post('title'),
 				'excerpt' => $this->input->post('excerpt'),
 				'category_id' => $this->input->post('category_id'),
 				'image' => $this->input->post('image') !== '' ? $this->input->post('image') : null,
-				'body' => $this->input->post('body'),
+				'body' => $clean_html,
 				'slug' => url_title($this->input->post('title'), '-', true),
 				'updated_at' => date('Y-m-d H:i:s')	
 			];
