@@ -119,8 +119,17 @@
 
     // Start TinyMCE
     tinymce.init({
-      selector: "#inputIsiPengumuman",
-      plugins: 'link image',
+      selector: '#inputIsiPengumuman',
+      height: 300,
+      plugins: [
+        'advlist autolink link image lists hr',
+        'searchreplace wordcount visualblocks visualchars fullscreen insertdatetime',
+        'table paste help'
+      ],
+      toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | ' +
+        'bullist numlist outdent indent | link image | fullpage | ' +
+        'forecolor backcolor | help',
+      menubar: 'favs file edit view insert format tools table help',
       relative_urls : false,
       remove_script_host : false,
       convert_urls : true
