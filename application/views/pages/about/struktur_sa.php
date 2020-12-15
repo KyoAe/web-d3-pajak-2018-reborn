@@ -20,9 +20,11 @@
     <!-- Page Heading Box END ==== -->
     <!-- Page Content Box ==== -->
     <div class="content-block">       
-        <div class="d-flex justify-content-center">
-            
-        </div>       
+        <div class="section-area section-sp2">
+            <div class="d-flex justify-content-center">
+                <h2>COMING SOON</h2>
+            </div>       
+        </div>
     </div>
     <!-- Page Content Box END ==== -->  
 </div>

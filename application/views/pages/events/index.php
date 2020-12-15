@@ -25,11 +25,11 @@
     <div class="content-block">
         <!-- Portfolio  -->
         <div class="section-area section-sp1 gallery-bx">
-            <div class="container">
-                <p>Untuk menambahkan kalender ini ke kalender Anda, tekan tombol "Add to Google Calendar" yang ada di bawah kanan</p>
+            <div class="container text-center">
+                <!-- <p>Untuk menambahkan kalender ini ke kalender Anda, tekan tombol "Add to Google Calendar" yang ada di bawah kanan</p> -->
                 <!-- Embed Google Calendar untuk web angkatan tidak resmi. Kalender milik Gio -->
                 <div class="mx-auto">
-                <iframe src="https://calendar.google.com/calendar/embed?src=os3uopjku4sqcknv2qja2bb3fo%40group.calendar.google.com&ctz=Asia%2FMakassar" style="border: 0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
+                    <h2>COMING SOON</h2>
                 </div>                
             </div>
         </div>

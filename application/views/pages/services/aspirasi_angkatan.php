@@ -19,12 +19,14 @@
     </div>
     <!-- Page Heading Box END ==== -->
     <!-- Page Content Box ==== -->
-    <div class="content-block">       
-        <div class="d-flex justify-content-center">
-            <!-- Form START==== -->
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe5mQu_lNwMefidk35NNy_4PF-fAfUrME64jHVBLml3wfWIDw/viewform?embedded=true" width="640" height="1399" frameborder="0" marginheight="0" marginwidth="0">Memuat…</iframe>
-            <!-- Form END ==== -->   
-        </div>       
+    <div class="content-block">
+        <div class="section-area section-sp2">
+            <div class="d-flex justify-content-center">
+                <!-- Form START==== -->
+                <h2>COMING SOON</h2>
+                <!-- Form END ==== -->   
+            </div>       
+        </div>
     </div>
     <!-- Page Content Box END ==== -->  
 </div>
