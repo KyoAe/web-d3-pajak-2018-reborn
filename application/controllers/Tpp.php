@@ -149,7 +149,7 @@ class Tpp extends CI_Controller {
 				 ->from('faqs')
 				 ->join('faq_items', 'faqs.id = faq_items.faq_id')
 				 ->where('faqs.name', $faq_name)
-				 ->order_by('faq_items.question')
+				//  ->order_by('faq_items.question')
 				 ->get()->result();
 	}
 }
