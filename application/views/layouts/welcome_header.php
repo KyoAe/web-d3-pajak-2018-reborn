@@ -59,7 +59,16 @@
 	<link rel="stylesheet" type="text/css" href="<?=base_url(); ?>public/vendors/revolution/css/layers.css">
 	<link rel="stylesheet" type="text/css" href="<?=base_url(); ?>public/vendors/revolution/css/settings.css">
 	<link rel="stylesheet" type="text/css" href="<?=base_url(); ?>public/vendors/revolution/css/navigation.css">
-	<!-- REVOLUTION SLIDER END -->	
+	<!-- REVOLUTION SLIDER END -->
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-NMDGQGGQJN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-NMDGQGGQJN');
+    </script>
 </head>
 <body id="bg">
 <div class="page-wraper">
