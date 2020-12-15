@@ -1,24 +1,24 @@
 <?php return array (
   'root' => 
   array (
-    'pretty_version' => '1.0.0+no-version-set',
-    'version' => '1.0.0.0',
+    'pretty_version' => 'dev-main',
+    'version' => 'dev-main',
     'aliases' => 
     array (
     ),
-    'reference' => NULL,
+    'reference' => '783a294ad092a9c7c5ba884c96ae662e5130aa56',
     'name' => 'codeigniter/framework',
   ),
   'versions' => 
   array (
     'codeigniter/framework' => 
     array (
-      'pretty_version' => '1.0.0+no-version-set',
-      'version' => '1.0.0.0',
+      'pretty_version' => 'dev-main',
+      'version' => 'dev-main',
       'aliases' => 
       array (
       ),
-      'reference' => NULL,
+      'reference' => '783a294ad092a9c7c5ba884c96ae662e5130aa56',
     ),
     'doctrine/instantiator' => 
     array (
@@ -28,6 +28,15 @@
       array (
       ),
       'reference' => 'd56bf6102915de5702778fe20f2de3b2fe570b5b',
+    ),
+    'ezyang/htmlpurifier' => 
+    array (
+      'pretty_version' => 'v4.13.0',
+      'version' => '4.13.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '08e27c97e4c6ed02f37c5b2b20488046c8d90d75',
     ),
     'graham-campbell/result-type' => 
     array (

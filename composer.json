@@ -12,7 +12,8 @@
 	},
 	"require": {
 		"php": ">=5.3.7",
-		"vlucas/phpdotenv": "^5.2"
+		"vlucas/phpdotenv": "^5.2",
+		"ezyang/htmlpurifier": "^4.13"
 	},
 	"suggest": {
 		"paragonie/random_compat": "Provides better randomness in PHP 5.x"
