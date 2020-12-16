@@ -37,7 +37,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             </a>
           </div>
           <div class="col-md-6 col-sm-6">
-            <a href="https://drive.google.com/file/d/1qWdLjeVqnUc5jnMUAPOPIncF1VSGCU7r/view?usp=sharing" target="_blank">
+            <a href="https://app.d3pajak2018.org/announcements/show/alur-surat-survei-dan-narahubung">
               <div class="cours-search-bx m-b30">
                 <div class="icon-box">
                   <h3><i class="ti-book"></i></h3>
