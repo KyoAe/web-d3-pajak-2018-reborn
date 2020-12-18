@@ -29,6 +29,9 @@ class Announcements extends CI_Controller {
 		{
 			// Setup HTMLPurifier
 			$htmlpur_conf = HTMLPurifier_Config::createDefault();
+			// Add target attribute to whitelist
+			$def = $htmlpur_conf->getHTMLDefinition(true);
+			$def->addAttribute('a', 'target', 'Text');
 			$purifier = new HTMLPurifier($htmlpur_conf);
 			$clean_html = $purifier->purify($this->input->post('body'));
 			// Prepare announcement to be inserted
@@ -113,7 +116,10 @@ class Announcements extends CI_Controller {
 		{
 			// Setup HTMLPurifier
 			$htmlpur_conf = HTMLPurifier_Config::createDefault();
-			$purifier = new HTMLPurifier($htmlpur_conf);
+			// Add target attribute to whitelist
+			$def = $htmlpur_conf->getHTMLDefinition(true);
+			$def->addAttribute('a', 'target', 'Text');
+			$purifier = new HTMLPurifier($htmlpur_conf);			
 			$clean_html = $purifier->purify($this->input->post('body'));
 			// Prepare announcement to be updated
 			$announcement =
