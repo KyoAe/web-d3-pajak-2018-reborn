@@ -37,3 +37,4 @@ application/controllers/Example.php
 
 # HTMLPurifier Cache
 vendor/ezyang/htmlpurifier/library/HTMLPurifier/DefinitionCache/Serializer/*
+/.vs
