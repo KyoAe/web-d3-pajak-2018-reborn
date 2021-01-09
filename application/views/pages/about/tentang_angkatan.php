@@ -40,7 +40,7 @@
         </div>
         <!-- Our Story END ==== -->       
         <!-- Visi Misi ==== -->
-        <div class="section-area section-sp2 bg-fix ovbl-dark join-bx text-center" style="background-image:url(<?= base_url(); ?>public/images/background/bg1.jpg);">
+        <div class="section-area section-sp2 bg-fix ovbl-dark join-bx text-center" style="background-image:url(<?= base_url(); ?>public/images/background/bg1.jpg); background-position: top center;">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">

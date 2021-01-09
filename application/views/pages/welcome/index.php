@@ -3,7 +3,7 @@
 <!-- Content -->
 <div class="page-content bg-white">
   <!-- Main Slider -->
-  <div class="section-area section-sp1 ovpr-dark bg-fix online-cours" style="background-image:url(public/images/background/bg1.jpg);">
+  <div class="section-area section-sp1 ovpr-dark bg-fix online-cours" style="background-image:url(public/images/background/bg1.jpg); background-position: top center;">
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center text-white">
