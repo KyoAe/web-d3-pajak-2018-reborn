@@ -60,6 +60,8 @@
 <script src="<?= base_url(); ?>public/adminLTE/plugins/toastr/toastr.min.js"></script>
 <!-- TinyMCE -->
 <script src="https://cdn.tiny.cloud/1/8xix5vjkai81lv94b54e9usaqkks3v6ee7ox2nbmc589prgg/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<!-- bsCustomFileInput -->
+<script src="<?= base_url(); ?>public/adminLTE/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?= base_url(); ?>public/adminLTE/dist/js/adminlte.js"></script>
 
@@ -67,8 +69,12 @@
 <!-- <script src="public/adminLTE/dist/js/pages/dashboard.js"></script> -->
 <!-- AdminLTE for demo purposes -->
 <!-- <script src="public/adminLTE/dist/js/demo.js"></script> -->
-<?php print_r($this->session->flashdata('alert')); ?>
 <script>
+  // bcCustomFileInput initialize
+  $(document).ready(function () {
+    bsCustomFileInput.init();
+  });
+
   function delete_confirmation() {   
     return confirm('Are you sure to delete this item ?');
   }
