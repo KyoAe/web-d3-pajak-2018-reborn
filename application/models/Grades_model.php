@@ -122,7 +122,10 @@ class Grades_model extends CI_Model {
         {
             $grade['user_name'] = $row[0];
             $grade['user_npm'] = $row[1];
-            
+                        
+            if ($grade['user_name'] == null) break;
+            unset($grade['user_name']);
+
             $user = $this->db->get_where('users', ['npm' => $grade['user_npm']])->row();
             if ( empty($user) )
             {
@@ -134,10 +137,7 @@ class Grades_model extends CI_Model {
                 array_push($this->warnings, "NPM {$row[1]} bukan untuk user dengan nama :<pre>{$row[0]}</pre> melainkan untuk user dengan nama: <pre>$user->fullname</pre> Mohon diperbaiki");
                 continue;
             }
-
-            if ($grade['user_name'] == null) break;
-            unset($grade['user_name']);
-
+            
             $subject_count = count($subject_ids);
             
             for ($i=0; $i<$subject_count; $i++)
