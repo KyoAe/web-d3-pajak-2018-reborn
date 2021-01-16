@@ -6,6 +6,7 @@ class Users extends CI_Controller {
 	{
 		parent::__construct();
 		$this->aauth->control('browse_users');
+		$this->load->model('Users_model', 'Users');
 	}
 
 	public function index()
@@ -145,6 +146,38 @@ class Users extends CI_Controller {
 		$data['form_destination'] = 'dashboard/users/update/' . $user_id;
 		$data['title'] = 'Update User';
 		$this->load->view('pages/dashboard/users_template', $data);
+	}
+
+	public function upload()
+	{
+		// Set Upload Config
+		$config['upload_path']          = './storage/excel';
+		$config['allowed_types']        = 'xlsx';
+		$config['encrypt_name']			= true;
+
+		// Load upload library
+		$this->load->library('upload', $config);
+
+		// Do upload
+		if ( ! $this->upload->do_upload('userfile'))
+		{
+			$data['upload_error'] = $this->upload->display_errors();
+		}
+		else
+		{
+			$upload_data = $this->upload->data();
+			$file_name = $upload_data['file_name'];
+			
+			if($this->Users->insert_from_file($file_name) )
+			{
+				$this->session->set_flashdata('alert', ['class' => 'bg-success', 'msg' => 'users added']);
+				redirect('dashboard/users/upload');
+			}
+		}
+
+		$data['form_destination'] = 'dashboard/users/upload';
+		$data['title'] = 'Upload Pengguna';
+		$this->load->view('pages/dashboard/users_upload', $data);
 	}
 }
 
