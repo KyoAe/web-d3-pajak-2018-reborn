@@ -37,7 +37,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
               <?php foreach ($subjects as $subject): ?>
                 <th><?= html_escape($grade->{$subject->code}) ?></th>
               <?php endforeach;?>
-              <td><?= number_format(html_escape($grade->gpa), 2) ?></td>
+              <td><?= number_format(html_escape($grade->gpa), 6) ?></td>
             </tr>
             <?php endforeach; ?>
             </tbody>

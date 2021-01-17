@@ -32,7 +32,7 @@ class Grades_model extends CI_Model {
     {
         if ($user_npm === null) $user_npm = $this->aauth->get_user()->npm;
 
-        $result = $this->db->select('TRUNCATE(SUM(subjects.credits * grades.fp_scale)/SUM(subjects.credits), 2) as gpa')
+        $result = $this->db->select('TRUNCATE(SUM(subjects.credits * grades.fp_scale)/SUM(subjects.credits), 6) as gpa')
                             ->from('grades')
                             ->join('subjects', 'grades.subject_id = subjects.id')
                             ->where(['grades.user_npm' => $user_npm, 'subjects.semester' => $semester])
@@ -76,7 +76,7 @@ class Grades_model extends CI_Model {
             SELECT
                 grades.user_npm as npm,
                 grades.fullname as fullname,
-                TRUNCATE(SUM(subjects.credits * grades.fp_scale)/SUM(subjects.credits), 2) as gpa
+                TRUNCATE(SUM(subjects.credits * grades.fp_scale)/SUM(subjects.credits), 6) as gpa
         QUERY;
 
         foreach($subjects as $subject)
