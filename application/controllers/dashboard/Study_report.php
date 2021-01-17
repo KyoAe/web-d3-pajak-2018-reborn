@@ -34,8 +34,12 @@ class Study_report extends CI_Controller {
         $data['gpas'] = $gpas; // IPK
         $data['ranks'] = $ranks; // Untuk peringkat berapa
         $data['student_counts'] = $student_counts; // Untuk peringkat dari berapa mahasiswa
-        print_r($data);
-	}
+        $data['title'] = 'Hasil Studi';
+        // print_r($data);
+
+        $this->load->view('pages/dashboard/study_report', $data);
+    }
+    
 }
 
 /* End of file study_report.php */
