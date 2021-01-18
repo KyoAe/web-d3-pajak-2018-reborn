@@ -18,7 +18,8 @@ class Study_report extends CI_Controller {
         for ($i=1; $i<=6; $i++)
         {
             $grades[$i] = $this->Grades->get_by_user_semester($i);
-            $all_gpas = $this->Grades->get_all_gpa_by_semester($i);
+            $statistics[$i] = $this->Grades->get_statistics_by_semester($i);
+            $all_gpas = $this->Grades->get_all_gpa_by_semester($i);                        
             $student_counts[$i] = count($all_gpas);
             for ($j=0; $j<$student_counts[$i]; $j++)
             {
@@ -35,7 +36,9 @@ class Study_report extends CI_Controller {
         $data['ranks'] = $ranks; // Untuk peringkat berapa
         $data['student_counts'] = $student_counts; // Untuk peringkat dari berapa mahasiswa
         $data['title'] = 'Hasil Studi';
-        // print_r($data);
+        $data['statistics'] = $statistics;
+        // print_r($data['statistics']);
+        // die();
 
         $this->load->view('pages/dashboard/study_report', $data);
     }

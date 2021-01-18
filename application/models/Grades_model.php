@@ -28,6 +28,38 @@ class Grades_model extends CI_Model {
     
     ];
     
+    /**
+     * 
+     */
+    public function get_statistics_by_semester($semester)
+    {
+        $query = <<<QUERY
+        SELECT
+            MIN(gpa) as min, MAX(gpa) as max, AVG(gpa) as avg 
+        FROM (
+            SELECT
+                grades.user_npm as npm,
+                grades.fullname as fullname,
+                TRUNCATE(SUM(subjects.credits * grades.fp_scale)/SUM(subjects.credits), 6) as gpa
+            FROM subjects JOIN 
+            (
+                SELECT * FROM grades
+                JOIN users 
+                ON grades.user_npm = users.npm
+            ) AS grades
+            ON grades.subject_id = subjects.id
+            WHERE semester = {$this->db->escape($semester)}
+            GROUP BY grades.user_npm, grades.fullname
+            ORDER BY gpa DESC, fullname ASC
+        ) a
+        QUERY;
+
+        return $this->db->query($query)->row();
+    }
+
+    /**
+     * TODO: Add description
+     */
     public function get_gpa_by_user_semester($semester, $user_npm = null)
     {
         if ($user_npm === null) $user_npm = $this->aauth->get_user()->npm;
