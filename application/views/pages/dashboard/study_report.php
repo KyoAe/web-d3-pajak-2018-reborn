@@ -35,7 +35,7 @@
                     <?php if (empty($grades[$semester])): ?>
                       <h1>Maaf, data nilai anda belum ada di kami!</h1>
                     <?php else: ?>
-                    <table class="table table-striped">
+                    <table class="table table-striped table-responsive">
                       <thead>
                         <tr>
                         <th scope="col">Nama Mata Kuliah</th>
