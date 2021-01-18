@@ -43,6 +43,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
   <link rel="stylesheet" href="<?= base_url(); ?>public/adminLTE/plugins/summernote/summernote-bs4.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-NMDGQGGQJN');
+  </script>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed layout-footer-fixed layout-navbar-fixed">
 <div class="wrapper">
