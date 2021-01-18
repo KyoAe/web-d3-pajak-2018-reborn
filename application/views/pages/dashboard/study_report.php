@@ -1,5 +1,11 @@
 <?= $this->load->view('layouts/dashboard_header', NULL, true) ?>
 
+<!-- <?php 
+
+var_dump($statistics);
+
+?> -->
+
 <div class="row">
           <div class="col d-flex justify-content-center">
             <div class="card card-warning card-tabs">
@@ -33,7 +39,7 @@
                   <?php for($semester=1; $semester<=6; $semester++): ?>
                   <div class="tab-pane fade show <?= ($semester == 1) ? "active" : ""?>" id="semester<?= $semester ?>" role="tabpanel" aria-labelledby="semester<?=$semester?>-tab">
                     <?php if (empty($grades[$semester])): ?>
-                      <h1>NILAINYA KUMPULIN GAN!</h1>
+                      <h1>Maaf, data nilai anda belum ada di kami!</h1>
                     <?php else: ?>
                     <table class="table table-striped">
                       <thead>
@@ -65,14 +71,19 @@
                       </tbody>
                     </table>
                     <h6 style="text-align:right; font-weight:bold">Total SKS : <?= $total_credits ?></h6>
-                    <h6 style="text-align:right; font-weight:bold">IPK Semester : <?php echo($gpas[$semester]) ?></h6>
+                    <h6 style="text-align:right; font-weight:bold">IP Semester : <?php echo($gpas[$semester]) ?></h6>
                     <h6 style="text-align:right; font-weight:bold">Rangking <?php echo($ranks[$semester]) ?> dari <?php echo($student_counts[$semester]) ?> mahasiswa</h6>
-                    <h6 style="margin-top: 50px; font-weight:bold"><b>NB : Dalam hal terjadi IPK sama, peringkat diurutkan berdasarkan abjad</b></h6>
+                      <?php        
+                      echo "<h6 style='text-align:right; margin-top:30px'> <b> IP Tertinggi : ". $statistics[$semester]->max." </b> </h6>";
+                      echo "<h6 style='text-align:right'> <b> IP Terendah : ". $statistics[$semester]->min." </b> </h6>";
+                      echo "<h6 style='text-align:right'> <b>  Rata-Rata IP : ". $statistics[$semester]->avg." </b> </h6>";
+                      ?>
+                    <h6 style="margin-top: 30px; font-weight:bold"><b>NB : Dalam hal terjadi IPK sama, peringkat diurutkan berdasarkan abjad</b></h6>
                     <?php endif; ?>
                   </div>
                   <?php endfor; ?>
                   <div class="tab-pane fade" id="rekap" role="tabpanel" aria-labelledby="rekap-tab">
-                    <h1>NILAINYA KUMPULIN GAN!</h1>
+                    <h1>Coming Soon</h1>
                   </div>
                 </div>
               </div>
