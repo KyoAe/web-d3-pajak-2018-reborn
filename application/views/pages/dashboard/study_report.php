@@ -1,11 +1,5 @@
 <?= $this->load->view('layouts/dashboard_header', NULL, true) ?>
 
-<!-- <?php 
-
-var_dump($statistics);
-
-?> -->
-
 <div class="row">
           <div class="col d-flex justify-content-center">
             <div class="card card-warning card-tabs">
@@ -59,24 +53,24 @@ var_dump($statistics);
                             {
                               $total_credits += $matkul->credits;
                               echo "<tr>";
-                              echo "<th> $matkul->name </th>";
-                              echo "<th> $matkul->credits </th>";
-                              echo "<th> $matkul->percentage </th>";
-                              echo "<th> $matkul->letter </th>";
-                              echo "<th>" .($matkul->fp_scale). "</th>";
+                              echo "<th>".html_escape($matkul->name)."</th>";
+                              echo "<th>".html_escape($matkul->credits)."</th>";
+                              echo "<th>".html_escape($matkul->percentage)."</th>";
+                              echo "<th>".html_escape($matkul->letter)."</th>";
+                              echo "<th>".html_escape(($matkul->fp_scale))."</th>";
                               echo "</tr>";
                             }
                           ?>
                         </tr>
                       </tbody>
                     </table>
-                    <h6 style="text-align:right; font-weight:bold">Total SKS : <?= $total_credits ?></h6>
-                    <h6 style="text-align:right; font-weight:bold">IP Semester : <?php echo($gpas[$semester]) ?></h6>
-                    <h6 style="text-align:right; font-weight:bold">Rangking <?php echo($ranks[$semester]) ?> dari <?php echo($student_counts[$semester]) ?> mahasiswa</h6>
+                    <h6 style="text-align:right; font-weight:bold">Total SKS : <?= html_escape($total_credits) ?></h6>
+                    <h6 style="text-align:right; font-weight:bold">IP Semester : <?php echo(html_escape($gpas[$semester])) ?></h6>
+                    <h6 style="text-align:right; font-weight:bold">Rangking <?php echo(html_escape($ranks[$semester])) ?> dari <?php echo(html_escape($student_counts[$semester])) ?> mahasiswa</h6>
                       <?php        
-                      echo "<h6 style='text-align:right; margin-top:30px'> <b> IP Tertinggi : ". $statistics[$semester]->max." </b> </h6>";
-                      echo "<h6 style='text-align:right'> <b> IP Terendah : ". $statistics[$semester]->min." </b> </h6>";
-                      echo "<h6 style='text-align:right'> <b>  Rata-Rata IP : ". $statistics[$semester]->avg." </b> </h6>";
+                      echo "<h6 style='text-align:right; margin-top:30px'> <b> IP Tertinggi : ". html_escape($statistics[$semester]->max)." </b> </h6>";
+                      echo "<h6 style='text-align:right'> <b> IP Terendah : ". html_escape($statistics[$semester]->min)." </b> </h6>";
+                      echo "<h6 style='text-align:right'> <b>  Rata-Rata IP : ". html_escape($statistics[$semester]->avg)." </b> </h6>";
                       ?>
                     <h6 style="margin-top: 30px; font-weight:bold"><b>NB : Dalam hal terjadi IPK sama, peringkat diurutkan berdasarkan abjad</b></h6>
                     <?php endif; ?>
