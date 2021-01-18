@@ -35,35 +35,37 @@
                     <?php if (empty($grades[$semester])): ?>
                       <h1>Maaf, data nilai anda belum ada di kami!</h1>
                     <?php else: ?>
-                    <table class="table table-striped">
-                      <thead>
-                        <tr>
-                        <th scope="col">Nama Mata Kuliah</th>
-                        <th scope="col">SKS</th>
-                        <th scope="col">Angka</th>
-                        <th scope="col">Huruf</th>
-                        <th scope="col">Indeks</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <?php 
-                            $total_credits = 0;
-                            foreach($grades[$semester] as $matkul)
-                            {
-                              $total_credits += $matkul->credits;
-                              echo "<tr>";
-                              echo "<th>".html_escape($matkul->name)."</th>";
-                              echo "<th>".html_escape($matkul->credits)."</th>";
-                              echo "<th>".html_escape($matkul->percentage)."</th>";
-                              echo "<th>".html_escape($matkul->letter)."</th>";
-                              echo "<th>".html_escape(($matkul->fp_scale))."</th>";
-                              echo "</tr>";
-                            }
-                          ?>
-                        </tr>
-                      </tbody>
-                    </table>
+                    <div class="table-responsive">
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                          <th scope="col">Nama Mata Kuliah</th>
+                          <th scope="col">SKS</th>
+                          <th scope="col">Angka</th>
+                          <th scope="col">Huruf</th>
+                          <th scope="col">Indeks</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <?php 
+                              $total_credits = 0;
+                              foreach($grades[$semester] as $matkul)
+                              {
+                                $total_credits += $matkul->credits;
+                                echo "<tr>";
+                                echo "<th>".html_escape($matkul->name)."</th>";
+                                echo "<th>".html_escape($matkul->credits)."</th>";
+                                echo "<th>".html_escape($matkul->percentage)."</th>";
+                                echo "<th>".html_escape($matkul->letter)."</th>";
+                                echo "<th>".html_escape(($matkul->fp_scale))."</th>";
+                                echo "</tr>";
+                              }
+                            ?>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                     <h6 style="text-align:right; font-weight:bold">Total SKS : <?= html_escape($total_credits) ?></h6>
                     <h6 style="text-align:right; font-weight:bold">IP Semester : <?php echo(html_escape($gpas[$semester])) ?></h6>
                     <h6 style="text-align:right; font-weight:bold">Rangking <?php echo(html_escape($ranks[$semester])) ?> dari <?php echo(html_escape($student_counts[$semester])) ?> mahasiswa</h6>
