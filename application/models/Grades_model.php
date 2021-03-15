@@ -29,9 +29,10 @@ class Grades_model extends CI_Model {
     ];
     
     /**
-     * 
+     * get statistics
+     * from semester 1 to latest added data
      */
-    public function get_statistics_by_semester($semester)
+    public function get_statistics()
     {
         $query = <<<QUERY
         SELECT
@@ -48,7 +49,6 @@ class Grades_model extends CI_Model {
                 ON grades.user_npm = users.npm
             ) AS grades
             ON grades.subject_id = subjects.id
-            WHERE semester = {$this->db->escape($semester)}
             GROUP BY grades.user_npm, grades.fullname
             ORDER BY gpa DESC, fullname ASC
         ) a
@@ -93,6 +93,55 @@ class Grades_model extends CI_Model {
         return $result;
     }
 
+    public function get_gpa($semester = null, $user_npm = null)
+    {
+        if ($user_npm === null) $user_npm = $this->aauth->get_user()->npm;
+
+        $result = $this->db->select('SUM(grades.fp_scale*subjects.credits) as sum_index, SUM(subjects.credits) as sum_credits')
+                            ->from('grades')
+                            ->join('subjects', 'grades.subject_id = subjects.id')
+                            ->where(['grades.user_npm' => $user_npm]);
+                            if ($semester != null)
+                            {
+                                $result = $result->where(['subjects.semester' => $semester]);
+                            }
+        $result = $result->get()->row();
+        return $result;
+    }
+    /**
+     * Get all gpa rank
+     * This will return list of all rank 
+     * calculated from semester 1 to semester 5
+     * @return array of sum_index and count
+     */
+    public function get_all_gpa_rank()
+    {
+        $query = <<<QUERY
+        SELECT
+            sum_index, count(sum_index) as count
+        FROM (
+            SELECT
+                grades.user_npm as npm,
+                grades.fullname as fullname,
+                SUM(subjects.credits * grades.fp_scale) as sum_index,
+                SUM(subjects.credits) as sum_credits
+            FROM subjects JOIN 
+            (
+                SELECT * FROM grades
+                JOIN users 
+                ON grades.user_npm = users.npm
+            ) AS grades
+            ON grades.subject_id = subjects.id
+            GROUP BY grades.user_npm, grades.fullname
+        ORDER BY sum_index DESC, fullname ASC          
+        ) a
+        GROUP BY sum_index 
+        QUERY;
+
+        return $this->db->query($query)->result();
+    }
+
+    // This will not be used. Instead refer to get_all_gpa_ranking
     /**
      * Get all gpa by semester
      * Get everyone gpa by semester

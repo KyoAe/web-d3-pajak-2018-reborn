@@ -14,27 +14,61 @@ class Study_report extends CI_Controller {
         // Get user npm
         $user_npm = $this->aauth->get_user()->npm;
 
-        // Prepare data each semester
+        // Prepare grades data each semester
         for ($i=1; $i<=6; $i++)
         {
-            $grades[$i] = $this->Grades->get_by_user_semester($i);
-            $statistics[$i] = $this->Grades->get_statistics_by_semester($i);
-            $all_gpas = $this->Grades->get_all_gpa_by_semester($i);                        
-            $student_counts[$i] = count($all_gpas);
-            for ($j=0; $j<$student_counts[$i]; $j++)
-            {
-                if ($all_gpas[$j]->npm == $user_npm)
-                {
-                    $ranks[$i] = $j+1;
-                    $gpas[$i] = $all_gpas[$j]->gpa;
-                }
-            }
+            $grades[$i] = $this->Grades->get_by_user_semester($i);                                 
+
+            // Calculate gpa each semester
+            // To avoid division by zero for unfilled data
+            $gpas[$i] = $this->Grades->get_gpa($i);
+            if ($gpas[$i]->sum_credits == 0)
+                $gpas[$i] = "N/A";
+            else
+                $gpas[$i] = $gpas[$i]->sum_index / $gpas[$i]->sum_credits;            
         }
+
+        // Recap gpa. Seriously, I'm out of variable name :v
+        $recap_gpa = $this->Grades->get_gpa();
+        
+        // Find rank
+        $rank_datas = $this->Grades->get_all_gpa_rank();
+        $student_count = 0;
+        foreach ($rank_datas as $rank_data)
+        {
+            if ($rank_data->sum_index == $recap_gpa->sum_index)
+            {
+                $rank = $student_count + 1;
+                // break;
+            }
+            $student_count += $rank_data->count;
+        }
+
+        // Calculate statistics. This would be bias if there's missing gpa data on a student in a semester
+        $statistics = new stdClass();
+        $max_sum_index = 0;
+        $min_sum_index = 999999999;
+        $avg = 0;
+        $total_credits = $this->db->select('sum(credits) as total_credits')->from('subjects')->get()->row()->total_credits;        
+        foreach ($rank_datas as $rank_data)
+        {
+            $max_sum_index = max($max_sum_index, $rank_data->sum_index);
+            $min_sum_index = min($min_sum_index, $rank_data->sum_index);
+            $avg += $rank_data->sum_index * $rank_data->count;
+        }
+
+        $statistics->max = $max_sum_index / $total_credits;
+        $statistics->min = $min_sum_index / $total_credits;
+        $statistics->avg = $avg / $total_credits / $student_count;
 
         $data['grades'] = $grades; // Nilai. Sudah termasuk SKS, dan nilai dalam bentuk lainnya
         $data['gpas'] = $gpas; // IPK
-        $data['ranks'] = $ranks; // Untuk peringkat berapa
-        $data['student_counts'] = $student_counts; // Untuk peringkat dari berapa mahasiswa
+        if (isset($rank))
+        {
+            $data['rank'] = $rank; // Untuk peringkat berapa
+            $data['recap_gpa'] = $recap_gpa->sum_index / $recap_gpa->sum_credits; // Untuk rekap IPK dari semester 1 - sekian
+        }
+        $data['student_count'] = $student_count; // Untuk berapa banyak mahasiswa        
         $data['title'] = 'Hasil Studi';
         $data['statistics'] = $statistics;
         // print_r($data['statistics']);
