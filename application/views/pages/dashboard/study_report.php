@@ -78,7 +78,27 @@
           </div>
           <?php endfor; ?>
           <div class="tab-pane fade" id="rekap" role="tabpanel" aria-labelledby="rekap-tab">
-            <p>Rekap IPK = <?= $recap_gpa ?> Rank= <?= $rank ?> dari <?= $student_count ?> mahasiswa</p>
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="card bg-light mb-3" style="max-width: 18rem;">
+                      <div class="card-header bg-success"><b>Rekap IPK 5 Semester </b></div>
+                        <div class="card-body">
+                          <p class="card-title"><b>IPK = <?= $recap_gpa ?> </b></p>
+                      </div>
+                    </div>
+                  </div>  
+                  <div class="col-sm-6">
+                    <div class="card bg-light mb-3" style="max-width: 18rem;">
+                      <div class="card-header bg-primary"><b>Peringkat Angkatan</b></div>
+                        <div class="card-body">
+                        <p><b>Peringkat = <?= $rank ?> dari <?= $student_count ?> Mahasiswa</b></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            
             <?php        
               echo "<h6 style='text-align:right; margin-top:30px'> <b> IP Tertinggi : ". html_escape($statistics->max)." </b> </h6>";
               echo "<h6 style='text-align:right'> <b> IP Terendah : ". html_escape($statistics->min)." </b> </h6>";
