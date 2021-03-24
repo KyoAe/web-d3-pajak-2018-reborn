@@ -104,6 +104,7 @@
               echo "<h6 style='text-align:right'> <b> IP Terendah : ". html_escape($statistics->min)." </b> </h6>";
               echo "<h6 style='text-align:right'> <b>  Rata-Rata IP : ". html_escape($statistics->avg)." </b> </h6>";
             ?>
+            <p>Metode perankingan dapat dilihat di sini: <a href="https://d3pajak2018.org/metodeRanking" target="_blank">https://d3pajak2018.org/metodeRanking</a></p>
           </div>
         </div>
       </div>
