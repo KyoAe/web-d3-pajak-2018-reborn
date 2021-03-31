@@ -38,7 +38,7 @@
           <?php for($semester=1; $semester<=6; $semester++): ?>
           <div class="tab-pane fade show <?= ($semester == 1) ? "active" : ""?>" id="semester<?= $semester ?>" role="tabpanel" aria-labelledby="semester<?=$semester?>-tab">
             <?php if (empty($grades[$semester])): ?>
-              <h1>Maaf, data anda tidak ditemukan. Tolong menghubungi admin</h1>
+              <h3>Maaf, data anda tidak ditemukan. Tolong menghubungi <a href="mailto:pendidikansa@gmail.com"><i class="fa fa-envelope-o"></i>pendidikansa@gmail.com</a></h3>
             <?php else: ?>
             <div class="table-responsive">
               <table class="table table-striped">
@@ -73,7 +73,7 @@
             </div>
             <h6 style="text-align:right; font-weight:bold">Total SKS : <?= html_escape($total_credits) ?></h6>
             <h6 style="text-align:right; font-weight:bold">IP Semester : <?php echo(html_escape($gpas[$semester])) ?></h6>                                  
-            <h6 style="margin-top: 30px; font-weight:bold"><b>NB : Dalam hal terjadi ketidaksesuaian data, tolong menghubungi admin</b></h6>
+            <h6 style="margin-top: 30px; font-weight:bold"><b>NB : Dalam hal terjadi ketidaksesuaian data, tolong menghubungi <a href="mailto:pendidikansa@gmail.com"><i class="fa fa-envelope-o"></i>pendidikansa@gmail.com</a></b></h6>
             <?php endif; ?>
           </div>
           <?php endfor; ?>
