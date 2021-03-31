@@ -136,6 +136,7 @@ class Grades_model extends CI_Model {
         ORDER BY sum_index DESC, fullname ASC          
         ) a
         GROUP BY sum_index 
+        ORDER BY sum_index
         QUERY;
 
         return $this->db->query($query)->result();
