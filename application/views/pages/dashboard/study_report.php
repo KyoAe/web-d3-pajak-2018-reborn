@@ -77,33 +77,75 @@
             <?php endif; ?>
           </div>
           <?php endfor; ?>
+          <div class="alert alert-info" role="alert">
+          <b> Rumus Perhitungan IPK dan SKD = [ (IPK/4) x 60% ] + [ (SKD/500) x 40%] </b>
+          </div>
           <div class="tab-pane fade" id="rekap" role="tabpanel" aria-labelledby="rekap-tab">
-              <div class="container">
-                <div class="row">
-                  <div class="col-sm-6">
-                    <div class="card bg-light mb-3" style="max-width: 18rem;">
-                      <div class="card-header bg-success"><b>Rekap IPK 5 Semester </b></div>
-                        <div class="card-body">
-                          <p class="card-title"><b>IPK = <?= $recap_gpa ?> </b></p>
+          <!-- Button trigger modal -->
+             
+              <div class="container" style="margin-top: 20px">
+              <table id="table1" class="display">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama</th>
+                        <th>IPK</th>
+                        <th>SKD</th>
+                        <th>IPK + SKD</th>
+                        <th>Pilihan 1</th>
+                        <th>Pilihan 2</th>
+                        <th>Pilihan 3</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Uwawawa Huhuhu</td>
+                        <td>4.0</td>
+                        <td>500</td>
+                        <td>100</td>
+                        <td>Pil 1</td>
+                        <td>Pil 2</td>
+                        <td>Pil 3</td>
+                    </tr>
+                </tbody>
+              </table>
+              
+              <?php        
+              echo "<h6 style='text-align:right; margin-top:30px'> <b> IPK + SKD Tertinggi : ". html_escape($statistics->max)." </b> </h6>";
+              echo "<h6 style='text-align:right'> <b> IPK + SKD Terendah : ". html_escape($statistics->min)." </b> </h6>";
+              echo "<h6 style='text-align:right'> <b>  Rata-Rata IPK + SKD : ". html_escape($statistics->avg)." </b> </h6>";
+            ?>
+
+              <button type="button" class="btn btn-primary float-right mt-5" data-toggle="modal" data-target="#exampleModalCenter">
+                  Ubah Data Ke Publik
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">Ubah Data Ke Publik?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
                       </div>
-                    </div>
-                  </div>  
-                  <div class="col-sm-6">
-                    <div class="card bg-light mb-3" style="max-width: 18rem;">
-                      <div class="card-header bg-primary"><b>Peringkat Angkatan</b></div>
-                        <div class="card-body">
-                        <p><b>Peringkat = <?= $rank ?> dari <?= $student_count ?> Mahasiswa</b></p>
+                      <div class="modal-body">
+                      Dengan memilih "Ubah Data Ke Publik" ini, kamu dengan sepenuh hati dan dengan sadar memberikan data ke pada teman-teman anglatan untuk dan akan digunakan sebagai kepentingan bersama.
+
+                      #PenempatanCihuy
+                      #D3PajakBentarLagiKerja
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+                        <button type="button" class="btn btn-primary">Yakin</button>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            
-            <?php        
-              echo "<h6 style='text-align:right; margin-top:30px'> <b> IP Tertinggi : ". html_escape($statistics->max)." </b> </h6>";
-              echo "<h6 style='text-align:right'> <b> IP Terendah : ". html_escape($statistics->min)." </b> </h6>";
-              echo "<h6 style='text-align:right'> <b>  Rata-Rata IP : ". html_escape($statistics->avg)." </b> </h6>";
-            ?>
+              </div>
           </div>
         </div>
       </div>
