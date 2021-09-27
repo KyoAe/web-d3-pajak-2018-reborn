@@ -9,8 +9,72 @@ class Study_report extends CI_Controller {
         $this->load->model('Grades_model', 'Grades');
 	}
 
+    /**
+     * function to return rank datas
+     * rank is calculated by combining u
+     */
+    private function get_rank_datas()
+    {
+        // Get user npm
+        $user_npm = $this->aauth->get_user()->npm;
+
+        // Get rank score and count list
+        $ranks = $this->Grades->get_all_rank();
+
+        // Get user rank
+        $total_users = 1;
+        $user_rank = -1;
+        $user_skd = 0;
+        $user_ipk = 0;
+        $user_total = 0;
+        $user_is_visible = 0;
+        $user_is_locked = 0;
+        $user_fullname = '';
+        $sum_total = 0;
+        foreach ($ranks as $rank)
+        {
+            if ($rank->npm == $user_npm)
+            {
+                $user_rank = $total_users;
+                $user_is_visible = $rank->is_visible;
+                $user_skd = $rank->skd_score;
+                $user_ipk = $rank->ipk;
+                $user_total = $rank->total;
+                $user_fullname = $rank->fullname;
+                $user_is_locked = $rank->is_locked;
+            }
+            $sum_total += $rank->total;
+            $total_users = $total_users + 1;            
+        }        
+        
+        $total_users = $total_users - 1;
+        $avg_total = $sum_total / $total_users;
+        
+        // Prepare rank statistics        
+        $statistics = $this->Grades->get_avg_statistics();
+        // print_r($statistics);
+        // die();
+        $data = array(
+            'user_skd' => $user_skd,
+            'user_ipk' => $user_ipk,
+            'user_total' => $user_total,
+            'user_is_visible' => $user_is_visible,
+            'user_is_locked' => $user_is_locked,
+            'user_npm' => $user_npm,
+            'user_fullname' => $user_fullname
+        );
+        $data['user_rank'] = $user_rank; // Untuk rank user
+        $data['ranks'] = $ranks; // Untuk rank semua user
+        $data['statistics'] = $statistics;
+        
+        return $data;
+    }
+
 	public function index()
 	{
+        // echo($this->Grades->get_sum_credits());
+        // die();
+        $data = $this->get_rank_datas();
         // Get user npm
         $user_npm = $this->aauth->get_user()->npm;
 
@@ -46,19 +110,13 @@ class Study_report extends CI_Controller {
 
         // Calculate statistics. This would be bias if there's missing gpa data on a student in a semester
         $statistics = new stdClass();
-        $max_sum_index = 0;
-        $min_sum_index = 999999999;
         $avg = 0;
         $total_credits = $this->db->select('sum(credits) as total_credits')->from('subjects')->get()->row()->total_credits;        
         foreach ($rank_datas as $rank_data)
         {
-            $max_sum_index = max($max_sum_index, $rank_data->sum_index);
-            $min_sum_index = min($min_sum_index, $rank_data->sum_index);
             $avg += $rank_data->sum_index * $rank_data->count;
         }
 
-        $statistics->max = $max_sum_index / $total_credits;
-        $statistics->min = $min_sum_index / $total_credits;
         $statistics->avg = $avg / $total_credits / $student_count;
 
         $data['grades'] = $grades; // Nilai. Sudah termasuk SKS, dan nilai dalam bentuk lainnya
@@ -70,13 +128,31 @@ class Study_report extends CI_Controller {
         }
         $data['student_count'] = $student_count; // Untuk berapa banyak mahasiswa        
         $data['title'] = 'Hasil Studi';
-        $data['statistics'] = $statistics;
+        // $data['statistics'] = $statistics;
         // print_r($data['statistics']);
         // die();
 
         $this->load->view('pages/dashboard/study_report', $data);
     }
     
+    public function make_visible()
+    {
+        $user_npm = $this->aauth->get_user()->npm;
+
+        // Get skd data
+        $user_skd = $this->db->get_where('skd', array('user_npm' => $user_npm))->row();
+
+        // IF data is not locked yet, return to study_report
+        if (!(isset($user_skd->is_locked) && $user_skd->is_locked))
+        {
+            $this->session->set_flashdata('alert', ['class' => 'bg-danger', 'msg' => 'Data Anda belum dikunci']);
+            redirect('dashboard/study_report');
+        }
+
+        $this->db->update('skd', array('is_visible' => 1), array('user_npm' => $user_npm));
+        $this->session->set_flashdata('alert', ['class' => 'bg-success', 'msg' => 'Nama Anda sekarang bisa dilihat orang']);
+        redirect('dashboard/study_report');
+    }
 }
 
 /* End of file study_report.php */

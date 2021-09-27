@@ -1,10 +1,5 @@
 <?= $this->load->view('layouts/dashboard_header', NULL, true) ?>
 
-<?php if (!isset($rank)): ?>
-  <h1 class="text-center">    
-    Anda tidak mengikuti pemeringkatan IPK.  
-  </h1>  
-<?php else: ?>
 <div class="row">
   <div class="col d-flex justify-content-center">
     <div class="card card-warning card-tabs">
@@ -73,79 +68,116 @@
             </div>
             <h6 style="text-align:right; font-weight:bold">Total SKS : <?= html_escape($total_credits) ?></h6>
             <h6 style="text-align:right; font-weight:bold">IP Semester : <?php echo(html_escape($gpas[$semester])) ?></h6>                                  
-            <h6 style="margin-top: 30px; font-weight:bold"><b>NB : Dalam hal terjadi ketidaksesuaian data, tolong menghubungi <a href="mailto:pendidikansa@gmail.com"><i class="fa fa-envelope-o"></i>pendidikansa@gmail.com</a></b></h6>
+            <!-- <h6 style="margin-top: 30px; font-weight:bold"><b>NB : Dalam hal terjadi ketidaksesuaian data, tolong menghubungi <a href="mailto:pendidikansa@gmail.com"><i class="fa fa-envelope-o"></i>pendidikansa@gmail.com</a></b></h6> -->
             <?php endif; ?>
           </div>
           <?php endfor; ?>
-          <div class="alert alert-info" role="alert">
-          <b> Rumus Perhitungan IPK dan SKD = [ (IPK/4) x 60% ] + [ (SKD/500) x 40%] </b>
-          </div>
+          
           <div class="tab-pane fade" id="rekap" role="tabpanel" aria-labelledby="rekap-tab">
-          <!-- Button trigger modal -->
-             
-              <div class="container" style="margin-top: 20px">
-              <table id="table1" class="display">
+            <?php if(!$user_is_locked || $user_rank == -1): ?>
+              <p>Sebelum mengikuti rank angkatan, mohon periksa kembali dan lengkapi nilai-nilai Anda. Jika sudah yakin, bisa melakukan penguncian nilai.</p>
+              <p>Setelah nilai dikunci, kembali lagi ke halaman ini. Rank angkatan akan terbuka.</p>
+              <p>Untuk pertanyaan, kritikan, saran, dan laporan bisa menghubungi WA Gio: 0895803661039</p>
+              <a href="<?= site_url(); ?>dashboard/confirm_score">
+                <button class="btn-warning">
+                  Konfirmasi dan Kunci Nilai
+                </button>
+              </a>
+            <?php else: ?>
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-sm-6">
+                  <h3><?= html_escape($user_fullname) ?></h3>
+                  <p>IPK: <?= html_escape($user_ipk) ?></p>
+                  <p>Nilai SKD: <?= html_escape($user_skd) ?></p>
+                  <p>IPK dan SKD: <?= html_escape($user_total) ?></p>
+                </div>
+                <div class="col-sm-6 text-right">
+                  <p>Rank: <?= html_escape($user_rank) ?></p>
+                </div>
+              </div>
+            </div>
+            <div class="alert alert-info" role="alert">
+              <b> Rumus Perhitungan IPK dan SKD = [ (IPK/4) x 60 ] + [ (SKD/500) x 40] </b>
+            </div>            
+            <div class="container" style="margin-top: 20px">
+              <div style="overflow:hidden; overflow-x:scroll">
+              <table id="table1" class="table table-bordered table-hover text-center">
                 <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Nama</th>
-                        <th>IPK</th>
-                        <th>SKD</th>
-                        <th>IPK + SKD</th>
-                        <th>Pilihan 1</th>
-                        <th>Pilihan 2</th>
-                        <th>Pilihan 3</th>
-                    </tr>
+                  <tr>
+                    <th>#</th>
+                    <th>Nama</th>
+                    <th>IPK</th>
+                    <th>SKD</th>
+                    <th>IPK & SKD</th>
+                    <th>Pilihan 1</th>
+                    <th>Pilihan 2</th>
+                    <th>Pilihan 3</th>
+                  </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Uwawawa Huhuhu</td>
-                        <td>4.0</td>
-                        <td>500</td>
-                        <td>100</td>
-                        <td>Pil 1</td>
-                        <td>Pil 2</td>
-                        <td>Pil 3</td>
-                    </tr>
+                  <?php $i = 0; ?>
+                  <?php foreach($ranks as $rank): ?>
+                  <tr class="<?= ($user_npm == $rank->npm) ? 'bg-warning' : ''?>">                    
+                    <td><?= ++$i ?></td>
+                    <td><?= ($user_is_visible && $rank->is_visible) ? html_escape($rank->fullname): '***' ?></td>
+                    <td><?= html_escape($rank->ipk) ?></td>
+                    <td><?= html_escape($rank->skd_score) ?></td>
+                    <td><?= number_format((float)html_escape($rank->total), 5, '.', '') ?></td>
+                    <td><?= html_escape($rank->loc1) ?></td>
+                    <td><?= html_escape($rank->loc2) ?></td>
+                    <td><?= html_escape($rank->loc3) ?></td>
+                  </tr>
+                  <?php endforeach; ?>
                 </tbody>
               </table>
-              
+              </div>
               <?php        
-              echo "<h6 style='text-align:right; margin-top:30px'> <b> IPK + SKD Tertinggi : ". html_escape($statistics->max)." </b> </h6>";
-              echo "<h6 style='text-align:right'> <b> IPK + SKD Terendah : ". html_escape($statistics->min)." </b> </h6>";
-              echo "<h6 style='text-align:right'> <b>  Rata-Rata IPK + SKD : ". html_escape($statistics->avg)." </b> </h6>";
-            ?>
-
-              <button type="button" class="btn btn-primary float-right mt-5" data-toggle="modal" data-target="#exampleModalCenter">
-                  Ubah Data Ke Publik
-                </button>
+              echo "<h6 style='text-align:right; margin-top:30px'> <b> Rata-Rata IPK: ". number_format((float)html_escape($statistics->ipk_avg), 6, '.', '')." </b> </h6>";
+              echo "<h6 style='text-align:right'> <b> Rata-Rata SKD: ". number_format((float)html_escape($statistics->skd_avg), 0, '.', '') . " </b> </h6>";
+              echo "<h6 style='text-align:right'> <b>  Rata-Rata IPK + SKD : ". number_format((float)html_escape($statistics->total_avg), 5, '.', '') ." </b> </h6>";
+              ?>
+              <h6 style='text-align:right'>  Catatan: Ranking dapat berubah sewaktu-waktu. Mohon selalu dicek </h6>
+              <!-- Button trigger modal --> 
+              <button type="button" class="btn btn-primary float-right mt-5" data-toggle="modal" data-target="<?= ($user_is_visible) ? '' : '#exampleModalCenter' ?>">
+              <?= ($user_is_visible) ? 'Namamu Bisa Dilihat Publik' : 'Perlihatkan Nama Ke Publik' ?>
+              </button>
 
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                   <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalCenterTitle">Ubah Data Ke Publik?</h5>
+                        <h5 class="modal-title" id="exampleModalCenterTitle">Perlihatkan Nama ke Publik?</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
                       </div>
                       <div class="modal-body">
-                      Dengan memilih "Ubah Data Ke Publik" ini, kamu dengan sepenuh hati dan dengan sadar memberikan data ke pada teman-teman anglatan untuk dan akan digunakan sebagai kepentingan bersama.
+                      Pilihan "Perlihatkan Nama ke Publik" ini akan menjadikan:
+                      <ol>
+                      <li>Apabila tekan <strong>Yakin</strong>, maka namamu akan dapat dilihat oleh teman-teman yang memilih <strong>Yakin</strong> juga. Kamu juga bisa melihat teman-teman yang memilih Yakin juga</li>
+                      <li>Apabila tekan <strong>Tidak</strong>, maka namamu tidak akan disampaikan kepada publik namun nama teman-teman akan disamarkan juga</li>                      
+                      </ol>
+                      <b>Anda tidak bisa mengubah pilihan anda ketika telah memilih Yakin</b>
+                      <br>
+                      PS: Data perangkingan ini diolah dari data yang teman-teman sampaikan kepada Sukarelawan Angkatan dan akan digunakan untuk kepentingan bersama di kalangan angkatan D3 Pajak 2018 saja. Tolong jangan disebarkan ke yang lain
 
                       #PenempatanCihuy
                       #D3PajakBentarLagiKerja
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+                        <a href="<?= site_url(); ?>dashboard/study_report/make_visible">
                         <button type="button" class="btn btn-primary">Yakin</button>
+                        </a>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              </div>
+            </div>
+            <?php endif; ?>
           </div>
         </div>
       </div>
@@ -153,5 +185,5 @@
     </div>
   </div>
 </div>
-<?php endif; ?>
+
 <?= $this->load->view('layouts/dashboard_footer', NULL, true) ?>
