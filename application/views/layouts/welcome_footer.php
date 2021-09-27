@@ -175,7 +175,7 @@
 	{
 		document.getElementById("countdown-wisuda").innerHTML = "D-Day";
 	}
-	console.log(seconds);
+	
 	// If the count down is finished, write some text
 	if (days < -1) {
 		clearInterval(x);
