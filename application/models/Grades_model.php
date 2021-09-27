@@ -84,12 +84,20 @@ class Grades_model extends CI_Model {
     {
         if ($user_npm === null) $user_npm = $this->aauth->get_user()->npm;
 
-        $result = $this->db->select('*')
-                            ->from('grades')
-                            ->join('subjects', 'grades.subject_id = subjects.id')
-                            ->where(['grades.user_npm' => $user_npm, 'subjects.semester' => $semester])
-                            ->order_by('subjects.name', 'ASC')
-                            ->get()->result();
+        $query = <<< QUERY
+        SELECT *
+        FROM (
+            SELECT *
+            FROM grades
+            WHERE grades.user_npm = {$this->db->escape($user_npm)}
+        ) grades
+        RIGHT JOIN
+            subjects
+        ON grades.subject_id = subjects.id
+        WHERE subjects.semester = {$this->db->escape($semester)}
+        ORDER BY subjects.name ASC      
+        QUERY;
+            $result = $this->db->query($query)->result();
         return $result;
     }
 
@@ -137,6 +145,105 @@ class Grades_model extends CI_Model {
         ) a
         GROUP BY sum_index 
         ORDER BY sum_index DESC
+        QUERY;
+
+        return $this->db->query($query)->result();
+    }
+
+    /** 
+     * Get sum of credits
+     * 
+     */
+    public function get_sum_credits()
+    {
+        return $this->db->select('sum(subjects.credits) as sum_credits')->from('subjects')->get()->row()->sum_credits;
+    }
+
+    /**
+     * Get all average from skd, ipk, and skd+ipk
+     */
+    public function get_avg_statistics()
+    {
+        $query = <<<QUERY
+        SELECT 
+            AVG(ipk) as ipk_avg, AVG(s.score) as skd_avg, AVG((ipk / 4 * 60)+(s.score / 500 * 40)) as total_avg
+        FROM ( 
+            SELECT
+                npm, fullname, sum_index/sum_credits as ipk, sum_credits -- , count(sum_index) as count
+            FROM (
+                SELECT
+                    grades.user_npm as npm,
+                    grades.fullname as fullname,
+                    SUM(subjects.credits * grades.fp_scale) as sum_index,
+                    SUM(subjects.credits) as sum_credits
+                FROM subjects JOIN 
+                (
+                    SELECT * FROM grades
+                    JOIN users 
+                    ON grades.user_npm = users.npm
+                ) AS grades
+                ON grades.subject_id = subjects.id
+                GROUP BY grades.user_npm, grades.fullname
+            ) a
+            WHERE a.sum_credits = {$this->db->escape($this->get_sum_credits())}
+        ) a
+        JOIN
+            skd s
+        ON a.npm = s.user_npm
+        WHERE s.score IS NOT NULL
+        -- GROUP BY sum_index        
+        QUERY;
+
+        return $this->db->query($query)->row();        
+    }
+
+    /**
+     * Get all rank calculated using gpa and skd score
+     * This will return list of all rank 
+     * calculated from semester 1 to semester 5
+     * @return array of sum_index and count
+     */
+    public function get_all_rank()
+    {
+        $query = <<<QUERY
+        SELECT 
+            a.npm, fullname, s.is_locked, s.is_visible, ipk, s.score as skd_score, (ipk / 4 * 60)+(s.score / 500 * 40) as total, p1.location as loc1, p2.location as loc2, p3.location as loc3
+        FROM ( 
+            SELECT
+                npm, fullname, sum_index/sum_credits as ipk -- , count(sum_index) as count
+            FROM (
+                SELECT
+                    grades.user_npm as npm,
+                    grades.fullname as fullname,
+                    SUM(subjects.credits * grades.fp_scale) as sum_index,
+                    SUM(subjects.credits) as sum_credits
+                FROM subjects JOIN 
+                (
+                    SELECT * FROM grades
+                    JOIN users 
+                    ON grades.user_npm = users.npm
+                ) AS grades
+                ON grades.subject_id = subjects.id
+                -- WHERE semester = 2
+                GROUP BY grades.user_npm, grades.fullname	          
+            ) a
+            WHERE a.sum_credits = {$this->db->escape($this->get_sum_credits())}
+        ) a
+        JOIN
+            skd s 
+        ON a.npm = s.user_npm
+        LEFT JOIN
+            penempatan p1 
+        ON p1.id = s.penempatan_id_1
+        LEFT JOIN
+            penempatan p2
+        ON p2.id = s.penempatan_id_2
+        LEFT JOIN
+            penempatan p3
+        ON p3.id = s.penempatan_id_3
+        WHERE s.score IS NOT NULL
+        ORDER BY total DESC
+        -- GROUP BY sum_index
         QUERY;
 
         return $this->db->query($query)->result();
