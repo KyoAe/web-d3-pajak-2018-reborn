@@ -8,26 +8,14 @@
       <div class="row">
         <div class="col-md-12 text-center text-white">
           <h2>Website Angkatan Resmi</h2>
-          <h5>Sesungguhnya, rasa simpati sudah ada di setiap kita. Namun, tidak banyak yang mengambil tindakan</h5>							
+          <h5>Hitung Mundur D3 Pajak 2018 Menuju Wisuda</h5>
+          <p>(27 Oktober 2021)</p>
         </div>
       </div>
       <div class="mw800 m-auto">
         <div class="row">
-          <div class="col-md-6 col-sm-6">
-            <div class="cours-search-bx m-b30">
-              <div class="icon-box">
-                <h3><i class="ti-user"></i><span class="counter">947</span>org</h3>
-              </div>
-              <span class="cours-search-text">Awal Masuk 2018</span>
-            </div>
-          </div>
-          <div class="col-md-6 col-sm-6">
-            <div class="cours-search-bx m-b30">
-              <div class="icon-box">
-                <h3><i class="ti-user"></i><span class="counter">939</span>org</h3>
-              </div>
-              <span class="cours-search-text">Per 14 November 2020</span>
-            </div>
+          <div class="col-md-12 text-center text-white">
+            <h5 id="countdown-wisuda"></h5>
           </div>
         </div>
       </div>

@@ -39,18 +39,19 @@ defined('BASEPATH') or exit('No direct script access allowed');
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <strong><i class="fas fa-book mr-1"></i> Bidang KTTA</strong>
+                <p">Udah selesaii!!</p>
+                <!-- <strong><i class="fas fa-book mr-1"></i> Bidang KTTA</strong>
 
                 <p class="text-muted">
                   Feature coming soon
-                  <!-- Ketentuan Umum dan Tata Cara Perpajakan (KUP) -->
+                  
                 </p>
 
                 <hr>
 
                 <strong><i class="fas fa-user mr-1"></i> Dosen Pembimbing</strong>
 
-                <p class="text-muted">Feature coming soon</p>               
+                <p class="text-muted">Feature coming soon</p>                -->
               </div>
               <!-- /.card-body -->
             </div>
