@@ -75,9 +75,9 @@
           
           <div class="tab-pane fade" id="rekap" role="tabpanel" aria-labelledby="rekap-tab">
             <?php if(!$user_is_locked || $user_rank == -1): ?>
-              <p>Sebelum mengikuti rank angkatan, setelah klik "Konfirmasi dan Kunci Nilai" teman-teman diharapkan:
+              <p>Sebelum mengikuti rank angkatan, mohon diperiksa kembali dan lakukan perubahan nilai jika diperlukan. Teman-teman diharapkan:
                 <ol>
-                  <li> Mohon untuk membaca petunjuk pengisian terlebih dahulu </li>
+                  <li> Untuk membaca petunjuk pengisian terlebih dahulu </li>
                   <li> Melakukan pengecekan nilai & SKD (dan melakukan perubahan mandiri apabila terdapat perbedaan data) </li>
                   <li> Apabila sudah yakin centang <b>Saya menyatakan data yang saya kirimkan adalah benar</b> </li>
                   <li> Lakukan screening terakhir, kemudian klik "Kunci" </li>
@@ -92,7 +92,7 @@
               </p>
               <a href="<?= site_url(); ?>dashboard/confirm_score">
                 <button class="btn-warning">
-                  Konfirmasi dan Kunci Nilai
+                  Cek dan Ubah Nilai Saya
                 </button>
               </a>
             <?php else: ?>

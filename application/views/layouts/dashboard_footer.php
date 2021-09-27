@@ -70,8 +70,8 @@
 <!-- AdminLTE for demo purposes -->
 <!-- <script src="public/adminLTE/dist/js/demo.js"></script> -->
 <script>
-  // Prevent copy paste
-  $('body').bind('copy paste',function(e) {
+  // Prevent copy
+  $('body').bind('copy',function(e) {
     e.preventDefault(); return false; 
   });
   
