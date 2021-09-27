@@ -146,7 +146,7 @@
               </div>
               <?php        
               echo "<h6 style='text-align:right; margin-top:30px'> <b> Rata-Rata IPK: ". number_format((float)html_escape($statistics->ipk_avg), 6, '.', '')." </b> </h6>";
-              echo "<h6 style='text-align:right'> <b> Rata-Rata SKD: ". number_format((float)html_escape($statistics->skd_avg), 0, '.', '') . " </b> </h6>";
+              echo "<h6 style='text-align:right'> <b> Rata-Rata SKD: ". number_format((float)html_escape($statistics->skd_avg), 2, '.', '') . " </b> </h6>";
               echo "<h6 style='text-align:right'> <b>  Rata-Rata IPK + SKD : ". number_format((float)html_escape($statistics->total_avg), 5, '.', '') ." </b> </h6>";
               ?>
               <h6 style='text-align:right'>  Catatan: Ranking dapat berubah sewaktu-waktu. Mohon selalu dicek </h6>
