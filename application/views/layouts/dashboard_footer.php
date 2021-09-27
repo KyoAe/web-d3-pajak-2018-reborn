@@ -70,6 +70,11 @@
 <!-- AdminLTE for demo purposes -->
 <!-- <script src="public/adminLTE/dist/js/demo.js"></script> -->
 <script>
+  // Prevent copy paste
+  $('body').bind('copy paste',function(e) {
+    e.preventDefault(); return false; 
+  });
+  
   // bcCustomFileInput initialize
   $(document).ready(function () {
     bsCustomFileInput.init();
