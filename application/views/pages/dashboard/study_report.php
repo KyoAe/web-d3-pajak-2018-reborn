@@ -75,9 +75,21 @@
           
           <div class="tab-pane fade" id="rekap" role="tabpanel" aria-labelledby="rekap-tab">
             <?php if(!$user_is_locked || $user_rank == -1): ?>
-              <p>Sebelum mengikuti rank angkatan, mohon periksa kembali dan lengkapi nilai-nilai Anda. Jika sudah yakin, bisa melakukan penguncian nilai.</p>
-              <p>Setelah nilai dikunci, kembali lagi ke halaman ini. Rank angkatan akan terbuka.</p>
-              <p>Untuk pertanyaan, kritikan, saran, dan laporan bisa menghubungi WA Gio: 0895803661039</p>
+              <p>Sebelum mengikuti rank angkatan, setelah klik "Konfirmasi dan Kunci Nilai" teman-teman diharapkan:
+                <ol>
+                  <li> Mohon untuk membaca petunjuk pengisian terlebih dahulu </li>
+                  <li> Melakukan pengecekan nilai & SKD (dan melakukan perubahan mandiri apabila terdapat perbedaan data) </li>
+                  <li> Apabila sudah yakin centang <b>Saya menyatakan data yang saya kirimkan adalah benar</b> </li>
+                  <li> Lakukan screening terakhir, kemudian klik "Kunci" </li>
+                </ol>
+              </p>
+
+              <p>
+                Setelah Konfirmasi dan Kunci Nilai, Teman-teman akan diarahkan kembali ke halaman ini. <br>
+                Dan, Rank angkatan akan terbuka. <br>
+                Apabila ada pertanyaan, kritik, saran, dan laporan silahkan menghubungi <br>
+                WA Gio: <a href="https://wa.me/62895803661039">wa.me/62895803661039</a> <br>
+              </p>
               <a href="<?= site_url(); ?>dashboard/confirm_score">
                 <button class="btn-warning">
                   Konfirmasi dan Kunci Nilai
