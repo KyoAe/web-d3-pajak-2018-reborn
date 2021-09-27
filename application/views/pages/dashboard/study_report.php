@@ -98,13 +98,11 @@
             <?php else: ?>
             <div class="container-fluid">
               <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-12">
                   <h3><?= html_escape($user_fullname) ?></h3>
                   <p>IPK: <?= html_escape($user_ipk) ?></p>
                   <p>Nilai SKD: <?= html_escape($user_skd) ?></p>
                   <p>IPK dan SKD: <?= html_escape($user_total) ?></p>
-                </div>
-                <div class="col-sm-6 text-right">
                   <p>Rank: <?= html_escape($user_rank) ?></p>
                 </div>
               </div>
