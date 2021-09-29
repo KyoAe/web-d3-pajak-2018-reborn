@@ -130,7 +130,7 @@
                   <?php foreach($ranks as $rank): ?>
                   <tr class="<?= ($user_npm == $rank->npm) ? 'bg-warning' : ''?>">                    
                     <td><?= ++$i ?></td>
-                    <td><?= ($user_is_visible && $rank->is_visible) ? html_escape($rank->fullname): '***' ?></td>
+                    <td><?= (($user_is_visible && $rank->is_visible) || $user_has_permission) ? html_escape($rank->fullname): '***' ?></td>
                     <td><?= html_escape($rank->ipk) ?></td>
                     <td><?= html_escape($rank->skd_score) ?></td>
                     <td><?= number_format((float)html_escape($rank->total), 5, '.', '') ?></td>

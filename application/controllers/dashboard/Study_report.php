@@ -21,6 +21,9 @@ class Study_report extends CI_Controller {
         // Get rank score and count list
         $ranks = $this->Grades->get_all_rank();
 
+        // Grant authority to users who have permission
+        $user_has_permission = $this->aauth->is_allowed('view_rank_names');
+
         // Get user rank
         $total_users = 1;
         $user_rank = -1;
@@ -61,7 +64,8 @@ class Study_report extends CI_Controller {
             'user_is_visible' => $user_is_visible,
             'user_is_locked' => $user_is_locked,
             'user_npm' => $user_npm,
-            'user_fullname' => $user_fullname
+            'user_fullname' => $user_fullname,
+            'user_has_permission' => $user_has_permission
         );
         $data['user_rank'] = $user_rank; // Untuk rank user
         $data['ranks'] = $ranks; // Untuk rank semua user
