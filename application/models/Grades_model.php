@@ -422,12 +422,12 @@ class Grades_model extends CI_Model {
         SELECT
             id, location, count_choice_1, count_choice_2, count_choice_3
         FROM 
-        web_angkatan_real.penempatan p 
+        penempatan p 
         LEFT JOIN (
             SELECT
             penempatan_id_1, COUNT(*) as count_choice_1
             FROM
-            web_angkatan_real.skd s
+            skd s
             GROUP BY s.penempatan_id_1
         ) s1
         ON
@@ -436,7 +436,7 @@ class Grades_model extends CI_Model {
             SELECT
             penempatan_id_2, COUNT(*) as count_choice_2
             FROM
-            web_angkatan_real.skd s
+            skd s
             GROUP BY s.penempatan_id_2
         ) s2
         ON
@@ -445,7 +445,7 @@ class Grades_model extends CI_Model {
             SELECT
             penempatan_id_3, COUNT(*) as count_choice_3
             FROM
-            web_angkatan_real.skd s
+            skd s
             GROUP BY s.penempatan_id_3
         ) s3
         ON
