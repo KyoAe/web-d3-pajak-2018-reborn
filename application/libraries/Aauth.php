@@ -340,6 +340,8 @@ class Aauth {
 
 				return true;
 			}
+			$this->error($this->CI->lang->line('aauth_error_login_failed_email'));
+			return false;
 		}
 		// if not matches
 		else {
@@ -518,6 +520,7 @@ class Aauth {
 
 		$query = $this->aauth_db->where( 'email', $email );
 		$query = $this->aauth_db->get( $this->config_vars['users'] );
+		return($query);
 
 		if ($query->num_rows() > 0){
 			$row = $query->row();
