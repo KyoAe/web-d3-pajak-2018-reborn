@@ -409,4 +409,50 @@ class Grades_model extends CI_Model {
             }
         }
     }
+
+    /**
+     * Get placement statistics
+     * Get placements statistics from survey
+     * count choice 1, 2, and 3
+     * @return array of objects location, count_choice_1, coun_choice_2, count_choice_3
+     */
+    public function get_placement_statistics()
+    {
+        $query = <<<QUERY
+        SELECT
+            id, location, count_choice_1, count_choice_2, count_choice_3
+        FROM 
+        web_angkatan_real.penempatan p 
+        LEFT JOIN (
+            SELECT
+            penempatan_id_1, COUNT(*) as count_choice_1
+            FROM
+            web_angkatan_real.skd s
+            GROUP BY s.penempatan_id_1
+        ) s1
+        ON
+        p.id = s1.penempatan_id_1
+        LEFT JOIN (
+            SELECT
+            penempatan_id_2, COUNT(*) as count_choice_2
+            FROM
+            web_angkatan_real.skd s
+            GROUP BY s.penempatan_id_2
+        ) s2
+        ON
+        p.id = s2.penempatan_id_2
+        LEFT JOIN (
+            SELECT
+            penempatan_id_3, COUNT(*) as count_choice_3
+            FROM
+            web_angkatan_real.skd s
+            GROUP BY s.penempatan_id_3
+        ) s3
+        ON
+        p.id = s3.penempatan_id_3
+        ORDER BY location ASC
+        QUERY;
+
+        return $this->db->query($query)->result();
+    }
 }

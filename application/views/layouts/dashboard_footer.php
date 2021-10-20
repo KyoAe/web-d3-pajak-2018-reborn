@@ -64,7 +64,8 @@
 <script src="<?= base_url(); ?>public/adminLTE/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?= base_url(); ?>public/adminLTE/dist/js/adminlte.js"></script>
-
+<!-- Rank Angkatan javascript related -->
+<script src="<?= base_url(); ?>public/js/rank-angkatan.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <!-- <script src="public/adminLTE/dist/js/pages/dashboard.js"></script> -->
 <!-- AdminLTE for demo purposes -->
@@ -113,6 +114,76 @@
       // "scrollX": true,
       "responsive": true,
     });
+
+    // Initialize chart for rank angkatan
+    //-------------
+    //- PIE CHART -
+    //-------------
+    var coloR = [];
+    var dynamicColors = function() {
+            var r = Math.floor(Math.random() * 255);
+            var g = Math.floor(Math.random() * 255);
+            var b = Math.floor(Math.random() * 255);
+            return "rgb(" + r + "," + g + "," + b + ")";
+         };
+    
+    var labels = <?= $placement_statistics->labels ?? '[]'  ?>;
+    for (var i in labels) {
+      coloR.push(dynamicColors());
+    }
+    if($('#choice_1').length)
+    {
+      var pieChartCanvas = $('#choice_1').get(0).getContext('2d')
+      var pieData = {
+                      labels: labels,
+                      datasets: [
+                      {
+                          data: <?= $placement_statistics->count_choice_1 ?? '[]'  ?>,
+                          backgroundColor : coloR,
+                      }
+                      ]
+                    }
+      var pieOptions     = {
+          maintainAspectRatio : false,
+          responsive : true,
+      }
+      var pieChart = new Chart(pieChartCanvas, {
+          type: 'pie',
+          data: pieData,
+          options: pieOptions      
+      })
+
+      var pieChartCanvas2 = $('#choice_2').get(0).getContext('2d');
+      var pieData2 = {
+                      labels: labels,
+                      datasets: [
+                      {
+                          data: <?= $placement_statistics->count_choice_2 ?? '[]'  ?>,
+                          backgroundColor : coloR,
+                      }
+                      ]
+                    }
+      var pieChart2 = new Chart(pieChartCanvas2, {
+          type: 'pie',
+          data: pieData2,
+          options: pieOptions      
+      })
+      var pieChartCanvas3 = $('#choice_3').get(0).getContext('2d');
+      var pieData3 = {
+                      labels: labels,
+                      datasets: [
+                      {
+                          data: <?= $placement_statistics->count_choice_3 ?? '[]'  ?>,
+                          backgroundColor : coloR,
+                      }
+                      ]
+                    }
+      var pieChart3 = new Chart(pieChartCanvas3, {
+          type: 'pie',
+          data: pieData3,
+          options: pieOptions      
+      })
+    }
 
     // Set Word Count
     var content;

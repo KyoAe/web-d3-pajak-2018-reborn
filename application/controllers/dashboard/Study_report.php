@@ -34,10 +34,11 @@ class Study_report extends CI_Controller {
         $user_is_locked = 0;
         $user_fullname = '';
         $sum_total = 0;
+        $user_locs = array(0, 0, 0);
         foreach ($ranks as $rank)
         {
             if ($rank->npm == $user_npm)
-            {
+            {                
                 $user_rank = $total_users;
                 $user_is_visible = $rank->is_visible;
                 $user_skd = $rank->skd_score;
@@ -45,6 +46,7 @@ class Study_report extends CI_Controller {
                 $user_total = $rank->total;
                 $user_fullname = $rank->fullname;
                 $user_is_locked = $rank->is_locked;
+                $user_locs = array($rank->loc1, $rank->loc2, $rank->loc3);                
             }
             $sum_total += $rank->total;
             $total_users = $total_users + 1;            
@@ -65,7 +67,8 @@ class Study_report extends CI_Controller {
             'user_is_locked' => $user_is_locked,
             'user_npm' => $user_npm,
             'user_fullname' => $user_fullname,
-            'user_has_permission' => $user_has_permission
+            'user_has_permission' => $user_has_permission,
+            'user_locs' => $user_locs
         );
         $data['user_rank'] = $user_rank; // Untuk rank user
         $data['ranks'] = $ranks; // Untuk rank semua user
@@ -76,8 +79,6 @@ class Study_report extends CI_Controller {
 
 	public function index()
 	{
-        // echo($this->Grades->get_sum_credits());
-        // die();
         $data = $this->get_rank_datas();
         // Get user npm
         $user_npm = $this->aauth->get_user()->npm;
@@ -132,9 +133,7 @@ class Study_report extends CI_Controller {
         }
         $data['student_count'] = $student_count; // Untuk berapa banyak mahasiswa        
         $data['title'] = 'Hasil Studi';
-        // $data['statistics'] = $statistics;
-        // print_r($data['statistics']);
-        // die();
+        $data['placement_statistics'] = $this->prepare_placement_statistics();
 
         $this->load->view('pages/dashboard/study_report', $data);
     }
@@ -156,6 +155,30 @@ class Study_report extends CI_Controller {
         $this->db->update('skd', array('is_visible' => 1), array('user_npm' => $user_npm));
         $this->session->set_flashdata('alert', ['class' => 'bg-success', 'msg' => 'Nama Anda sekarang bisa dilihat orang']);
         redirect('dashboard/study_report');
+    }
+
+    private function prepare_placement_statistics()
+    {
+        $placement_statistics = $this->Grades->get_placement_statistics();
+        
+        $temp = new stdClass();
+        $temp->labels = [];
+        $temp->count_choice_1 = [];
+        $temp->count_choice_2 = [];
+        $temp->count_choice_3 = [];
+        foreach($placement_statistics as $placement_statistic)
+        {
+            array_push($temp->labels, $placement_statistic->location);
+            array_push($temp->count_choice_1, ($placement_statistic->count_choice_1 == NULL)? 0: (int)$placement_statistic->count_choice_1);
+            array_push($temp->count_choice_2, ($placement_statistic->count_choice_2 == NULL)? 0: (int)$placement_statistic->count_choice_2);
+            array_push($temp->count_choice_3, ($placement_statistic->count_choice_3 == NULL)? 0: (int)$placement_statistic->count_choice_3);
+        }
+
+        $temp->labels = json_encode($temp->labels);
+        $temp->count_choice_1 = json_encode($temp->count_choice_1);
+        $temp->count_choice_2 = json_encode($temp->count_choice_2);
+        $temp->count_choice_3 = json_encode($temp->count_choice_3);
+        return $temp;
     }
 }
 
