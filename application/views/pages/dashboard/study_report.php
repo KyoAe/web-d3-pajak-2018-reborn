@@ -248,7 +248,7 @@
                       </div>
                     </div>
                     <div class="card-body">
-                      <canvas id="choice_1" style="min-height: 1500px; height: 1500px; max-height: 1500px; max-width: 100%;"></canvas>
+                      <canvas id="choice_1" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
                     </div>
                     <!-- /.card-body -->
                   </div>
@@ -266,7 +266,7 @@
                       </div>
                     </div>
                     <div class="card-body">
-                      <canvas id="choice_2" style="min-height: 1500px; height: 1500px; max-height: 1500px; max-width: 100%;"></canvas>
+                      <canvas id="choice_2" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
                     </div>
                     <!-- /.card-body -->
                   </div>
@@ -286,12 +286,29 @@
                       </div>
                     </div>
                     <div class="card-body">
-                      <canvas id="choice_3" style="min-height: 1500px; height: 1500px; max-height: 1500px; max-width: 100%;"></canvas>
+                      <canvas id="choice_3" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
                     </div>
                     <!-- /.card-body -->
                   </div>
                 </div>
                 <!-- /.card -->
+                <div class="col-sm-6">
+                  <div class="card card-warning">
+                    <div class="card-header">
+                      <h3 class="card-title">Keterangan Label</h3>
+
+                      <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                        </button>                    
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      Warna keterangan label selalu berubah karena warnanya dirandom.
+                      <ul id="rank-stats-label"></ul>
+                    </div>
+                    <!-- /.card-body -->
+                  </div>
+                </div>
               </div>
               
             <?php endif; ?>

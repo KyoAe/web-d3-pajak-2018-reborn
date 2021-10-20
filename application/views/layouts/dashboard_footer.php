@@ -146,6 +146,9 @@
       var pieOptions     = {
           maintainAspectRatio : false,
           responsive : true,
+          legend: {
+            display:false
+          },
       }
       var pieChart = new Chart(pieChartCanvas, {
           type: 'pie',
@@ -183,6 +186,9 @@
           data: pieData3,
           options: pieOptions      
       })
+
+      for (i=0; i<labels.length; i++)
+        $('#rank-stats-label').append('<li style="border-left:20px solid ' + coloR[i] + '; padding: 5px; margin-top: 2px">' + labels[i] + '</li>')
     }
 
     // Set Word Count
