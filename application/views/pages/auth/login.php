@@ -40,7 +40,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						</div>
 						<div class="col-lg-12">
 							<div class="form-group form-forget">
-								<a href="<?= site_url(); ?>auth/forgot_password" class="ml-auto">Forgot Password?</a>
+								<a href="<?= site_url(); ?>auth/forgot_password" class="ml-auto">Forgot Password? (WORKINGG!!!!)</a>
 							</div>
 						</div>
 						<div class="col-lg-12 m-b30 text-center">
