@@ -81,8 +81,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<?php echo form_error('pass') ?>
 								<div class="input-group"> 
 									<label>Password</label>
-									<input name="pass" type="password" class="form-control" required="">
-								</div>
+									<input name="pass" type="password" class="form-control" required="" id="pass">
+								</div>								
+							</div>
+							<div class="show-password" data-target="pass">
+								<input type="checkbox">Show Password
 							</div>
 						</div>
 						<div class="col-lg-12">
@@ -132,5 +135,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="<?= base_url(); ?>public/vendors/owl-carousel/owl.carousel.js"></script>
 <script src="<?= base_url(); ?>public/js/functions.js"></script>
 <script src="<?= base_url(); ?>public/js/contact.js"></script>
+<script>
+	// Show password javascript
+	$('.show-password').on('click', function (e){
+		currentTarget = e.currentTarget;
+		target = $("#" + currentTarget.dataset.target);
+		if (target.attr("type") == "password")
+		{
+			target.attr("type", "text");
+			$(this).children('input').prop('checked', true);
+		}
+		else
+		{
+			target.attr("type", "password");
+			$(this).children('input').prop('checked', false);
+		}
+		
+	});	
+</script>
 </body>
 </html>
