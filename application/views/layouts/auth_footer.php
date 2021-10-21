@@ -18,6 +18,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="<?= base_url(); ?>public/vendors/owl-carousel/owl.carousel.js"></script>
 <script src="<?= base_url(); ?>public/js/functions.js"></script>
 <script src="<?= base_url(); ?>public/js/contact.js"></script>
+<!-- Toastr -->
+<script src="<?= base_url(); ?>public/adminLTE/plugins/toastr/toastr.min.js"></script>
+<!-- Sweetalert2 -->
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
 	// Show password javascript
 	$('.show-password').on('click', function (e){
@@ -34,7 +38,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$(this).children('input').prop('checked', false);
 		}
 		
-	});	
+	});
+        
+    $(function() {
+        <?php if(! empty($this->session->flashdata('alert'))): ?>
+            <?php if($this->session->flashdata('alert')['class'] == "error"): ?>
+                toastr.error("<?= $this->session->flashdata('alert')['msg'] ?>");
+            <?php else: ?> 
+                toastr.success("<?= $this->session->flashdata('alert')['msg'] ?>");
+            <?php endif; ?>
+        <?php endif; ?>
+    });
 </script>
 </body>
 </html>
