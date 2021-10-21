@@ -133,12 +133,15 @@
     }
     if($('#choice_1').length)
     {
+      data1 = <?= $placement_statistics->count_choice_1 ?? '[]'  ?>;
+      data2 = <?= $placement_statistics->count_choice_2 ?? '[]'  ?>;
+      data3 = <?= $placement_statistics->count_choice_3 ?? '[]'  ?>;
       var pieChartCanvas = $('#choice_1').get(0).getContext('2d')
       var pieData = {
                       labels: labels,
                       datasets: [
                       {
-                          data: <?= $placement_statistics->count_choice_1 ?? '[]'  ?>,
+                          data: data1,
                           backgroundColor : coloR,
                       }
                       ]
@@ -161,7 +164,7 @@
                       labels: labels,
                       datasets: [
                       {
-                          data: <?= $placement_statistics->count_choice_2 ?? '[]'  ?>,
+                          data: data2,
                           backgroundColor : coloR,
                       }
                       ]
@@ -176,7 +179,7 @@
                       labels: labels,
                       datasets: [
                       {
-                          data: <?= $placement_statistics->count_choice_3 ?? '[]'  ?>,
+                          data: data3,
                           backgroundColor : coloR,
                       }
                       ]
@@ -188,7 +191,11 @@
       })
 
       for (i=0; i<labels.length; i++)
-        $('#rank-stats-label').append('<li style="border-left:20px solid ' + coloR[i] + '; padding: 5px; margin-top: 2px">' + labels[i] + '</li>')
+        $('#rank-stats-label').append('<li style="border-left:20px solid ' + coloR[i] + '; padding: 5px; margin-top: 2px">' + labels[i] 
+                                        + ' (' + data1[i] + ', '
+                                        + data2[i] + ', '
+                                        + data3[i] + ')'
+                                        + '</li>')
     }
 
     // Set Word Count

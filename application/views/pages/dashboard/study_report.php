@@ -295,7 +295,7 @@
                 <div class="col-sm-6">
                   <div class="card card-warning">
                     <div class="card-header">
-                      <h3 class="card-title">Keterangan Label</h3>
+                      <h3 class="card-title">Keterangan Label dan Rincian Jumlah Peminat</h3>
 
                       <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
@@ -304,6 +304,7 @@
                     </div>
                     <div class="card-body">
                       Warna keterangan label selalu berubah karena warnanya dirandom.
+                      Format nama: [nama instansi](jumlah yg milih sebagai pil. 1, jumlah yg milih sebagai pil. 2, jumlah yg milih sebagai pil. 3)
                       <ul id="rank-stats-label"></ul>
                     </div>
                     <!-- /.card-body -->
