@@ -98,27 +98,6 @@
                   Cek dan Ubah Nilai Saya
                 </button>
               </a>
-            <?php elseif($user_locs[0] == NULL): ?>
-              <p>Sebelum mengikuti rank angkatan, mohon untuk mengisi terlebih dahulu survei pilihan penempatan teman-teman. Hal-hal yang perlu diingat:
-                <ol>
-                  <li> Survei ini tidak akan berpengaruh terhadap penempatan akhir teman-teman yang akan dilakukan oleh biro SDM Kemenkeu. </li>
-                  <li> Survei ini hanya membantu teman-teman dalam mengambil keputusan terkait pemilihan penempatan nantinya. </li>
-                  <li> Pilihan penempatan untuk survei ini hanya diambil dari DJP dan pemda. </li>
-                  <li> Survei ini hanya dapat diisi sekali. </li>
-                </ol>
-              </p>
-
-              <p>
-                Setelah selesai mengisi survei, Teman-teman akan diarahkan kembali ke halaman ini. <br>
-                Dan, Rank angkatan akan terbuka dan teman-teman bisa melihat pilihan penempatan yang lainnya. <br>
-                Apabila ada pertanyaan, kritik, saran, dan laporan silahkan menghubungi <br>
-                WA Gio: <a href="https://wa.me/62895803661039">wa.me/62895803661039</a> <br>
-              </p>
-              <a href="<?= site_url(); ?>dashboard/placement_survey">
-                <button class="btn-warning">
-                  Isi Survei Penempatan
-                </button>
-              </a>
             <?php else: ?>
               <div class="container-fluid">
                 <div class="row">
@@ -163,9 +142,9 @@
                         <td><?= html_escape($rank->ipk) ?></td>
                         <td><?= html_escape($rank->skd_score) ?></td>
                         <td><?= number_format((float)html_escape($rank->total), 5, '.', '') ?></td>
-                        <td><?= html_escape($rank->loc1) ?></td>
-                        <td><?= html_escape($rank->loc2) ?></td>
-                        <td><?= html_escape($rank->loc3) ?></td>
+                        <td><?= ($user_locs[0] != NULL) ? html_escape($rank->loc1) : '' ?></td>
+                        <td><?= ($user_locs[1] != NULL) ? html_escape($rank->loc2) : '' ?></td>
+                        <td><?= ($user_locs[2] != NULL) ? html_escape($rank->loc3) : '' ?></td>
                       </tr>
                       <?php endforeach; ?>
                     </tbody>
@@ -224,7 +203,26 @@
             <?php if(!$user_is_locked || $user_rank == -1): ?>
               Mohon untuk mengisi dan mengunci nilai terlebih dahulu di tab peringkat
             <?php elseif($user_locs[0] == NULL): ?>
-              Mohon untuk mengisi survei penempatan dulu di tab peringkat
+              <p>Sebelum melihat statistik survei penempatan dan pilihan penempatan teman-teman di tab peringkat, mohon untuk mengisi terlebih dahulu survei pilihan penempatan teman-teman. Hal-hal yang perlu diingat:
+                <ol>
+                  <li> Survei ini tidak akan berpengaruh terhadap penempatan akhir teman-teman yang akan dilakukan oleh biro SDM Kemenkeu. </li>
+                  <li> Survei ini hanya membantu teman-teman dalam mengambil keputusan terkait pemilihan penempatan nantinya. </li>
+                  <li> Pilihan penempatan untuk survei ini hanya diambil dari DJP dan pemda. </li>
+                  <li> Survei ini hanya dapat diisi sekali. </li>
+                </ol>
+              </p>
+
+              <p>
+                Setelah selesai mengisi survei, Teman-teman akan diarahkan kembali ke halaman ini. <br>
+                Dan, Rank angkatan akan terbuka dan teman-teman bisa melihat pilihan penempatan yang lainnya. <br>
+                Apabila ada pertanyaan, kritik, saran, dan laporan silahkan menghubungi <br>
+                WA Gio: <a href="https://wa.me/62895803661039">wa.me/62895803661039</a> <br>
+              </p>
+              <a href="<?= site_url(); ?>dashboard/placement_survey">
+                <button class="btn-warning">
+                  Isi Survei Penempatan
+                </button>
+              </a>
             <?php else: ?>
               <p>Tab ini hanya berisi statistik banyaknya peminat instansi berdasarkan pilihan 1, 2, dan 3.</p>
               <p>Untuk statistik yang lebih lengkap seperti rata-rata IPK maupun SKD per pilihan, teman-teman bisa lihat di tab peringkat ya.
@@ -240,7 +238,7 @@
                 <div class="col-sm-6">
                   <div class="card card-warning">
                     <div class="card-header">
-                      <h3 class="card-title">Pilihan Pertama</h3>
+                      <h3 class="card-title">Pilihan Pertama (<?= $placement_statistics->count_answered ?>/934)</h3>
 
                       <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
@@ -258,7 +256,7 @@
                 <div class="col-sm-6">
                   <div class="card card-warning">
                     <div class="card-header">
-                      <h3 class="card-title">Pilihan Kedua</h3>
+                      <h3 class="card-title">Pilihan Kedua (<?= $placement_statistics->count_answered ?>/934)</h3>
 
                       <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
@@ -278,7 +276,7 @@
                 <div class="col-sm-6">
                   <div class="card card-warning">
                     <div class="card-header">
-                      <h3 class="card-title">Pilihan Ketiga</h3>
+                      <h3 class="card-title">Pilihan Ketiga (<?= $placement_statistics->count_answered ?>/934)</h3>
 
                       <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>

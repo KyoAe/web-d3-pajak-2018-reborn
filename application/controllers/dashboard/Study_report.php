@@ -166,6 +166,7 @@ class Study_report extends CI_Controller {
         $temp->count_choice_1 = [];
         $temp->count_choice_2 = [];
         $temp->count_choice_3 = [];
+        $temp->count_answered = $this->db->select('count(*) as cnt')->get_where('skd', array('penempatan_id_1 !=' => 0))->row()->cnt;
         foreach($placement_statistics as $placement_statistic)
         {
             array_push($temp->labels, $placement_statistic->location);
