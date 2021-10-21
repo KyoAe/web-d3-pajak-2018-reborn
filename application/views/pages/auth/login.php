@@ -2,58 +2,8 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<?= $this->load->view('layouts/auth_header', NULL, true); ?>
 
-	<!-- META ============================================= -->
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="keywords" content="" />
-	<meta name="author" content="" />
-	<meta name="robots" content="" />
-	
-	<!-- DESCRIPTION -->
-	<meta name="description" content="D III Pajak 2018" />
-	
-	<!-- OG -->
-	<meta property="og:title" content="D III Pajak 2018" />
-	<meta property="og:description" content="D III Pajak 2018" />
-	<meta property="og:image" content="" />
-	<meta name="format-detection" content="telephone=no">
-	
-	<!-- FAVICONS ICON ============================================= -->
-	<link rel="icon" href="<?= base_url(); ?>public/images/favicon.ico" type="image/x-icon" />
-	<link rel="shortcut icon" type="image/x-icon" href="<?= base_url(); ?>public/images/favicon.png" />
-	
-	<!-- PAGE TITLE HERE ============================================= -->
-	<title><?= $title ?> - D III Pajak 2018 </title>
-	
-	<!-- MOBILE SPECIFIC ============================================= -->
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
-	<!--[if lt IE 9]>
-	<script src="<?= base_url(); ?>public/js/html5shiv.min.js"></script>
-	<script src="<?= base_url(); ?>public/js/respond.min.js"></script>
-	<![endif]-->
-	
-	<!-- All PLUGINS CSS ============================================= -->
-	<link rel="stylesheet" type="text/css" href="<?= base_url(); ?>public/css/assets.css">
-	
-	<!-- TYPOGRAPHY ============================================= -->
-	<link rel="stylesheet" type="text/css" href="<?= base_url(); ?>public/css/typography.css">
-	
-	<!-- SHORTCODES ============================================= -->
-	<link rel="stylesheet" type="text/css" href="<?= base_url(); ?>public/css/shortcodes/shortcodes.css">
-	
-	<!-- STYLESHEETS ============================================= -->
-	<link rel="stylesheet" type="text/css" href="<?= base_url(); ?>public/css/style.css">
-	<link class="skin" rel="stylesheet" type="text/css" href="<?= base_url(); ?>public/css/color/color-1.css">
-	
-</head>
-<body id="bg">
-<div class="page-wraper">
-	<div id="loading-icon-bx"></div>
 	<div class="mt-5">
 		<div class="text-center my-5">
 			<a href="<?= site_url(); ?>"><img src="<?= base_url(); ?>public/images/logo-white.png" alt="" width="211px"></a>
@@ -119,39 +69,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
         </div>
     </div>
-</div>
-<!-- External JavaScripts -->
-<script src="<?= base_url(); ?>public/js/jquery.min.js"></script>
-<script src="<?= base_url(); ?>public/vendors/bootstrap/js/popper.min.js"></script>
-<script src="<?= base_url(); ?>public/vendors/bootstrap/js/bootstrap.min.js"></script>
-<script src="<?= base_url(); ?>public/vendors/bootstrap-select/bootstrap-select.min.js"></script>
-<script src="<?= base_url(); ?>public/vendors/bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script>
-<script src="<?= base_url(); ?>public/vendors/magnific-popup/magnific-popup.js"></script>
-<script src="<?= base_url(); ?>public/vendors/counter/waypoints-min.js"></script>
-<script src="<?= base_url(); ?>public/vendors/counter/counterup.min.js"></script>
-<script src="<?= base_url(); ?>public/vendors/imagesloaded/imagesloaded.js"></script>
-<script src="<?= base_url(); ?>public/vendors/masonry/masonry.js"></script>
-<script src="<?= base_url(); ?>public/vendors/masonry/filter.js"></script>
-<script src="<?= base_url(); ?>public/vendors/owl-carousel/owl.carousel.js"></script>
-<script src="<?= base_url(); ?>public/js/functions.js"></script>
-<script src="<?= base_url(); ?>public/js/contact.js"></script>
-<script>
-	// Show password javascript
-	$('.show-password').on('click', function (e){
-		currentTarget = e.currentTarget;
-		target = $("#" + currentTarget.dataset.target);
-		if (target.attr("type") == "password")
-		{
-			target.attr("type", "text");
-			$(this).children('input').prop('checked', true);
-		}
-		else
-		{
-			target.attr("type", "password");
-			$(this).children('input').prop('checked', false);
-		}
-		
-	});	
-</script>
-</body>
-</html>
+
+<?= $this->load->view('layouts/auth_footer', NULL, true); ?>
