@@ -117,7 +117,13 @@
               </div>
               <div class="alert alert-info" role="alert">
                 <b> Rumus Perhitungan IPK dan SKD = [ (IPK/4) x 60 ] + [ (SKD/500) x 40] </b>
-              </div>            
+              </div>
+              <?php if($user_locs[0] == NULL): ?>
+              <div class="alert alert-warning" role="alert">
+                Yuk diisi dulu Survei Penempatan di Tab <b>Statistik Survei</b> biar bisa melihat pilihan penempatan teman-teman lainnya. <br>
+                Jangan takut. Habis survei nanti ada simulasi juga. Sehingga total 1x survei, 1x simulasi.
+              </div>
+              <?php endif; ?>
               <div class="container" style="margin-top: 20px">
                 <div style="overflow:hidden; overflow-x:scroll">
                   <table id="rank-table" class="table table-bordered table-hover text-center">
