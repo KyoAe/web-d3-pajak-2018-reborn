@@ -58,9 +58,9 @@ var table = $('#rank-table').DataTable({
             .data().length;
 
         // Update footer                
-        $('.average-ipk').html((totalIPK / totalData));
-        $('.average-skd').html((totalSKD / totalData));
-        $('.average-ipk-skd').html((totalIPKSKD / totalData));        
+        $('.average-ipk').html(Math.floor(totalIPK / totalData * 100) / 100);
+        $('.average-skd').html(Math.floor(totalSKD / totalData * 100) / 100);
+        $('.average-ipk-skd').html(Math.floor(totalIPKSKD / totalData * 100)/100);        
     },
     initComplete: function () {
         $('#search').on( 'keyup', function () {
