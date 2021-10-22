@@ -76,7 +76,7 @@ var table = $('#rank-table').DataTable({
             table.column(7).search("^"+this.value,true,false).draw();
         } );
         $('#jump-to-me').on( 'click', function() {
-            $.scrollTo('.bg-warning', 400);
+            $.scrollTo('#user-rank', 400, {offset: {top: -100}});
         })
     }
 });
