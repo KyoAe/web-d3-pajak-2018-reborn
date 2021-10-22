@@ -56,6 +56,7 @@
 <script src="<?= base_url(); ?>public/adminLTE/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
 <script src="<?= base_url(); ?>public/adminLTE/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
 <script src="<?= base_url(); ?>public/adminLTE/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.3/jquery.scrollTo.min.js"></script>
 <!-- Toastr -->
 <script src="<?= base_url(); ?>public/adminLTE/plugins/toastr/toastr.min.js"></script>
 <!-- TinyMCE -->
