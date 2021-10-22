@@ -106,7 +106,6 @@
                     <p>IPK: <?= html_escape($user_ipk) ?></p>
                     <p>Nilai SKD: <?= html_escape($user_skd) ?></p>
                     <p>IPK dan SKD: <?= html_escape($user_total) ?></p>
-                    <p>Rank: <?= html_escape($user_rank) ?></p>
                   </div>
                   <div class="col-sm-6">                    
                     <p>Pilihan 1: <?= html_escape($user_locs[0]) ?></p>
@@ -115,7 +114,7 @@
                   </div>
                 </div>
               </div>
-              <div class="alert alert-info" role="alert">
+              <div class="alert alert-warning" role="alert">
                 <b> Rumus Perhitungan IPK dan SKD = [ (IPK/4) x 60 ] + [ (SKD/500) x 40] </b>
               </div>
               <?php if($user_locs[0] == NULL): ?>
@@ -124,7 +123,80 @@
                 Jangan takut. Habis survei nanti ada simulasi juga. Sehingga total 1x survei, 1x simulasi.
               </div>
               <?php endif; ?>
-              <div class="container" style="margin-top: 20px">
+              <div class="row">
+                <div class="col-md-3 col-sm-6 col-12">
+                  <div class="info-box">
+                    <span class="info-box-icon bg-warning"><i class="fas fa-users"></i></span>
+
+                    <div class="info-box-content">
+                      <span class="info-box-text">Rank</span>
+                      <span class="info-box-number user-rank"><?= $user_rank . '/' . $total_users?></span>
+                    </div>
+                    <!-- /.info-box-content -->
+                  </div>
+                  <!-- /.info-box -->
+                </div>
+                <!-- /.col -->
+                <div class="col-md-3 col-sm-6 col-12">
+                  <div class="info-box">
+                    <span class="info-box-icon bg-warning"><i class="far fa-flag"></i></span>
+
+                    <div class="info-box-content">
+                      <span class="info-box-text">Rata2 IPK</span>
+                      <span class="info-box-number average-ipk"></span>
+                    </div>
+                    <!-- /.info-box-content -->
+                  </div>
+                  <!-- /.info-box -->
+                </div>
+                <!-- /.col -->
+                <div class="col-md-3 col-sm-6 col-12">
+                  <div class="info-box">
+                    <span class="info-box-icon bg-warning"><i class="far fa-copy"></i></span>
+
+                    <div class="info-box-content">
+                      <span class="info-box-text">Rata2 SKD</span>
+                      <span class="info-box-number average-skd"></span>
+                    </div>
+                    <!-- /.info-box-content -->
+                  </div>
+                  <!-- /.info-box -->
+                </div>
+                <!-- /.col -->
+                <div class="col-md-3 col-sm-6 col-12">
+                  <div class="info-box">
+                    <span class="info-box-icon bg-warning"><i class="fas fa-star"></i></span>
+
+                    <div class="info-box-content">
+                      <span class="info-box-text">Rata2 IPK & SKD</span>
+                      <span class="info-box-number average-ipk-skd"></span>
+                    </div>
+                    <!-- /.info-box-content -->
+                  </div>
+                  <!-- /.info-box -->
+                </div>
+                <!-- /.col -->
+              </div>
+              <div class="row">
+                <div class="col-sm-3">
+                  Search:
+                  <input type="text" placeholder="search" id="search">
+                </div>
+                <div class="col-sm-3">
+                  Pil. 1:
+                  <input type="text" placeholder="pilihan 1" id="choice-1">
+                </div>
+                <div class="col-sm-3">
+                  Pil. 2:
+                  <input type="text" placeholder="pilihan 2" id="choice-2">
+                </div>
+                <div class="col-sm-3">
+                  Pil. 3:
+                  <input type="text" placeholder="pilihan 3" id="choice-3">
+                </div>
+              </div>
+              <button type="button" class="btn btn-warning float-right mt-2 text-centre" id="jump-to-me">Jump to My Rank</button>
+              <div class="container mt-5">
                 <div style="overflow:hidden; overflow-x:scroll">
                   <table id="rank-table" class="table table-bordered table-hover text-center">
                     <thead>
@@ -143,7 +215,7 @@
                       <?php $i = 0; ?>
                       <?php foreach($ranks as $rank): ?>
                       <tr class="<?= ($user_npm == $rank->npm) ? 'bg-warning' : ''?>">                    
-                        <td><?= ++$i ?></td>
+                        <td id="<?= ($user_npm == $rank->npm) ? 'user-rank' : ''?>"></td>
                         <td><?= (($user_is_visible && $rank->is_visible) || $user_has_permission) ? html_escape($rank->fullname): '***' ?></td>
                         <td><?= html_escape($rank->ipk) ?></td>
                         <td><?= html_escape($rank->skd_score) ?></td>
@@ -154,12 +226,6 @@
                       </tr>
                       <?php endforeach; ?>
                     </tbody>
-                    <tfoot>
-                      <tr>
-                        <th colspan="7" style="text-align:left">Total: </th>
-                        <th></th>
-                      </tr>
-                    </tfoot>
                   </table>
                 </div>
                 <h6 style='text-align:right'>  Catatan: Ranking dapat berubah sewaktu-waktu. Mohon selalu dicek </h6>

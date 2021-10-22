@@ -60,6 +60,7 @@ class Study_report extends CI_Controller {
         // print_r($statistics);
         // die();
         $data = array(
+            'total_users' => $total_users,
             'user_skd' => $user_skd,
             'user_ipk' => $user_ipk,
             'user_total' => $user_total,

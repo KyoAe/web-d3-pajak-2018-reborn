@@ -1,18 +1,24 @@
 // Initialize DataTables for Rank Angkatan
 // Setup - add a text input to each footer cell
-$('#rank-table thead tr')
-    .clone(true)
-    .addClass('filters')
-    .appendTo('#rank-table thead');
+// $('#rank-table thead tr')
+//     .clone(true)
+//     .addClass('filters')
+//     .appendTo('#rank-table thead');
 
 var table = $('#rank-table').DataTable({
-    "paging": true,
-    "order": [],
+    "paging": false,
+    "lengthChange": false,
+    // "order": [],
     "info": true,
-    "autoWidth": false,
+    // "autoWidth": true,
+    // "scrollY": "200px",
+    // "scrollCollapse": true,
     // "responsive": true,
+    // "scrollX": true,
     orderCellsTop: true,
     fixedHeader: true,
+    dom: 'rt',
+    // searching: false,
     "footerCallback": function ( row, data, start, end, display ) {
         var api2 = this.api(), data;
 
@@ -51,59 +57,91 @@ var table = $('#rank-table').DataTable({
             .column( 2, {filter: 'applied'} )
             .data().length;
 
-        // Update footer
-        $( api2.column( 2 ).footer() ).html(
-            'Rata2 IPK: '+(totalIPK / totalData) + '<br>'
-            + 'Rata2 SKD: '+(totalSKD / totalData) + '<br>'
-            + 'Rata2 IPK & SKD: '+(totalIPKSKD / totalData) + '<br>'
-            + 'Total Data: ' + totalData
-        );
+        // Update footer                
+        $('.average-ipk').html((totalIPK / totalData));
+        $('.average-skd').html((totalSKD / totalData));
+        $('.average-ipk-skd').html((totalIPKSKD / totalData));        
     },
     initComplete: function () {
-    var api = this.api();
+        $('#search').on( 'keyup', function () {
+            table.search( this.value ).draw();
+        } );
+        $('#choice-1').on( 'keyup', function () {
+            table.column(5).search("^"+this.value,true,false).draw();
+        } );
+        $('#choice-2').on( 'keyup', function () {
+            table.column(6).search("^"+this.value,true,false).draw();
+        } );
+        $('#choice-3').on( 'keyup', function () {
+            table.column(7).search("^"+this.value,true,false).draw();
+        } );
+        $('#jump-to-me').on( 'click', function() {
+            $.scrollTo('.bg-warning', 400);
+        })
+    }
+});
 
-    // For each column
-    api
-        .columns()
-        .eq(0)
-        .each(function (colIdx) {
-        // Set the header cell to contain the input element
-        var cell = $('.filters th').eq(
-            $(api.column(colIdx).header()).index()
-        );
-        var title = $(cell).text();
-        $(cell).html('<input type="text" placeholder="' + title + '" />');
 
-        // On every keypress in this input
-        $(
-            'input',
-            $('.filters th').eq($(api.column(colIdx).header()).index())
-        )
-            .off('keyup change')
-            .on('keyup change', function (e) {
-            e.stopPropagation();
+table.on( 'order.dt search.dt', function () {
+    table.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+        cell.innerHTML = i+1;
+    } );
+    // console.log(table.row('.bg-warning').data());
+    // $('.user-rank').html((user_rank + 1) + '/' + totalData);
+} ).draw();
 
-            // Get the search value
-            $(this).attr('title', $(this).val());
-            var regexr = '({search})'; //$(this).parents('th').find('select').val();
+table.on( 'draw.dt', function() {
+    $('.user-rank').html($('#user-rank').html() + '/' + totalData);
+    // console.log($('#user-rank').html())
+})
 
-            var cursorPosition = this.selectionStart;
-            // Search the column for that value
-            api
-                .column(colIdx)
-                .search(
-                    this.value != ''
-                        ? regexr.replace('{search}', '(((' + this.value + ')))')
-                        : '',
-                    this.value != '',
-                    this.value == ''
-                )
-                .draw();
-
-            $(this)
-                .focus()[0]
-                .setSelectionRange(cursorPosition, cursorPosition);
-            });
-        });
-    },
+// Scroll to top button
+$(function() {
+var slideToTop = $("<div />");
+    slideToTop.html('<i class="fa fa-chevron-up"></i>');
+    slideToTop.css({
+    position: 'fixed',
+    bottom: '20px',
+    right: '25px',
+    width: '40px',
+    height: '40px',
+    color: '#eee',
+    'font-size': '',
+    'line-height': '40px',
+    'text-align': 'center',
+    'background-color': '#222d32',
+    cursor: 'pointer',
+    'border-radius': '5px',
+    'z-index': '99999',
+    opacity: '.7',
+    'display': 'none'
+    });
+    slideToTop.on('mouseenter', function () {
+    $(this).css('opacity', '1');
+    });
+    slideToTop.on('mouseout', function () {
+    $(this).css('opacity', '.7');
+    });
+    $('.wrapper').append(slideToTop);
+    $(window).scroll(function () {
+    if ($(window).scrollTop() >= 150) {
+        if (!$(slideToTop).is(':visible')) {
+        $(slideToTop).fadeIn(500);
+        }
+    } else {
+        $(slideToTop).fadeOut(500);
+    }
+    });
+    $(slideToTop).click(function () {
+        $.scrollTo(0, 400);
+    });
+    $(".sidebar-menu li:not(.treeview) a").click(function () {
+    var $this = $(this);
+    var target = $this.attr("href");
+    if (typeof target === 'string') {
+        $("body").animate({
+        scrollTop: ($(target).offset().top) + "px"
+        }, 500);
+    }
+    });
 });
