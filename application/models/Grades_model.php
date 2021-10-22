@@ -210,7 +210,7 @@ class Grades_model extends CI_Model {
             a.npm, fullname, s.is_locked, s.is_visible, ipk, s.score as skd_score, (ipk / 4 * 60)+(s.score / 500 * 40) as total, p1.location as loc1, p2.location as loc2, p3.location as loc3
         FROM ( 
             SELECT
-                npm, fullname, sum_index/sum_credits as ipk -- , count(sum_index) as count
+                npm, fullname, TRUNCATE(sum_index/sum_credits, 2)  as ipk -- , count(sum_index) as count
             FROM (
                 SELECT
                     grades.user_npm as npm,

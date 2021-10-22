@@ -70,7 +70,7 @@
               </table>
             </div>
             <h6 style="text-align:right; font-weight:bold">Total SKS : <?= html_escape($total_credits) ?></h6>
-            <h6 style="text-align:right; font-weight:bold">IP Semester : <?php echo(html_escape($gpas[$semester])) ?></h6>                                  
+            <h6 style="text-align:right; font-weight:bold">IP Semester : <?= number_format((float)(html_escape($gpas[$semester])), 2, '.', '') ?></h6>
             <!-- <h6 style="margin-top: 30px; font-weight:bold"><b>NB : Dalam hal terjadi ketidaksesuaian data, tolong menghubungi <a href="mailto:pendidikansa@gmail.com"><i class="fa fa-envelope-o"></i>pendidikansa@gmail.com</a></b></h6> -->
             <?php endif; ?>
           </div>
@@ -147,7 +147,7 @@
                         <td><?= (($user_is_visible && $rank->is_visible) || $user_has_permission) ? html_escape($rank->fullname): '***' ?></td>
                         <td><?= html_escape($rank->ipk) ?></td>
                         <td><?= html_escape($rank->skd_score) ?></td>
-                        <td><?= number_format((float)html_escape($rank->total), 5, '.', '') ?></td>
+                        <td><?= number_format((float)html_escape($rank->total), 2, '.', '') ?></td>
                         <td><?= ($user_locs[0] != NULL) ? html_escape($rank->loc1) : '' ?></td>
                         <td><?= ($user_locs[1] != NULL) ? html_escape($rank->loc2) : '' ?></td>
                         <td><?= ($user_locs[2] != NULL) ? html_escape($rank->loc3) : '' ?></td>

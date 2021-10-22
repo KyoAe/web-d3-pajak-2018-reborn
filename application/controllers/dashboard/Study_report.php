@@ -94,7 +94,7 @@ class Study_report extends CI_Controller {
             if ($gpas[$i]->sum_credits == 0)
                 $gpas[$i] = "N/A";
             else
-                $gpas[$i] = $gpas[$i]->sum_index / $gpas[$i]->sum_credits;            
+                $gpas[$i] = floor($gpas[$i]->sum_index / $gpas[$i]->sum_credits * 100)/100;
         }
 
         // Recap gpa. Seriously, I'm out of variable name :v
