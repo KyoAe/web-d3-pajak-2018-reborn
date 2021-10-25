@@ -50,6 +50,10 @@ class Profile extends CI_Controller {
 			redirect('dashboard/profile');
 			// die();
 		}		
+		// Get user from voucher user
+		$user_npm = $this->aauth->get_user()->npm;
+		$data['is_voucher_user'] = $this->db->get_where('voucher_users', ['user_npm' => $user_npm])->row();
+		
 		$data['title'] = 'Profil';	
 		$data['user'] = $this->aauth->get_user();
 		$data['user_groups'] = $this->aauth->get_user_groups();

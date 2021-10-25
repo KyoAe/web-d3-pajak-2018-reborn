@@ -7,6 +7,16 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
+        <!-- Merchandise Voucher Code Notification -->
+        <?php if ($is_voucher_user): ?>
+          <div class="alert alert-warning alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <h5><i class="icon fas fa-exclamation-triangle"></i> Alert!</h5>
+            Buat teman2 yg beli merchandise wisuda, udah bisa langsung checkout ya melalui shopee tautan : <a class="text-primary" href="https://shopee.co.id/product/361863386/12835572650/" target="_self"> https://shopee.co.id/product/361863386/12835572650/. </a> <br>
+            Jangan lupa gunakan voucher <strong> <?= getenv('VOUCHER_CODE') ?> </strong> karena kalian cukup bayar 53rb lagi. Jangan lupa manfaatkan voucher gratis ongkir shopee (jika ada). <br>
+            * NB : Tambahin no HP sesuai form pemesanan angkatan <strong> di catatan pada saat checkout </strong> untuk crosscheck kebenaran pembelian yang sudah DP sebelumnya.
+          </div>
+        <?php endif; ?>
         <div class="row">
           <div class="col-md-3">
 
