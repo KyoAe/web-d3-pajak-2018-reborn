@@ -8,7 +8,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <section class="content">
       <div class="container-fluid">
         <!-- Merchandise Voucher Code Notification -->
-        <?php if ($is_voucher_user): ?>
+        <?php if (!empty($is_voucher_user) && $is_voucher_user): ?>
           <div class="alert alert-warning alert-dismissible">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
             <h5><i class="icon fas fa-exclamation-triangle"></i> Alert!</h5>
@@ -84,9 +84,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
                       <!-- Bagian Profil Umum -->
                       <div class="form-group">Profil Umum</div>
                       <div class="form-group row">
-                        <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                        <label for="inputEmail" class="col-sm-2 col-form-label">Email <span class="text-danger">*</span></label>
                         <div class="col-sm-10">
-                          <input type="email" class="form-control" id="inputEmail" placeholder="Email" disabled value="<?= html_escape($user->email) ?>">
+                          <input name="email" type="email" class="form-control" id="inputEmail" placeholder="Email" value="<?= html_escape($user->email) ?>">
+                          <?= form_error('email') ?>
                         </div>
                       </div>
                       <div class="form-group row">

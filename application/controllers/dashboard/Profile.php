@@ -11,6 +11,7 @@ class Profile extends CI_Controller {
 	public function index()
 	{
 		$this->form_validation->set_rules('confirm', 'Konfirmasi', 'required');
+		$this->form_validation->set_rules('email', 'Email User', 'required|valid_email|max_length[100]');
 		$this->form_validation->set_rules('nickname', 'Nama Panggilan', 'required|trim|alpha|max_length[10]');
 		$this->form_validation->set_rules('birth_regency_id', 'Kota/Kabupaten Lahir', 'required|is_natural_no_zero');
 		$this->form_validation->set_rules('birth_date', 'Tanggal Lahir', 'required|exact_length[10]');
@@ -35,7 +36,7 @@ class Profile extends CI_Controller {
 				redirect('dashboard/profile');
 			}
 			
-			$this->aauth->update_user($user->id, $user->email, $this->input->post('newpass'));
+			$this->aauth->update_user($user->id, $this->input->post('email'), $this->input->post('newpass'));
 			$user = array(
 				'nickname' => $this->input->post('nickname'),
 				'birth_regency_id' => $this->input->post('birth_regency_id'),
