@@ -62,10 +62,7 @@ class Confirm_score extends CI_Controller {
                 'user_npm' => $user_npm,
                 'score' => $this->input->post('skd_score'),
                 'is_visible' => (isset($user_skd->is_visible) ? $user_skd->is_visible : NULL),
-                'is_locked' => ($this->input->post('submit') == 'lock' ? 1 : (isset($user_skd->is_locked) ? $user_skd->is_locked : NULL)),
-                'penempatan_id_1' => (isset($user_skd->penempatan_id_1) ? $user_skd->penempatan_id_1 : NULL),
-                'penempatan_id_2' => (isset($user_skd->penempatan_id_2) ? $user_skd->penempatan_id_2 : NULL),
-                'penempatan_id_3' => (isset($user_skd->penempatan_id_3) ? $user_skd->penempatan_id_3 : NULL)
+                'is_locked' => ($this->input->post('submit') == 'lock' ? 1 : (isset($user_skd->is_locked) ? $user_skd->is_locked : NULL))                
             );
             $this->db->replace('skd', $to_replace);
 			

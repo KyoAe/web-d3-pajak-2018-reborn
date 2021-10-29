@@ -19,41 +19,48 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <div class="tab-content">
                   <!-- Tab Pengaturan Profil ========-->
                   <div class="active tab-pane" id="settings">
-                    <a href="<?= site_url("dashboard/study_report") ?>"><i class="fas fa-arrow-left"></i> kembali</a>
+                    <a href="<?= site_url("dashboard/placement_survey/browse") ?>"><i class="fas fa-arrow-left"></i> kembali</a>
                     <br>
                     <!-- <form class="form-horizontal"> -->
                     <?php if($user_placement_filled): ?>
                       <p>
-                        Anda sudah tidak dapat mengisi survei pemilihan penempatan lagi. Tolong kembali ke halaman hasil studi
+                        Survei pemilihan penempatan berhasil diisi. Tolong kembali ke halaman sebelumnya
                       </p>
                     <?php else: ?>
-                    <?= form_open('dashboard/placement_survey', ['class' => 'form-horizontal']); ?>
+                    <?= form_open("dashboard/placement_survey/form/{$survey_id}", ['class' => 'form-horizontal']); ?>
                       <!-- Bagian Profil Umum -->
                       <div class="form-group">
                         <p>
                         Anda hanya bisa mengisi survei ini sekali saja. Pilihan 1, 2, dan 3 tidak boleh ada yang sama.
                         </p>
                         <p>
-                        Setelah dikunci, anda bisa melihat ranking angkatan dan <strong>tidak bisa mengubah survei pemilihan penempatan anda.</strong>
+                        Survei ini tidak berpengaruh terhadap pooling penempatan yang dilakukan oleh Biro SDM.</strong>
                         </p>
                         <p>
-                          Data dirangkum dari pemaparan pada acara MGTPS. <strong> Perhatikan </strong> bahwa K/L/P bertanda asterik "(*)" adalah instansi yg telah mengonfirmasi rincian penerimaan lulusan dari D3 pajak</p>
+                          <strong>Survei 1</strong>: Data dirangkum dari pemaparan pada acara MGTPS. <strong> Perhatikan </strong> bahwa K/L/P bertanda asterik "(*)" adalah instansi yg telah mengonfirmasi rincian penerimaan lulusan dari D3 pajak
+                        </p>
+                        <p>
+                          <strong>Survei 2</strong>: Daftar instansi diambil dari pooling penempatan Biro SDM untuk D3 Pajak
+                        </p>
+                        <p>
+                          Notula MGTPS jika ingin baca-baca lagi: <a href="https://staner.id/notulamgtpsxklpfest21" target="_blank">staner.id/notulamgtpsxklpfest21</a>
+                        </p>
                       </div>
                       <!-- Bagian Kontak -->
                       <!-- Looping pilihan ke berapa -->
-                      <?php for($pilihan=1;  $pilihan<=3; $pilihan++): ?>
+                      <?php for($i=1;  $i<=3; $i++): ?>
                       <div class="form-group row">
-                        <label for="inputPenempatan_<?= $pilihan ?>" class="col-sm-2 col-form-label">Pilihan <?= $pilihan ?> <span class="text-danger">*</span></label>
+                        <label for="inputPlacement_<?= $i ?>" class="col-sm-2 col-form-label">Pilihan <?= $i ?> <span class="text-danger">*</span></label>
                         <div class="col-sm-10">
-                          <select name="placement_id_<?= $pilihan ?>" class="form-control select2 select2-yellow" id="inputPenempatan_<?= $pilihan ?>" data-dropdown-css-class="select2-yellow" style="width: 100%;" required>
-                            <option value="" disabled selected hidden>Pilihan <?= $pilihan ?></option>
+                          <select name="placement_id_<?= $i ?>" class="form-control select2 select2-yellow" id="inputPlacement_<?= $i ?>" data-dropdown-css-class="select2-yellow" style="width: 100%;" required>
+                            <option value="" disabled selected hidden>Pilihan <?= $i ?></option>
                             <?php foreach($placements as $placement): ?>
-                            <option value="<?= html_escape($placement->id) ?>" <?= (isset($user_skd->{"penempatan_id_{$pilihan}"}) && $placement->id == $user_skd->{"penempatan_id_$pilihan"}) ? 'selected' : '' ?>>
+                            <option value="<?= html_escape($placement->id) ?>" >
                               <?= html_escape($placement->location) ?> <?= ($placement->acc_tax)? ' (*)' : '' ?>
                             </option>
                             <?php endforeach; ?>
                           </select>
-                          <?= form_error("placement_id_".$pilihan) ?>
+                          <?= form_error("placement_id_".$i) ?>
                         </div>
                       </div>
                       <?php endfor; ?>         

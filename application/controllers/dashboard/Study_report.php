@@ -46,7 +46,7 @@ class Study_report extends CI_Controller {
                 $user_total = $rank->total;
                 $user_fullname = $rank->fullname;
                 $user_is_locked = $rank->is_locked;
-                $user_locs = array($rank->loc1, $rank->loc2, $rank->loc3);                
+                // $user_locs = array($rank->loc1, $rank->loc2, $rank->loc3);                
             }
             $sum_total += $rank->total;
             $total_users = $total_users + 1;            
@@ -134,7 +134,6 @@ class Study_report extends CI_Controller {
         }
         $data['student_count'] = $student_count; // Untuk berapa banyak mahasiswa        
         $data['title'] = 'Hasil Studi';
-        $data['placement_statistics'] = $this->prepare_placement_statistics();
 
         $this->load->view('pages/dashboard/study_report', $data);
     }
@@ -155,33 +154,9 @@ class Study_report extends CI_Controller {
 
         $this->db->update('skd', array('is_visible' => 1), array('user_npm' => $user_npm));
         $this->session->set_flashdata('alert', ['class' => 'bg-success', 'msg' => 'Nama Anda sekarang bisa dilihat orang']);
-        redirect('dashboard/study_report');
-    }
-
-    private function prepare_placement_statistics()
-    {
-        $placement_statistics = $this->Grades->get_placement_statistics();
-        
-        $temp = new stdClass();
-        $temp->labels = [];
-        $temp->count_choice_1 = [];
-        $temp->count_choice_2 = [];
-        $temp->count_choice_3 = [];
-        $temp->count_answered = $this->db->select('count(*) as cnt')->get_where('skd', array('penempatan_id_1 !=' => 0))->row()->cnt;
-        foreach($placement_statistics as $placement_statistic)
-        {
-            array_push($temp->labels, $placement_statistic->location);
-            array_push($temp->count_choice_1, ($placement_statistic->count_choice_1 == NULL)? 0: (int)$placement_statistic->count_choice_1);
-            array_push($temp->count_choice_2, ($placement_statistic->count_choice_2 == NULL)? 0: (int)$placement_statistic->count_choice_2);
-            array_push($temp->count_choice_3, ($placement_statistic->count_choice_3 == NULL)? 0: (int)$placement_statistic->count_choice_3);
-        }
-
-        $temp->labels = json_encode($temp->labels);
-        $temp->count_choice_1 = json_encode($temp->count_choice_1);
-        $temp->count_choice_2 = json_encode($temp->count_choice_2);
-        $temp->count_choice_3 = json_encode($temp->count_choice_3);
-        return $temp;
-    }
+        $this->load->library('user_agent');
+        redirect($this->agent->referrer());
+    }    
 }
 
 /* End of file study_report.php */

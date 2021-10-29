@@ -26,9 +26,6 @@
           <li class="nav-item">
             <a class="nav-link" id="rekap-tab" data-toggle="pill" href="#rekap" role="tab" aria-controls="rekap" aria-selected="false">Peringkat</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" id="stats-survey-tab" data-toggle="pill" href="#stats-survey" role="tab" aria-controls="stats-survey" aria-selected="false">Statistik Survei</a>
-          </li>
         </ul>
       </div>
       <div class="card-body">
@@ -107,22 +104,14 @@
                     <p>Nilai SKD: <?= html_escape($user_skd) ?></p>
                     <p>IPK dan SKD: <?= html_escape($user_total) ?></p>
                   </div>
-                  <div class="col-sm-6">                    
-                    <p>Pilihan 1: <?= html_escape($user_locs[0]) ?></p>
-                    <p>Pilihan 2: <?= html_escape($user_locs[1]) ?></p>
-                    <p>Pilihan 3: <?= html_escape($user_locs[2]) ?></p>
-                  </div>
                 </div>
               </div>
               <div class="alert alert-warning" role="alert">
                 <b> Rumus Perhitungan IPK dan SKD = [ (IPK/4) x 60 ] + [ (SKD/500) x 40] </b>
               </div>
-              <?php if($user_locs[0] == NULL): ?>
-              <div class="alert alert-warning" role="alert">
-                Yuk diisi dulu Survei Penempatan di Tab <b>Statistik Survei</b> biar bisa melihat pilihan penempatan teman-teman lainnya. <br>
-                Jangan takut. Habis survei nanti ada simulasi juga. Sehingga total 1x survei, 1x simulasi.
+              <div class="alert alert-info" role="alert">
+                Peringkat dengan pilihan penempatan dan statistik survei telah dipindah ke halaman Survei
               </div>
-              <?php endif; ?>
               <div class="row">
                 <div class="col-md-3 col-sm-6 col-12">
                   <div class="info-box">
@@ -182,18 +171,6 @@
                   Search:
                   <input type="text" placeholder="search" id="search">
                 </div>
-                <div class="col-sm-3">
-                  Pil. 1:
-                  <input type="text" placeholder="pilihan 1" id="choice-1">
-                </div>
-                <div class="col-sm-3">
-                  Pil. 2:
-                  <input type="text" placeholder="pilihan 2" id="choice-2">
-                </div>
-                <div class="col-sm-3">
-                  Pil. 3:
-                  <input type="text" placeholder="pilihan 3" id="choice-3">
-                </div>
               </div>
               <button type="button" class="btn btn-warning float-right mt-2 text-centre" id="jump-to-me">Jump to My Rank</button>
               <div class="container mt-5">
@@ -206,9 +183,6 @@
                         <th>IPK</th>
                         <th>SKD</th>
                         <th>IPK & SKD</th>
-                        <th>Pilihan 1</th>
-                        <th>Pilihan 2</th>
-                        <th>Pilihan 3</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -220,9 +194,6 @@
                         <td><?= html_escape($rank->ipk) ?></td>
                         <td><?= html_escape($rank->skd_score) ?></td>
                         <td><?= number_format((float)html_escape($rank->total), 2, '.', '') ?></td>
-                        <td><?= ($user_locs[0] != NULL) ? html_escape($rank->loc1) : '' ?></td>
-                        <td><?= ($user_locs[1] != NULL) ? html_escape($rank->loc2) : '' ?></td>
-                        <td><?= ($user_locs[2] != NULL) ? html_escape($rank->loc3) : '' ?></td>
                       </tr>
                       <?php endforeach; ?>
                     </tbody>
@@ -267,121 +238,6 @@
                   </div>
                 </div>
               </div>
-            <?php endif; ?>
-          </div>
-
-          <!-- div statistics of placements survey -->
-          <div class="tab-pane fade" id="stats-survey" role="tabpanel" aria-labelledby="stats-survey-tab">
-            <?php if(!$user_is_locked || $user_rank == -1): ?>
-              Mohon untuk mengisi dan mengunci nilai terlebih dahulu di tab peringkat
-            <?php elseif($user_locs[0] == NULL): ?>
-              <p>Sebelum melihat statistik survei penempatan dan pilihan penempatan teman-teman di tab peringkat, mohon untuk mengisi terlebih dahulu survei pilihan penempatan teman-teman. Hal-hal yang perlu diingat:
-                <ol>
-                  <li> Survei ini tidak akan berpengaruh terhadap penempatan akhir teman-teman yang akan dilakukan oleh biro SDM Kemenkeu. </li>
-                  <li> Survei ini hanya membantu teman-teman dalam mengambil keputusan terkait pemilihan penempatan nantinya. </li>
-                  <li> Pilihan penempatan untuk survei ini hanya diambil dari DJP dan pemda. </li>
-                  <li> Survei ini hanya dapat diisi sekali. </li>
-                </ol>
-              </p>
-
-              <p>
-                Setelah selesai mengisi survei, Teman-teman akan diarahkan kembali ke halaman ini. <br>
-                Dan, Rank angkatan akan terbuka dan teman-teman bisa melihat pilihan penempatan yang lainnya. <br>
-                Apabila ada pertanyaan, kritik, saran, dan laporan silahkan menghubungi <br>
-                WA Gio: <a href="https://wa.me/62895803661039">wa.me/62895803661039</a> <br>
-              </p>
-              <a href="<?= site_url(); ?>dashboard/placement_survey">
-                <button class="btn-warning">
-                  Isi Survei Penempatan
-                </button>
-              </a>
-            <?php else: ?>
-              <p>Tab ini hanya berisi statistik banyaknya peminat instansi berdasarkan pilihan 1, 2, dan 3.</p>
-              <p>Untuk statistik yang lebih lengkap seperti rata-rata IPK maupun SKD per pilihan, teman-teman bisa lihat di tab peringkat ya.
-                Gunakan filter untuk mencari instansi yang teman-teman inginkan. Urutkan data berdasarkan IPK, SKD, maupun IPK dan SKD untuk mencari nilai tertinggi dan terendah.
-                Rata2 nilai berdasarkan filter langsung dikomputasi di sebelah kiri bawah tabel.
-              </p>
-              <p>Statistik <strong>akan diupdate secara berkala</strong> seiring survei diisi oleh teman-teman. Sering-sering cek lagi ya.
-              </p>
-              <p>Ingat, ini hanya merupakan survey dan <b>tidak memiliki pengaruh</b> langsung terhadap penempatan akhir teman-teman.
-              </p>
-              <div class="row">
-                <!-- PIE CHART 1 -->
-                <div class="col-sm-6">
-                  <div class="card card-warning">
-                    <div class="card-header">
-                      <h3 class="card-title">Pilihan Pertama (<?= $placement_statistics->count_answered ?>/934)</h3>
-
-                      <div class="card-tools">
-                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-                        </button>                    
-                      </div>
-                    </div>
-                    <div class="card-body">
-                      <canvas id="choice_1" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
-                    </div>
-                    <!-- /.card-body -->
-                  </div>
-                </div>
-                <!-- /.card -->
-                <!-- PIE CHART 2 -->
-                <div class="col-sm-6">
-                  <div class="card card-warning">
-                    <div class="card-header">
-                      <h3 class="card-title">Pilihan Kedua (<?= $placement_statistics->count_answered ?>/934)</h3>
-
-                      <div class="card-tools">
-                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-                        </button>                    
-                      </div>
-                    </div>
-                    <div class="card-body">
-                      <canvas id="choice_2" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
-                    </div>
-                    <!-- /.card-body -->
-                  </div>
-                </div>
-                <!-- /.card -->
-              </div>
-              <div class="row">
-                <!-- PIE CHART 3 -->
-                <div class="col-sm-6">
-                  <div class="card card-warning">
-                    <div class="card-header">
-                      <h3 class="card-title">Pilihan Ketiga (<?= $placement_statistics->count_answered ?>/934)</h3>
-
-                      <div class="card-tools">
-                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-                        </button>                    
-                      </div>
-                    </div>
-                    <div class="card-body">
-                      <canvas id="choice_3" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
-                    </div>
-                    <!-- /.card-body -->
-                  </div>
-                </div>
-                <!-- /.card -->
-                <div class="col-sm-6">
-                  <div class="card card-warning">
-                    <div class="card-header">
-                      <h3 class="card-title">Keterangan Label dan Rincian Jumlah Peminat</h3>
-
-                      <div class="card-tools">
-                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-                        </button>                    
-                      </div>
-                    </div>
-                    <div class="card-body">
-                      Warna keterangan label selalu berubah karena warnanya dirandom.
-                      Format nama: [nama instansi](jumlah yg milih sebagai pil. 1, jumlah yg milih sebagai pil. 2, jumlah yg milih sebagai pil. 3)
-                      <ul id="rank-stats-label"></ul>
-                    </div>
-                    <!-- /.card-body -->
-                  </div>
-                </div>
-              </div>
-              
             <?php endif; ?>
           </div>
         </div>

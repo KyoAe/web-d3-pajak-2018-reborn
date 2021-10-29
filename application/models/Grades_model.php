@@ -203,14 +203,23 @@ class Grades_model extends CI_Model {
      * calculated from semester 1 to semester 5
      * @return array of sum_index and count
      */
-    public function get_all_rank()
+    public function get_all_rank($survey_id = 0)
     {
+        // Check if $survey_id is int or not
+        if (!is_int($survey_id))
+            return false;
+
         $query = <<<QUERY
         SELECT 
-            a.npm, fullname, s.is_locked, s.is_visible, ipk, s.score as skd_score, (ipk / 4 * 60)+(s.score / 500 * 40) as total, p1.location as loc1, p2.location as loc2, p3.location as loc3
+            a.npm, fullname, s.is_locked, s.is_visible, ipk, s.score as skd_score, (ipk / 4 * 60)+(s.score / 500 * 40) as total 
+        QUERY;
+        if ($survey_id)
+            $query .= ", p1.location as loc1, p2.location as loc2, p3.location as loc3 ";
+        
+        $query .= <<<QUERY
         FROM ( 
             SELECT
-                npm, fullname, TRUNCATE(sum_index/sum_credits, 2)  as ipk -- , count(sum_index) as count
+                npm, fullname, TRUNCATE(sum_index/sum_credits, 2) as ipk, sum_credits -- , count(sum_index) as count
             FROM (
                 SELECT
                     grades.user_npm as npm,
@@ -224,23 +233,41 @@ class Grades_model extends CI_Model {
                     ON grades.user_npm = users.npm
                 ) AS grades
                 ON grades.subject_id = subjects.id
-                -- WHERE semester = 2
-                GROUP BY grades.user_npm, grades.fullname	          
+                GROUP BY grades.user_npm, grades.fullname
             ) a
             WHERE a.sum_credits = {$this->db->escape($this->get_sum_credits())}
         ) a
         JOIN
-            skd s 
-        ON a.npm = s.user_npm
+            skd s
+        ON a.npm = s.user_npm 
+        QUERY;
+
+        if ($survey_id)
+        {
+        $query .= <<<QUERY
         LEFT JOIN
-            penempatan p1 
-        ON p1.id = s.penempatan_id_1
+        (
+            SELECT
+            *
+            FROM
+            survey_answers
+            WHERE
+            survey_id={$this->db->escape($survey_id)}
+        ) sa
+        ON s.user_npm = sa.user_npm 
         LEFT JOIN
-            penempatan p2
-        ON p2.id = s.penempatan_id_2
+            placements p1 
+        ON p1.id = sa.placement_id_1
         LEFT JOIN
-            penempatan p3
-        ON p3.id = s.penempatan_id_3
+            placements p2
+        ON p2.id = sa.placement_id_2
+        LEFT JOIN
+            placements p3
+        ON p3.id = sa.placement_id_3 
+        QUERY;
+        }
+
+        $query .= <<<QUERY
         WHERE s.score IS NOT NULL
         ORDER BY total DESC
         -- GROUP BY sum_index
@@ -416,40 +443,41 @@ class Grades_model extends CI_Model {
      * count choice 1, 2, and 3
      * @return array of objects location, count_choice_1, coun_choice_2, count_choice_3
      */
-    public function get_placement_statistics()
+    public function get_placement_statistics($survey_id)
     {
         $query = <<<QUERY
         SELECT
             id, location, count_choice_1, count_choice_2, count_choice_3
         FROM 
-        penempatan p 
+        placements p 
         LEFT JOIN (
             SELECT
-            penempatan_id_1, COUNT(*) as count_choice_1
+            placement_id_1, COUNT(*) as count_choice_1
             FROM
-            skd s
-            GROUP BY s.penempatan_id_1
+            survey_answers sa
+            GROUP BY sa.placement_id_1
         ) s1
         ON
-        p.id = s1.penempatan_id_1
+        p.id = s1.placement_id_1
         LEFT JOIN (
             SELECT
-            penempatan_id_2, COUNT(*) as count_choice_2
+            placement_id_2, COUNT(*) as count_choice_2
             FROM
-            skd s
-            GROUP BY s.penempatan_id_2
+            survey_answers sa
+            GROUP BY sa.placement_id_2
         ) s2
         ON
-        p.id = s2.penempatan_id_2
+        p.id = s2.placement_id_2
         LEFT JOIN (
             SELECT
-            penempatan_id_3, COUNT(*) as count_choice_3
+            placement_id_3, COUNT(*) as count_choice_3
             FROM
-            skd s
-            GROUP BY s.penempatan_id_3
+            survey_answers sa
+            GROUP BY sa.placement_id_3
         ) s3
         ON
-        p.id = s3.penempatan_id_3
+        p.id = s3.placement_id_3
+        WHERE p.survey_id={$survey_id}
         ORDER BY location ASC
         QUERY;
 

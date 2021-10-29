@@ -116,6 +116,18 @@
       "responsive": true,
     });
 
+    // Initialize DataTables
+    $('#table2').DataTable({
+      "paging": false,
+      // "lengthChange": false,
+      // "ordering": true,
+      "order": [],
+      "info": true,
+      "autoWidth": false,
+      // "scrollX": true,
+      "responsive": true,
+    });
+
     // Initialize chart for rank angkatan
     //-------------
     //- PIE CHART -
@@ -196,7 +208,16 @@
                                         + ' (' + data1[i] + ', '
                                         + data2[i] + ', '
                                         + data3[i] + ')'
-                                        + '</li>')
+                                        + '</li>');
+      i = 0;
+      $('.labels-color').each(function(){
+        if($(this).is(":hidden")) {
+          $(this).css('background-color', coloR[i]);
+        } else {
+          $(this).css('background-color', coloR[i]);
+        }
+        i++
+      });
     }
 
     // Set Word Count
