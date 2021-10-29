@@ -7,6 +7,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
+        <!-- Notif if user still use @pknstan.ac.id email -->
+        <?php if (strpos($this->aauth->get_user()->email, '@pknstan.ac.id')): ?>
+          <div class="alert alert-danger alert-dismissible">           
+            <h5><i class="icon fas fa-exclamation-triangle"></i> Perhatian!</h5>
+            Tolong ganti email Anda karena email kampus sebentar lagi dihapus
+          </div>
+        <?php endif; ?>
         <!-- Merchandise Voucher Code Notification -->
         <?php if (!empty($is_voucher_user) && $is_voucher_user): ?>
           <div class="alert alert-warning alert-dismissible">
