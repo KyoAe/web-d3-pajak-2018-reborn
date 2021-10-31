@@ -17,7 +17,7 @@ class Profile extends CI_Controller {
 		$this->form_validation->set_rules('birth_date', 'Tanggal Lahir', 'required|exact_length[10]');
 		$this->form_validation->set_rules('religion_id', 'Agama', 'required|is_natural_no_zero');
 		$this->form_validation->set_rules('wa_number', 'No. Whatsapp', 'required|trim|numeric|min_length[10]|max_length[13]');
-		$this->form_validation->set_rules('instagram', 'Instagram', 'required|trim|alpha_dash|max_length[16]');
+		$this->form_validation->set_rules('instagram', 'Instagram', 'required|trim|max_length[16]');
 		$this->form_validation->set_rules('line_id', 'ID Line', 'required|trim|alpha_dash');
 		if ($this->input->post('newpass'))
 		{
