@@ -93,7 +93,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                       <div class="form-group row">
                         <label for="inputEmail" class="col-sm-2 col-form-label">Email <span class="text-danger">*</span></label>
                         <div class="col-sm-10">
-                          <input name="email" type="email" class="form-control" id="inputEmail" placeholder="Email" value="<?= html_escape($user->email) ?>">
+                          <input name="email" type="email" class="form-control" id="inputEmail" placeholder="Email" value="<?= html_escape($user->email) ?>" required>
                           <?= form_error('email') ?>
                         </div>
                       </div>
@@ -106,14 +106,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
                       <div class="form-group row">
                         <label for="inputNamaPanggilan" class="col-sm-2 col-form-label">Nama Panggilan <span class="text-danger">*</span></label>
                         <div class="col-sm-10">
-                          <input name="nickname" type="text" class="form-control" id="inputNamaPanggilan" placeholder="Nama Panggilan" value="<?= html_escape($user->nickname) ?? '' ?>">
+                          <input name="nickname" type="text" class="form-control" id="inputNamaPanggilan" placeholder="Nama Panggilan" value="<?= html_escape($user->nickname) ?? '' ?>" required>
                           <?= form_error('nickname') ?>
                         </div>
                       </div>                      
                       <div class="form-group row">
                         <label for="inputKotaLahir" class="col-sm-2 col-form-label">Kota/Kabupaten Lahir <span class="text-danger">*</span></label>
                         <div class="col-sm-10">
-                          <select name="birth_regency_id" class="form-control select2 select2-yellow" id="inputKotaLahir" style="width: 100%;" data-dropdown-css-class="select2-yellow">
+                          <select name="birth_regency_id" class="form-control select2 select2-yellow" id="inputKotaLahir" style="width: 100%;" data-dropdown-css-class="select2-yellow" required>
                             <option value="" disabled selected hidden>Pilih Kota/Kabupaten Lahir</option>
                             <?php foreach ($regencies as $regency): ?>
                             <option value="<?= html_escape($regency->id) ?>" <?= (isset($user->birth_regency_id) && $regency->id == $user->birth_regency_id) ? 'selected' : '' ?>> <?= html_escape($regency->name) ?> </option>
@@ -125,7 +125,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                       <div class="form-group row">
                         <label for="inputTanggalLahir" class="col-sm-2 col-form-label">Tanggal Lahir <span class="text-danger">*</span></label>
                         <div class="input-group col-sm-10">
-                          <input name="birth_date" type="text" class="form-control" id="inputTanggalLahir" data-inputmask-alias="datetime" data-inputmask-inputformat="yyyy-mm-dd" data-mask value="<?= html_escape($user->birth_date) ?? '' ?>">                          
+                          <input name="birth_date" type="text" class="form-control" id="inputTanggalLahir" data-inputmask-alias="datetime" data-inputmask-inputformat="yyyy-mm-dd" data-mask value="<?= html_escape($user->birth_date) ?? '' ?>" required>                          
                         </div>
                         <div class="offset-sm-2 col-sm-10">
                           <?= form_error('birth_date') ?>
@@ -142,7 +142,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                       <div class="form-group row">
                         <label for="inputAgama" class="col-sm-2 col-form-label">Agama <span class="text-danger">*</span></label>
                         <div class="col-sm-10">
-                          <select name="religion_id" class="form-control select2 select2-yellow" id="inputAgama" data-dropdown-css-class="select2-yellow" style="width: 100%;">
+                          <select name="religion_id" class="form-control select2 select2-yellow" id="inputAgama" data-dropdown-css-class="select2-yellow" style="width: 100%;" required>
                             <option value="" disabled selected hidden>Pilih Agama</option>
                             <?php foreach($religions as $religion): ?>
                             <option value="<?= html_escape($religion->id) ?>" <?= (isset($user->religion_id) && $religion->id == $user->religion_id) ? 'selected' : '' ?> > <?= html_escape($religion->name) ?></option>
@@ -191,21 +191,21 @@ defined('BASEPATH') or exit('No direct script access allowed');
                       <div class="form-group row">
                         <label for="inputNomorWhatsapp" class="col-sm-2 col-form-label">No. Whatsapp <span class="text-danger">*</span></label>
                         <div class="col-sm-10">
-                          <input name="wa_number" type="text" class="form-control" id="inputNomorWhatsapp" placeholder="Nomor Whatsapp" value="<?= html_escape($user->wa_number) ?? '' ?>">
+                          <input name="wa_number" type="text" class="form-control" id="inputNomorWhatsapp" placeholder="Nomor Whatsapp" value="<?= html_escape($user->wa_number) ?? '' ?>" required>
                           <?= form_error('wa_number') ?>
                         </div>                        
                       </div>
                       <div class="form-group row">
                         <label for="inputInstagram" class="col-sm-2 col-form-label">Instagram <span class="text-danger">*</span></label>
                         <div class="col-sm-10">
-                          <input name="instagram" type="text" class="form-control" id="inputInstagram" placeholder="Instagram" value="<?= html_escape($user->instagram) ?? '' ?>">
+                          <input name="instagram" type="text" class="form-control" id="inputInstagram" placeholder="Instagram" value="<?= html_escape($user->instagram) ?? '' ?>" required>
                           <?= form_error('instagram') ?>
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="inputIDLine" class="col-sm-2 col-form-label">ID Line <span class="text-danger">*</span></label>
                         <div class="col-sm-10">
-                          <input name="line_id" type="text" class="form-control" id="inputIDLine" placeholder="ID Line" value="<?= html_escape($user->line_id) ?? '' ?>">
+                          <input name="line_id" type="text" class="form-control" id="inputIDLine" placeholder="ID Line" value="<?= html_escape($user->line_id) ?? '' ?>" required>
                           <?= form_error('line_id') ?>
                         </div>
                       </div>
@@ -213,14 +213,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
                       <div class="form-group row">
                         <label for="inputPasswordBaru" class="col-sm-2 col-form-label">Password Baru</label>
                         <div class="col-sm-10">
-                          <input name="newpass" type="password" class="form-control" id="inputPasswordBaru" placeholder="Password Baru">
+                          <input name="newpass" type="password" class="form-control" id="inputPasswordBaru" placeholder="Password Baru" autocomplete="new-password">
                           <?php echo form_error('newpass'); ?>
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="inputKonfirmasiPasswordBaru" class="col-sm-2 col-form-label">Konfirmasi Password Baru</label>
                         <div class="col-sm-10">
-                          <input name="newpassconf" type="password" class="form-control" id="inputKonfirmasiPasswordBaru" placeholder="Konfirmasi Password Baru">
+                          <input name="newpassconf" type="password" class="form-control" id="inputKonfirmasiPasswordBaru" placeholder="Konfirmasi Password Baru" autocomplete="new-password">
                           <?php echo form_error('newpassconf'); ?>
                         </div>
                       </div>

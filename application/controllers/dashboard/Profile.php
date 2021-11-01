@@ -50,7 +50,7 @@ class Profile extends CI_Controller {
 			$this->session->set_flashdata('alert', ['class' => 'bg-success', 'msg' => 'Data berhasil diupdate']);
 			redirect('dashboard/profile');
 			// die();
-		}		
+		}
 		// Get user from voucher user
 		$user_npm = $this->aauth->get_user()->npm;
 		$data['is_voucher_user'] = $this->db->get_where('voucher_users', ['user_npm' => $user_npm])->row();
